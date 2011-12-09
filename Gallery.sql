@@ -1,11 +1,6 @@
 CREATE DATABASE IF NOT EXISTS `PhotoGalleryDB` DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
 
-INSERT INTO mysql.user (Host,User,Password) VALUES ('localhost','pg','4rtyuehe') ON DUPLICATE KEY UPDATE User='pg';
-FLUSH PRIVILEGES;
-GRANT ALL PRIVILEGES ON PhotoGalleryDB.* TO 'pg' @localhost IDENTIFIED BY '4rtyuehe';
-
 USE `PhotoGalleryDB`;
-
 
 DROP TABLE IF EXISTS `gallery`;
 CREATE TABLE `gallery` (
@@ -35,7 +30,10 @@ CREATE TABLE `media_gallery` (
 ) DEFAULT CHARSET=utf8;
 
 
+INSERT INTO `gallery` VALUES
+	(NULL, 'B & W', 'Some Black and White photos.'),
+	(NULL, 'Portriats', 'My friends and other strangers...');
 
-INSERT title, description INTO `gallery` VALUES
-	('B & W','Some Black and White photos.'),
-	('Portriats','My friends and other strangers...');
+INSERT INTO mysql.user (Host,User,Password) VALUES ('localhost','pg','4rtyuehe') ON DUPLICATE KEY UPDATE User='pg';
+FLUSH PRIVILEGES;
+GRANT ALL PRIVILEGES ON PhotoGalleryDB.* TO 'pg' @localhost IDENTIFIED BY '4rtyuehe';
