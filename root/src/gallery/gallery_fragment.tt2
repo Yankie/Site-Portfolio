@@ -1,0 +1,6 @@
+[% gallery.title | html %]
+<p>[% gallery.description | html %]</p>
+
+<a href="[% #c.uri_for_action('/media/add',gallery.id) | html %]">Add media</a>
+<a href="[% c.uri_for_action('/gallery/edit',gallery.id) | html %]">Edit</a>
+<a href="[% c.uri_for_action('/gallery/delete',gallery.id) | html %]">Delete</a>

@@ -1,0 +1,27 @@
+<ul class="menu">
+	<li><a href="[% c.uri_for( '/' ) %]">Home</a></li>
+	<li><a href="[% c.uri_for( '/blog' ) %]">Blog</a></li>
+	[% IF galleries.count > 0 %]
+	<li>
+		<a class="opened" href="[% c.uri_for( '/gallery' ) %]">Image Galleries</a>
+		<ul class="sub-menu">
+			[% WHILE (gallery = galleries.next) %]
+			<li><a href="[% c.uri_for_action('/gallery/edit',gallery.id) | html %]">[% gallery.title | html %]</a></li>
+			[% END %]
+		</ul> <!-- END galleries SUB MENU -->
+	</li>
+	[% END %]
+
+	<li><a href="[% c.uri_for( '/contact' ) %]">Contacts</a></li>
+	[% IF !c.can('check_user_roles') && c.check_user_roles( 'admin' ) %]
+	<li><a href="[% c.uri_for( '/admin' ) %]">Admin Area</a></li>
+	[% ELSE %]
+	<li><a>&nbsp;</a></li>
+	<li>
+		<a class="closed" href="[% c.uri_for( '/denied' ) %]">Admin Area</a>
+		<ul class="sub-menu closed">
+			<li><a href="/galery/list">Manage Galeries</a></li>
+			<li><a href="/media/list">Manage media</a></li>
+		</ul> <!-- END SUB MENU --></li>
+	[% END %] <!-- END if admin -->
+</ul> <!-- END MENU -->

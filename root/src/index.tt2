@@ -1,0 +1,5 @@
+[% META title = "Kristina Koleso Photo Portfolio" %]
+
+<h1>Welcome to my Portfolio!</h1>
+<p>Feel free to browse <a href="[% c.uri_for('/gallery') %]">gallery</a> and read my <a href="[% c.uri_for('/blog') %]">blog</a></p>
+<p>Have a nice stay!</p>

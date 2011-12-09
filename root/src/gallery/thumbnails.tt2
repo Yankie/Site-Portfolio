@@ -1,0 +1,22 @@
+<ul class="thumbnails">
+	<li><a href="images/500X500.gif" rel="prettyPhoto[gallery]"><img src="images/gallery/thumb1.jpg" alt="thumbnail" width="150" height="121" /></a></li>
+	<li><a href="images/500X500.gif" rel="prettyPhoto[gallery]"><img src="images/gallery/thumb2.jpg" alt="thumbnail" width="150" height="121" /></a></li>
+	<li><a href="images/500X500.gif" rel="prettyPhoto[gallery]"><img src="images/gallery/thumb3.jpg" alt="thumbnail" width="150" height="121" /></a></li>
+	<li><a href="images/500X500.gif" rel="prettyPhoto[gallery]"><img src="images/gallery/thumb4.jpg" alt="thumbnail" width="150" height="121" /></a></li>
+	<li><a href="images/500X500.gif" rel="prettyPhoto[gallery]"><img src="images/gallery/thumb5.jpg" alt="thumbnail" width="150" height="121" /></a></li>
+	<li><a href="images/500X500.gif" rel="prettyPhoto[gallery]"><img src="images/gallery/thumb6.jpg" alt="thumbnail" width="150" height="121" /></a></li>
+	<li><a href="images/500X500.gif" rel="prettyPhoto[gallery]"><img src="images/gallery/thumb7.jpg" alt="thumbnail" width="150" height="121" /></a></li>
+	<li><a href="images/500X500.gif" rel="prettyPhoto[gallery]"><img src="images/gallery/thumb8.jpg" alt="thumbnail" width="150" height="121" /></a></li>
+	<li><a href="images/500X500.gif" rel="prettyPhoto[gallery]"><img src="images/gallery/thumb9.jpg" alt="thumbnail" width="150" height="121" /></a></li>
+	<li><a href="images/500X500.gif" rel="prettyPhoto[gallery]"><img src="images/gallery/thumb10.jpg" alt="thumbnail" width="150" height="121" /></a></li>
+	<li><a href="images/500X500.gif" rel="prettyPhoto[gallery]"><img src="images/gallery/thumb11.jpg" alt="thumbnail" width="150" height="121" /></a></li>
+	<li><a href="images/500X500.gif" rel="prettyPhoto[gallery]"><img src="images/gallery/thumb12.jpg" alt="thumbnail" width="150" height="121" /></a></li>
+	<li><a href="images/500X500.gif" rel="prettyPhoto[gallery]"><img src="images/gallery/thumb13.jpg" alt="thumbnail" width="150" height="121" /></a></li>
+	<li><a href="images/500X500.gif" rel="prettyPhoto[gallery]"><img src="images/gallery/thumb14.jpg" alt="thumbnail" width="150" height="121" /></a></li>
+	<li><a href="images/500X500.gif" rel="prettyPhoto[gallery]"><img src="images/gallery/thumb15.jpg" alt="thumbnail" width="150" height="121"/></a></li>
+	<li><a href="images/500X500.gif" rel="prettyPhoto[gallery]"><img src="images/gallery/thumb16.jpg" alt="thumbnail" width="150" height="121" /></a></li>
+</ul> <!-- END THUMBNAILS -->
+<div class="navigation">
+	<a href="#" class="prev">Previous</a>
+	<a href="#" class="next">Next</a>
+</div> <!-- END NAVIGATION -->

@@ -1,0 +1,20 @@
+<div id="wrapper">
+	<div id="wrapper-top">
+	</div> <!-- END WRAPPER TOP -->
+	<div id="left">
+		[% PROCESS site/left %]
+	</div> <!-- END LEFT MENU -->
+	<div id="right">
+		[% IF error %]
+		<p><span class="error">[% error | html %]</span></p>
+		[% END %]
+		[% IF message %]
+		<p><span class="message">[% message | html %]</span></p>
+		[% END %]
+
+		[% content %]
+		
+	</div> <!-- END RIGHT CONTENT -->
+	<div id="wrapper-bottom">
+	</div> <!-- END WRAPPER BOTTOM -->
+</div> <!-- END WRAPPER -->
