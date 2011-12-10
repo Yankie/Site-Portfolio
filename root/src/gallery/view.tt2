@@ -1,0 +1,10 @@
+[% SET media = gallery.media %]
+[% IF media.count > 0 %]
+<ul class="thumbnails">
+[% FOREACH item = media %]
+<li><a href="images/500X500.gif" rel="prettyPhoto[gallery]"><img src="images/gallery/thumb1.jpg" alt="thumbnail" width="150" height="121"></a></li>
+[% END %]
+</ul>
+[% ELSE %]
+<p>No media yet!</p>
+[% END %]

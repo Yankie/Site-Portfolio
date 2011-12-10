@@ -68,7 +68,12 @@ Attempt to render a view, if needed.
 
 =cut
 
-sub end : ActionClass('RenderView') {}
+sub end : ActionClass('RenderView') {
+	my ( $self, $c ) = @_;
+	my $galleries = $c->model('PortfolioDb::Gallery');
+	$c->stash->{menu} = $galleries;
+
+}
 
 =head1 AUTHOR
 

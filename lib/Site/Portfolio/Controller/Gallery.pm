@@ -3,6 +3,7 @@ use Moose;
 use namespace::autoclean;
 
 BEGIN {extends 'Catalyst::Controller'; }
+extends 'Catalyst::Controller::HTML::FormFu';
 
 =head1 NAME
 
@@ -22,10 +23,10 @@ Catalyst Controller.
 =cut
 
 sub index :Path :Args(0) {
-    my ( $self, $c ) = @_;
+	my ( $self, $c ) = @_;
 
 #     $c->stash->{message} = 'Matched Site::Portfolio::Controller::Gallery in Gallery.';
-    $c->go('list', []);
+	$c->go('list', []);
 }
 
 
@@ -39,27 +40,37 @@ sub list : Local {
 	$c->stash->{galleries} = $galleries;
 }
 
+=head2 view
+
+=cut
+
+sub view : Local {
+	my ($self, $c, $id) = @_;
+	my $gallery = $c->model('PortfolioDb::Gallery')->find({id => $id});
+	$c->stash->{gallery} = $gallery;
+}
+
 =head2 add
 
 =cut
 
-sub add : Local Form('/gallery/edit') {
-my ($self, $c) = @_;
-$c->go('edit', []);
+sub add : Local FormConfig('gallery/edit.yml') {
+	my ($self, $c) = @_;
+	$c->go('edit', []);
 }
 
 =head2 edit
 
 =cut
 
-sub edit : Local Form {
+sub edit : Local : FormConfig('gallery/edit.yml') {
 	my ($self, $c, $id) = @_;
-	my $form = $self->formbuilder;
+	my $form = $c->stash->{form};
 	my $gallery = $c->model('PortfolioDb::Gallery')->find_or_new({id => $id});
-	if ($form->submitted && $form->validate) {
+	if ($form->submitted_and_valid) {
 		# form was submitted and it validated
-		$gallery->title($form->field('title'));
-		$gallery->description($form->field( 'description'));
+		$gallery->title($form->param_value('title'));
+		$gallery->description($form->param_value( 'description'));
 		$gallery->update_or_insert;
 		$c->flash->{message} =  ($id > 0 ? 'Updated ' : 'Added ') . $gallery->title;
 		$c->response->redirect($c->uri_for_action('gallery/list'));
@@ -71,8 +82,7 @@ sub edit : Local Form {
 		if(!$id){
 			$c->stash->{message} = 'Adding a new gallery';
 		}
-		$form->field(name => 'title', value => $gallery->title);
-		$form->field(name => 'description', value => $gallery->description);
+		$form->default_values({'title'  => $gallery->title, 'description' => $gallery->description});
 	}
 }
 

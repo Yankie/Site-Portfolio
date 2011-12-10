@@ -1,13 +1,15 @@
 [% META title = 'Image Galleries' %]
+<h1>Image Galleries</h1>
+<p>Feel free to browse my work below:</p>
 [% IF galleries.count > 0 %]
-
-<ul>
+<div id="modules-holder">
 	[% WHILE (gallery = galleries.next) %]
-	<li>[% INCLUDE gallery/gallery_fragment.tt2 %]</li>
+	[% INCLUDE gallery/gallery_fragment.tt2 %]
 	[% END %]
-</ul>
+</div>
 [% ELSE %]
 <p>No galleries yet!</p>
 [% END %]
+<hr/>
 <p><a href="[% c.uri_for("/gallery/add") | html %]">Add a new gallery...</a></p>
 

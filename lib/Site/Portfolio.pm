@@ -17,9 +17,13 @@ use Catalyst::Runtime 5.80;
 #                 directory
 
 use Catalyst qw/
-    -Debug
-    ConfigLoader
-    Static::Simple
+	-Debug
+	ConfigLoader
+	Static::Simple
+	Unicode::Encoding
+	Session
+	Session::State::Cookie
+	Session::Store::FastMmap
 /;
 
 extends 'Catalyst';
@@ -36,10 +40,13 @@ our $VERSION = '0.01';
 # local deployment.
 
 __PACKAGE__->config(
-    name => 'Site::Portfolio',
-    # Disable deprecated behavior needed by old applications
-    disable_component_resolution_regex_fallback => 1,
-    enable_catalyst_header => 1, # Send X-Catalyst header
+	name => 'Site::Portfolio',
+	encoding => 'UTF-8',
+	# Disable deprecated behavior needed by old applications
+	session => {flash_to_stash => 1},
+	# Disable deprecated behavior needed by old applications
+	disable_component_resolution_regex_fallback => 1,
+	enable_catalyst_header => 1, # Send X-Catalyst header
 );
 
 # Start the application

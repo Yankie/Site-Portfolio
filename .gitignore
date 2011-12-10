@@ -1,0 +1,11 @@
+*.*~
+*~
+*.old
+*.kate-swp
+inc/
+blib/
+Makefile
+MYMETA.*
+META.*
+MANIFEST*
+.gitignore

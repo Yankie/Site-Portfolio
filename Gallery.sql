@@ -34,6 +34,7 @@ INSERT INTO `gallery` VALUES
 	(NULL, 'B & W', 'Some Black and White photos.'),
 	(NULL, 'Portriats', 'My friends and other strangers...');
 
+USE `mysql`;
 INSERT INTO mysql.user (Host,User,Password) VALUES ('localhost','pg','4rtyuehe') ON DUPLICATE KEY UPDATE User='pg';
 FLUSH PRIVILEGES;
 GRANT ALL PRIVILEGES ON PhotoGalleryDB.* TO 'pg' @localhost IDENTIFIED BY '4rtyuehe';

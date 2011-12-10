@@ -1,0 +1,6 @@
+<h1>Add/Edit Gallery Properties</h1>
+[% UNLESS form.submitted_and_valid %]
+	[% form %]
+[% ELSE %]
+	<p>Success!</p>
+[% END %]

@@ -394,6 +394,7 @@ a:hover {text-decoration:none; color: #0285da;}
 	float: left;
 	width: 204px;
 	margin-right: 40px;
+	margin-bottom: 40px;
 }
 
 #modules-holder .module h2 {
