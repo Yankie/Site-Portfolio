@@ -13,4 +13,17 @@
 	<script type="text/javascript" src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script>
 	<script type="text/javascript" src="[% c.uri_for('/static/js/jquery.prettyPhoto.js') %]"></script>
 	<script type="text/javascript" src="[% c.uri_for('/static/js/main.js') %]"></script>
+	<script>
+		$(document).ready(function(){
+				setTimeout(function(){
+					$('.message').each(function(i){
+						$(this).animate({top: -$(this).outerHeight()}, 500);
+					})
+				},5000);
+				// When message is clicked, hide it
+				$('.message').click(function(){
+						$(this).animate({top: -$(this).outerHeight()}, 500);
+				});
+		});
+	</script>
 </html>
