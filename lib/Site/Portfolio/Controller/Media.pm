@@ -29,6 +29,14 @@ sub index :Path :Args(0) {
     $c->stash->{message} = 'Matched Site::Portfolio::Controller::Media in Media.';
 }
 
+sub add : Local FormConfig('/media/edit') {
+	my ($self, $c, $person_id) = @_;
+	$c->go('edit', [undef, $person_id]);
+}
+
+sub edit : Local FormConfig {
+	my ($self, $c, $address_id, $person_id) = @_;
+}
 
 =head1 AUTHOR
 

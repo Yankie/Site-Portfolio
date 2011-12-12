@@ -67,6 +67,7 @@ sub edit : Local : FormConfig('gallery/edit.yml') {
 	my ($self, $c, $id) = @_;
 	my $form = $c->stash->{form};
 	my $gallery = $c->model('PortfolioDb::Gallery')->find_or_new({id => $id});
+	$c->stash->{gallery} = $gallery;
 	if ($form->submitted_and_valid) {
 		# form was submitted and it validated
 		$gallery->title($form->param_value('title'));
@@ -80,7 +81,7 @@ sub edit : Local : FormConfig('gallery/edit.yml') {
 	else {
 		# first time through, or invalid form
 		if(!$id){
-			$c->stash->{message} = 'Adding a new gallery';
+			$c->stash->{title} = 'Adding a new gallery';
 		}
 		$form->default_values({'title'  => $gallery->title, 'description' => $gallery->description});
 	}

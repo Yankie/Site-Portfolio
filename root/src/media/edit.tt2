@@ -1,0 +1,7 @@
+[% META title = 'Add/Edit Media Properties' %]
+<h1>[% title %]</h1>
+[% UNLESS form.submitted_and_valid %]
+	[% form %]
+[% ELSE %]
+	<p>Success!</p>
+[% END %]

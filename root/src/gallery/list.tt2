@@ -1,15 +1,25 @@
 [% META title = 'Image Galleries' %]
-<h1>Image Galleries</h1>
-<p>Feel free to browse my work below:</p>
+	<h1>Image Galleries</h1>
+	<p>Feel free to browse my work below:</p>
 [% IF galleries.count > 0 %]
-<div id="modules-holder">
-	[% WHILE (gallery = galleries.next) %]
-	[% INCLUDE gallery/gallery_fragment.tt2 %]
-	[% END %]
-</div>
+	<div id="modules-holder">
+		[% WHILE (gallery = galleries.next) %]
+			[% INCLUDE gallery/gallery_fragment.tt2 %]
+		[% END %]
+	</div>
 [% ELSE %]
-<p>No galleries yet!</p>
+	<p>No galleries yet!</p>
 [% END %]
-<hr/>
-<p><a href="[% c.uri_for("/gallery/add") | html %]">Add a new gallery...</a></p>
+
+[% IF c.can('check_user_roles') && c.check_user_roles( 'admin' ) %]
+	<hr/>
+	<p>
+		<a href="[% c.uri_for('/gallery/add') | html %]">Add a new gallery...</a>
+    </p>
+[% ELSE %]
+	<hr/>
+	<p>
+		<a href="[% c.uri_for('/gallery/add') | html %]">Add a new gallery...</a>
+    </p>
+[% END %]
 

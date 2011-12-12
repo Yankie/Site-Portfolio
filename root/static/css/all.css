@@ -18,6 +18,7 @@ blockquote, q {quotes:none;}
 q:before,
 q:after {content: '';}
 table {border-collapse:collapse; border-spacing:0;}
+
 input,textarea,select{
 	font:11px Arial, Helvetica, sans-serif;
 	vertical-align:middle;
@@ -26,10 +27,13 @@ input,textarea,select{
 
 }
 input:focus, textarea:focus {
-	outline: none;
+	outline: 1px solid #0285da;
 }
 
-form,fieldset{border-style:none;}
+form,fieldset{
+	border-style:none;
+	
+}
 
 html,
 body {
@@ -282,7 +286,7 @@ a:hover {text-decoration:none; color: #0285da;}
 	font-family:'Museo700';
 	font-size:25px;
 	font-weight:normal;
-	margin:5px 0 25 0;
+	margin:5px 0 25px 0;
 	padding: 10px 10px 0 32px;
 }
 #right h2 {
@@ -297,6 +301,13 @@ a:hover {text-decoration:none; color: #0285da;}
 	color: #6a6a6a;
 	line-height: 15px;
 }
+
+#right hr {
+	margin: 10px 32px 0 32px;
+	border-top: 1px solid #eaeaea;
+	height: 0px;
+}
+
 #right .thumbnails {
 	overflow: hidden;
 	padding:10px 0 0 32px;
@@ -421,3 +432,85 @@ a:hover {text-decoration:none; color: #0285da;}
 	color: #6a6a6a;
 	line-height: 15px;
 }
+
+/*-------*/
+/* FORMS */
+/*-------*/
+form {
+	width: 700px;
+	overflow: hidden;
+	padding-top: 2px;
+	margin: 0 25px;
+}
+form div {
+	float: left;
+	width: 100%;
+	margin-bottom: 5px;
+}
+form label {
+	float: left;
+	width: 80px;
+	text-align: right;
+	position: relative;
+	top: 2px;
+	margin-right: 5px;
+}
+form input[type=text], form input[type=password] {
+	width: 400px;
+	background: #fff;
+	border: 1px solid #7f9db9;
+	height: 20px;
+}
+form input[type=submit] {
+	margin-left: 85px;
+	padding: 0 10px;
+	cursor: pointer;
+}
+form input[type=checkbox] {
+	border: none;
+}
+form textarea {
+	width: 400px;
+	height: 100px;
+}
+#message {
+	position: relative;
+	z-index: 10;
+	top: 0;
+	left: 210px;
+	border: 1px solid;
+	margin: 15px auto 0;
+	padding:15px 20px 15px 55px;
+	width: 500px;
+	font: bold 12px verdana;
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 0 5px #888;
+	text-shadow: 2px 2px 2px #ccc;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+}
+
+#message div.info, div.message {
+	color: #00529B;
+	background: #BDE5F8 url('../images/message-information.png') no-repeat 10px center;
+}
+#message div.success {
+	color: #4F8A10;
+	background: #DFF2BF url('../images/message-succes.png') no-repeat 10px center;
+}
+#message div.warning {
+	color: #9F6000;
+	background: #FEEFB3 url('../images/message-warning.png') no-repeat 10px center;
+}
+#message div.error {
+	color: #D8000C;
+	background: #FFBABA url('../images/message-error.png') no-repeat 10px center;
+}
+
+#message div.validation {
+	color: #D63301;
+	background: #FFCCBA url('../images/message-validation.png') no-repeat 10px center;
+}
+
