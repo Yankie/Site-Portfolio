@@ -27,7 +27,7 @@ input,textarea,select{
 
 }
 input:focus, textarea:focus {
-	outline: 1px solid #0285da;
+	outline: none;
 }
 
 form,fieldset{
@@ -475,15 +475,22 @@ a:hover {text-decoration:none; color: #0285da;}
 	height: 100px;
 	border: 1px solid #7f9db9;
 }
+#right input:focus, textarea:focus {
+	outline: 1px solid #0285da;
+}
+
 .message {
 	position: fixed;
 	z-index: 10;
-	top: 0;
+	top: -50px;
 	right: 0;
 	left: 0;
 	border: 1px solid;
 	margin: 0 auto 0;
 	padding:15px 20px 15px 55px;
+	opacity: 0.6;
+	-moz-opacity: 0.6;
+	filter: alpha(opacity=60);
 	font: bold 12px verdana;
 /* 	width: 500px; */
 /* 	-moz-box-shadow: 0 0 5px #888; */
