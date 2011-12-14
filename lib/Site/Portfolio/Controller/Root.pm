@@ -28,7 +28,7 @@ The root page (/)
 
 sub index :Path :Args(0) {
 	my ( $self, $c ) = @_;
-	$c->stash->{media} = $c->model('PortfolioDb::Media')->all;
+	$c->stash->{media} = $c->model('PortfolioDb::Media');
 
 }
 

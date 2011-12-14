@@ -1,7 +1,7 @@
 <ul class="menu">
 	<li><a href="[% c.uri_for( '/' ) %]">Home</a></li>
 	<li><a href="[% c.uri_for( '/blog' ) %]">Blog</a></li>
-	[% IF menu.count > 0 %]
+	[% IF menu %]
 	<li>
 		<a class="opened" href="[% c.uri_for( '/gallery' ) %]">Image Galleries</a>
 		<ul class="sub-menu">
