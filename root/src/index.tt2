@@ -3,3 +3,21 @@
 <h1>Welcome to my Portfolio!</h1>
 <p>Feel free to browse <a href="[% c.uri_for('/gallery') %]">gallery</a> and read my <a href="[% c.uri_for('/blog') %]">blog</a></p>
 <p>Have a nice stay!</p>
+[% IF media.count > 0 %]
+<div id="gallery-holder">
+	<ul class="slideshow">
+		[% FOREACH item = media %]
+		<li>
+		<img src="images/slideshow/slide1.jpg" alt="slideshow 1" width="719" height="442" />
+		</li>
+		[% END %]
+	</ul> <!-- END SLIDESHOW -->
+	<div class="slideshow-frame"></div>
+	<div class="navigation">
+		<a href="#" class="prev">Previous</a>
+		<a href="#" class="next">Next</a>
+	</div> <!-- END GALLERY NAVIGATION -->
+</div> <!-- END GALLERY HOLDER -->
+[% ELSE %]
+<p>No media yet!</p>
+[% END %]

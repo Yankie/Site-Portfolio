@@ -27,7 +27,8 @@ The root page (/)
 =cut
 
 sub index :Path :Args(0) {
-    my ( $self, $c ) = @_;
+	my ( $self, $c ) = @_;
+	$c->stash->{media} = $c->model('PortfolioDb::Media')->all;
 
 }
 
@@ -73,6 +74,11 @@ sub end : ActionClass('RenderView') {
 	my $galleries = $c->model('PortfolioDb::Gallery');
 	$c->stash->{menu} = $galleries;
 
+}
+
+sub access_denied : Private {
+	my ($self, $c) = @_;
+	$c->stash->{template} = 'denied.tt2';
 }
 
 =head1 AUTHOR

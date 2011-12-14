@@ -2,6 +2,7 @@
 *~
 *.old
 *.kate-swp
+.directory
 inc/
 blib/
 Makefile

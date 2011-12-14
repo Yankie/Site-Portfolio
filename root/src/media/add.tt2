@@ -1,7 +1,6 @@
-[% META title = 'Edit Media Properties' %]
+[% META title = 'Add Media Properties' %]
 <h1>[% title | html %]</h1>
 [% UNLESS form.submitted_and_valid %]
-	[% INCLUDE media/view.tt2 %]
 	[% form %]
 [% ELSE %]
 	<p>Success!</p>

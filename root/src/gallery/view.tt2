@@ -2,12 +2,12 @@
 <h1>[% gallery.title | html %]</h1>
 <!-- <p>[% gallery.description | html %]</p> -->
 [% SET media = gallery.media %]
-[% IF media.count > 0 %]
+[% IF media %]
 <ul class="thumbnails">
 	[% FOREACH item = media %]
 	<li>
-		<a href="images/500X500.gif" rel="prettyPhoto[gallery]">
-			<img src="images/gallery/thumb1.jpg" alt="thumbnail" width="150" height="121">
+		<a href="[% c.uri_for("/media/$item.id/generate") %]" rel="prettyPhoto[gallery_[% gallery.id %]]">
+			<img src="[% c.uri_for("/media/$item.id/thumbnail") %]" alt="[% item.title %]" >
 		</a>
 	</li>
 	[% END %]
@@ -22,11 +22,11 @@
 [% IF c.can('check_user_roles') && c.check_user_roles( 'admin' ) %]
 <hr/>
 <p>
-	<a href="[% c.uri_for('/media/add') | html %]">Add a media to this gallery...</a>
+	<a href="[% c.uri_for_action('/media/add', gallery.id) | html %]">Add a media to this gallery...</a>
 </p>
 [% ELSE %]
 <hr/>
 <p>
-	<a href="[% c.uri_for('/media/add') | html %]">Add a media to this gallery...</a>
+	<a href="[% c.uri_for_action('/media/add', gallery.id) | html %]">Add a media to this gallery...</a>
 </p>
 [% END %]

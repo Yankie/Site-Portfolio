@@ -21,7 +21,7 @@
 		<a class="closed" href="[% c.uri_for( '/denied' ) %]">Admin Area</a>
 		<ul class="sub-menu closed">
 			<li><a href="/gallery/list">Manage Galeries</a></li>
-			<li><a href="/media/list">Manage media</a></li>
+			<li><a href="/media">Manage media</a></li>
 		</ul> <!-- END SUB MENU --></li>
 	[% END %] <!-- END if admin -->
 </ul> <!-- END MENU -->

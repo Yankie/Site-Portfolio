@@ -1,0 +1,28 @@
+---
+indicator: submit
+
+elements:
+  - type: Text
+    name: title
+    label: Name
+    container_tag: div
+
+  - type: File
+    name: media
+    label: File
+    container_tag: div
+
+  - type: Textarea
+    name: description
+    label: Description
+    container_tag: div
+
+  - type: Submit
+    name: submit
+    value: Upload!
+
+constraints:
+  SingleValue
+
+filters:
+  HTMLScrubber

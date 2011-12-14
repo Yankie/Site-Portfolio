@@ -14,6 +14,7 @@ __PACKAGE__->config({
     ERROR              => 'error.tt2',
     TIMER              => 0,
     render_die         => 1,
+#     DEBUG              => 'undef',
 });
 
 =head1 NAME

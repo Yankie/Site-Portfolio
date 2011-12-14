@@ -41,12 +41,19 @@ our $VERSION = '0.01';
 
 __PACKAGE__->config(
 	name => 'Site::Portfolio',
+	'Plugin::ConfigLoader' => {
+        driver => {
+            'General' => { -UTF8 => 1 },
+        }
+    },
 	encoding => 'UTF-8',
-	# Disable deprecated behavior needed by old applications
-	session => {flash_to_stash => 1},
+	session => {
+		flash_to_stash => 1
+	},
 	# Disable deprecated behavior needed by old applications
 	disable_component_resolution_regex_fallback => 1,
-	enable_catalyst_header => 1, # Send X-Catalyst header
+	# Send X-Catalyst header
+	enable_catalyst_header => 1,
 );
 
 # Start the application

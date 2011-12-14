@@ -5,7 +5,7 @@ use base 'Catalyst::Model::DBIC::Schema';
 
 __PACKAGE__->config(
     schema_class => 'Site::Portfolio::Schema::PortfolioDb',
-    
+    rows => 12,
 #     connect_info => {
 #         dsn => 'dbi:mysql:PhotoGalleryDB',
 #         user => 'pg',

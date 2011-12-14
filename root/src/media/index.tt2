@@ -1,0 +1,30 @@
+<h1>[% title | html %]</h1>
+[% IF media.count > 0 %]
+<p>Displaying entries [% pager.first %]-[% pager.last %] of [% pager.total_entries %]
+<ul class="thumbnails">
+	[% WHILE (item = media.next) %]
+	<li>
+		<a title="[% item.title | html %]" href="[% c.uri_for("/media/$item.id/generate") | html %]" rel="prettyPhoto[gal_[% item.gid.id | html %]]">
+			<img src="[% c.uri_for("/media/$item.id/thumbnail") | html %]" alt="[% item.title | html %]">
+		</a>
+	</li>
+	[% END %]
+</ul>
+<div class="navigation">
+	<a href="#" class="prev">Previous</a>
+	<a href="#" class="next">Next</a>
+</div> <!-- END NAVIGATION -->
+[% ELSE %]
+<p>No media yet!</p>
+[% END %]
+[% IF c.can('check_user_roles') && c.check_user_roles( 'admin' ) %]
+<hr/>
+<p>
+	<a href="[% c.uri_for_action('/media/add') | html %]">Add a media to root gallery...</a>
+</p>
+[% ELSE %]
+<hr/>
+<p>
+	<a href="[% c.uri_for_action('/media/add') | html %]">Add a media to root gallery...</a>
+</p>
+[% END %]

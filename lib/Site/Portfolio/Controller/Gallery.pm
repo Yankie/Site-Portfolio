@@ -48,6 +48,7 @@ sub view : Local {
 	my ($self, $c, $id) = @_;
 	my $gallery = $c->model('PortfolioDb::Gallery')->find({id => $id});
 	$c->stash->{gallery} = $gallery;
+	my $media = $gallery->media;
 }
 
 =head2 add
@@ -73,7 +74,7 @@ sub edit : Local : FormConfig('gallery/edit.yml') {
 		$gallery->title($form->param_value('title'));
 		$gallery->description($form->param_value( 'description'));
 		$gallery->update_or_insert;
-		$c->flash->{message} =  ($id > 0 ? 'Updated ' : 'Added ') . $gallery->title;
+		$c->flash->{success} =  ($id > 0 ? 'Updated ' : 'Added ') . $gallery->title;
 		$c->response->redirect($c->uri_for_action('gallery/list'));
 		$c->detach();
 
@@ -96,11 +97,11 @@ sub delete : Local {
 	my $gallery = $c->model('PortfolioDb::Gallery')->find({id => $id});
 	$c->stash->{gallery} = $gallery;
 	if($gallery){
-		$c->flash->{message} = 'Deleted '. $gallery->title;
+		$c->flash->{success} = 'Deleted '. $gallery->title;
 		$gallery->delete;
 	}
 	else {
-		$c->flash->{error} = "No gallery $id";
+		$c->flash->{error} = "No such gallery - $id";
 	}
 	$c->response->redirect($c->uri_for_action('gallery/list'));
 	$c->detach();
@@ -118,6 +119,6 @@ it under the same terms as Perl itself.
 
 =cut
 
-__PACKAGE__->meta->make_immutable;
+# __PACKAGE__->meta->make_immutable;
 
 1;

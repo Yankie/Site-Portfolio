@@ -1,0 +1,8 @@
+<h2>[% media.title | html %]</h2>
+<p>
+	<img src="[% c.uri_for("/media/$media.id/generate") | html %]" alt="[% media.title | html %]" />
+	<br/>
+	<br/>
+	[% media.description | html %]
+</p>
+
