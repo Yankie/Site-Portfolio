@@ -47,8 +47,9 @@ sub list : Local {
 sub view : Local {
 	my ($self, $c, $id) = @_;
 	my $gallery = $c->model('PortfolioDb::Gallery')->find({id => $id});
+	$c->stash->{per_page} = 12;
 	$c->stash->{gallery} = $gallery;
-	my $media = $gallery->media;
+	$c->stash->{media} = $gallery->media;
 }
 
 =head2 add

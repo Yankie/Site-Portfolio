@@ -44,22 +44,21 @@ Catalyst Controller.
 use Data::Dumper;
 sub index :Path :Args(0) {
 	my ( $self, $c ) = @_;
+
+# 	my $page = $c->request->param('page');
+# 	$page = 1 if($page !~ /^\d+$/);
+
+# 	my $media = $c->model('PortfolioDb::Media')->search({}, {rows=>12, page => $page});
 	my $media = $c->model('PortfolioDb::Media');
+# 	$media = $media->page($page);
 
-	my $page = $c->request->param('page');
-	$page = 1 if($page !~ /^\d+$/);
-
-	$c->log->debug(Dumper ($media) );
-
-	$media = $media->page($page);
-	my $pager = $media->pager;
+# 	my $pager = $media->pager;
 
 	$c->stash->{title} = "All media";
 	$c->stash->{media} = $media;
-	$c->stash->{pager} = $pager;
+	$c->stash->{per_page} = 12;
+# 	$c->stash->{pager} = $pager;
 	
-# 	$c->stash->{message} = 'Matched Site::Portfolio::Controller::Media in Media.';
-
 }
 
 =head2 add
@@ -248,6 +247,36 @@ sub view_media : Chained('get_media') PathPart('generate') Args(0) {
 	$c->res->body($out);
 }
 
+=head2 preview_media
+
+  hackish method to view
+  an image full-size
+
+=cut
+
+sub preview_media : Chained('get_media') PathPart('slideshow') Args(0) {
+	my ( $self, $c ) = @_;
+	my $media = $c->stash->{media};
+	my $xsize  = $c->config->{slideshow_width} || 719;
+	my $ysize  = $c->config->{slideshow_height} || 442;
+	my $data = $media->path->open('r') or die "Error: $!";
+	my $img = Imager->new;
+	my $out;
+
+	$img->read( fh => $data ) or die $img->errstr;
+	$img = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'mixing' )->crop(width=>$xsize, height=>$ysize);
+	$img->write(
+		type => $mimeinfo->{ $media->mime },
+		data => \$out
+	) or die $img->errstr;
+
+	$c->res->content_type( $media->mime );
+	$c->res->content_length( -s $out );
+	$c->res->header( "Content-Disposition" => "inline; filename=" . $mimeinfo->{ $media->mime } );
+
+	binmode $out;
+	$c->res->body($out);
+}
 
 =head2 view_photo
 

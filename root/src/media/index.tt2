@@ -1,13 +1,20 @@
 <h1>[% title | html %]</h1>
 [% IF media.count > 0 %]
-<p>Displaying entries [% pager.first %]-[% pager.last %] of [% pager.total_entries %]
 <ul class="thumbnails">
-	[% WHILE (item = media.next) %]
+	[% SET item = media.next %]
+	[% WHILE (item) %]
+	<div style="width: 720px;">
+	[% SET count = 0 %]
+	[% WHILE (item) && (count < per_page)  %]
+	[% count = count + 1 %]
 	<li>
-		<a title="[% item.title | html %]" href="[% c.uri_for("/media/$item.id/generate") | html %]" rel="prettyPhoto[gal_[% item.gid.id | html %]]">
-			<img src="[% c.uri_for("/media/$item.id/thumbnail") | html %]" alt="[% item.title | html %]">
+		<a title="[% item.description | html %]" href="[% c.uri_for("/media/$item.id/generate") | html %]" rel="prettyPhoto[gal_root]">
+			<img src="[% c.uri_for("/media/$item.id/thumbnail") | html %]" alt="[% item.title | html %]"/>
 		</a>
 	</li>
+	[% item = media.next %]
+	[% END %]
+	</div>
 	[% END %]
 </ul>
 <div class="navigation">
@@ -23,8 +30,4 @@
 	<a href="[% c.uri_for_action('/media/add') | html %]">Add a media to root gallery...</a>
 </p>
 [% ELSE %]
-<hr/>
-<p>
-	<a href="[% c.uri_for_action('/media/add') | html %]">Add a media to root gallery...</a>
-</p>
 [% END %]

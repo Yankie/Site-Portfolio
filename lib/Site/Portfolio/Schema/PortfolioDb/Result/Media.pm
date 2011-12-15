@@ -12,7 +12,7 @@ use namespace::autoclean;
 
 extends 'DBIx::Class::Core';
 
-__PACKAGE__->load_components("InflateColumn::DateTime", "InflateColumn::FS", "PK::Auto");
+__PACKAGE__->load_components("InflateColumn::DateTime", "InflateColumn::FS", "PK::Auto", "Core");
 
 =head1 NAME
 

@@ -11,7 +11,7 @@ use MooseX::NonMoose;
 use namespace::autoclean;
 extends 'DBIx::Class::Core';
 
-__PACKAGE__->load_components("InflateColumn::DateTime");
+__PACKAGE__->load_components("PK::Auto", "Core");
 
 =head1 NAME
 
@@ -60,5 +60,5 @@ __PACKAGE__->has_many(
 	media => 'Site::Portfolio::Schema::PortfolioDb::Result::Media', 'gid', {cascading_delete => 1}
 );
 
-__PACKAGE__->meta->make_immutable;
+# __PACKAGE__->meta->make_immutable;
 1;

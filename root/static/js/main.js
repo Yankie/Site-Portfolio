@@ -1,6 +1,21 @@
 $(document).ready(function() {
+	// Show all messages
+	$('.message').each(function(i){
+		$(this).animate({ top: -1 }, 500);
+	});
+	
+	// wait 5sec and hide all messages
+	setTimeout(function(){
+		$('.message').each(function(i){
+			$(this).animate({top: -$(this).outerHeight()}, 500);
+		})
+	},5000);
+	
+	// When message is clicked, hide it
+	$('.message').click(function(){
+		$(this).animate({top: -$(this).outerHeight()}, 500);
+	});
 
-	//prettyPhoto LIGHTBOX
 	$("a[rel^='prettyPhoto']").prettyPhoto();
 
 
@@ -25,5 +40,11 @@ $(document).ready(function() {
 		fx: 'fade',
 		next: '#gallery-holder .navigation a.next',
 		prev: '#gallery-holder .navigation a.prev'
+	});
+	$('.thumbnails').cycle({
+		fx: 'fade',
+		timeout: 0, 
+		next: '#right .navigation a.next',
+		prev: '#right .navigation a.prev'
 	});
 });
