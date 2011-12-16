@@ -42,10 +42,10 @@ our $VERSION = '0.01';
 __PACKAGE__->config(
 	name => 'Site::Portfolio',
 	'Plugin::ConfigLoader' => {
-        driver => {
-            'General' => { -UTF8 => 1 },
-        }
-    },
+		driver => {
+			'General' => { -UTF8 => 1 },
+		},
+	},
 	encoding => 'UTF-8',
 	session => {
 		flash_to_stash => 1
@@ -56,17 +56,19 @@ __PACKAGE__->config(
 	enable_catalyst_header => 1,
 );
 
+
 # Start the application
 __PACKAGE__->setup();
 
-
+## Apply theme paths
+__PACKAGE__->config->{static}->{include_path} = [__PACKAGE__->config->{root}, __PACKAGE__->path_to('root','themes',__PACKAGE__->config->{theme} )];
 =head1 NAME
 
 Site::Portfolio - Catalyst based application
 
 =head1 SYNOPSIS
 
-    script/site_portfolio_server.pl
+	script/site_portfolio_server.pl
 
 =head1 DESCRIPTION
 

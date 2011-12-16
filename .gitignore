@@ -5,7 +5,7 @@
 .directory
 inc/
 blib/
-root/static/media/
+root/data/media
 Makefile
 MYMETA.*
 META.*

@@ -5,17 +5,21 @@ use base 'Catalyst::View::TT';
 
 __PACKAGE__->config({
     INCLUDE_PATH => [
-        Site::Portfolio->path_to( 'root', 'src' ),
-        Site::Portfolio->path_to( 'root', 'lib' )
+        Site::Portfolio->path_to( 'root', 'themes', Site::Portfolio->config->{theme}, 'src' ),
+        Site::Portfolio->path_to( 'root', 'themes', Site::Portfolio->config->{theme}, 'lib' ),
     ],
+    DEFAULT_ENCODING   => 'utf-8',
     TEMPLATE_EXTENSION => '.tt2',
     PRE_PROCESS        => 'config/main',
     WRAPPER            => 'site/wrapper',
     ERROR              => 'error.tt2',
     TIMER              => 0,
     render_die         => 1,
+    expose_methods     => [qw/static/]
 #     DEBUG              => 'undef',
 });
+
+
 
 =head1 NAME
 
@@ -28,6 +32,19 @@ See L<Site::Portfolio>
 =head1 DESCRIPTION
 
 Catalyst TTSite View.
+
+=head1 METHODS
+
+=cut
+
+=head2 static
+
+=cut
+
+sub static {
+	my ( $self, $c, $filename ) = @_;
+	return $c->uri_for('/themes/static');
+}
 
 =head1 AUTHOR
 
