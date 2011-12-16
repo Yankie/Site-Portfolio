@@ -31,5 +31,4 @@
 <p>
 	<a href="[% c.uri_for_action('/media/add', gallery.id) | html %]">Add a media to this gallery...</a>
 </p>
-[% ELSE %]
 [% END %]

@@ -29,5 +29,4 @@
 <p>
 	<a href="[% c.uri_for_action('/media/add') | html %]">Add a media to root gallery...</a>
 </p>
-[% ELSE %]
 [% END %]

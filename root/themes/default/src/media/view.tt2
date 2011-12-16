@@ -5,4 +5,3 @@
 	<br/>
 	[% media.description | html %]
 </p>
-

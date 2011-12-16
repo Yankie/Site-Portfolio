@@ -14,8 +14,6 @@
 
 	<li><a href="[% c.uri_for( '/contact' ) %]">Contacts</a></li>
 	[% IF !c.can('check_user_roles') && c.check_user_roles( 'admin' ) %]
-	<li><a href="[% c.uri_for( '/admin' ) %]">Admin Area</a></li>
-	[% ELSE %]
 	<li><a>&nbsp;</a></li>
 	<li>
 		<a class="closed" href="[% c.uri_for( '/denied' ) %]">Admin Area</a>

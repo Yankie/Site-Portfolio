@@ -16,10 +16,5 @@
 <p>
 	<a href="[% c.uri_for('/gallery/add') | html %]">Add a new gallery...</a>
 </p>
-[% ELSE %]
-<hr/>
-<p>
-	<a href="[% c.uri_for('/gallery/add') | html %]">Add a new gallery...</a>
-</p>
 [% END %]
 
