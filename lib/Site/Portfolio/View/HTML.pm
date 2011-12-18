@@ -15,10 +15,7 @@ __PACKAGE__->config({
     ERROR              => 'error.tt2',
     TIMER              => 0,
     render_die         => 1,
-    expose_methods     => [qw/static/]
-#     DEBUG              => 'undef',
 });
-
 
 
 =head1 NAME
@@ -32,19 +29,6 @@ See L<Site::Portfolio>
 =head1 DESCRIPTION
 
 Catalyst TTSite View.
-
-=head1 METHODS
-
-=cut
-
-=head2 static
-
-=cut
-
-sub static {
-	my ( $self, $c, $filename ) = @_;
-	return $c->uri_for('/themes/static');
-}
 
 =head1 AUTHOR
 
