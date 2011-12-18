@@ -1,0 +1,32 @@
+[% META title = "Kristina Koleso Photo Portfolio" %]
+<div id="right">
+<!-- <h1>[% page.title %]</h1> -->
+<p>Feel free to browse <a href="[% c.uri_for('/gallery') %]">gallery</a> and read my <a href="[% c.uri_for('/blog') %]">blog</a></p>
+<p>Have a nice stay!</p>
+</div>
+[% IF media.count > 0 %]
+<div id="fp_gallery" class="fp_gallery">
+	<img src="[% c.uri_for("/media/1/slideshow") | html %]" alt="[% c.uri_for("/media/1/slideshow") | html %]" class="fp_preview" style="display:none;"/>
+	<div class="fp_overlay"></div>
+	<div id="fp_loading" class="fp_loading"></div>
+	<div id="fp_next" class="fp_next"></div>
+	<div id="fp_prev" class="fp_prev"></div>
+	<div id="outer_container">
+		<div id="thumbScroller">
+			<div class="container">
+				[% WHILE (item = media.next) %]
+				<div class="content">
+					<div>
+						<a href="#">
+							<img class="thumb" src="[% c.uri_for("/media/$item.id/thumbnail") | html %]" alt="[% c.uri_for("/media/$item.id/slideshow") | html %]"/>
+						</a>
+					</div>
+				</div>
+				[% END %]
+			</div>
+		</div>
+	</div>
+</div>
+[% ELSE %]
+<p>No media yet!</p>
+[% END %]

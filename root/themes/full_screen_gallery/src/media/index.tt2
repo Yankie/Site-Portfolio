@@ -1,0 +1,32 @@
+<h1>[% title | html %]</h1>
+[% IF media.count > 0 %]
+<ul class="thumbnails">
+	[% SET item = media.next %]
+	[% WHILE (item) %]
+	<div style="width: 720px;">
+	[% SET count = 0 %]
+	[% WHILE (item) && (count < per_page)  %]
+	[% count = count + 1 %]
+	<li>
+		<a title="[% item.description | html %]" href="[% c.uri_for("/media/$item.id/generate") | html %]" rel="prettyPhoto[gal_root]">
+			<img src="[% c.uri_for("/media/$item.id/thumbnail") | html %]" alt="[% item.title | html %]"/>
+		</a>
+	</li>
+	[% item = media.next %]
+	[% END %]
+	</div>
+	[% END %]
+</ul>
+<div class="navigation">
+	<a href="#" class="prev">Previous</a>
+	<a href="#" class="next">Next</a>
+</div> <!-- END NAVIGATION -->
+[% ELSE %]
+<p>No media yet!</p>
+[% END %]
+[% IF c.can('check_user_roles') && c.check_user_roles( 'admin' ) %]
+<hr/>
+<p>
+	<a href="[% c.uri_for_action('/media/add') | html %]">Add a media to root gallery...</a>
+</p>
+[% END %]

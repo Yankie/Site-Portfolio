@@ -1,0 +1,22 @@
+[% IF error %]
+<div class="message error">[% error | html %]</div>
+[% END %]
+[% IF warning %]
+<div class="message warning">[% warning | html %]</div>
+[% END %]
+[% IF info %]
+<div class="message info">[% info | html %]</div>
+[% END %]
+[% IF success %]
+<div class="message success">[% success | html %]</div>
+[% END %]
+[% IF validation %]
+<div class="message validation">[% validation | html %]</div>
+[% END %]
+<div id="header">
+[% PROCESS site/header %]
+</div>
+<div id="navigation">
+	[% PROCESS site/navigation %]
+</div> <!-- END RIGHT CONTENT -->
+[% content %]
