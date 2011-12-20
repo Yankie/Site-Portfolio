@@ -1,3 +1,4 @@
+[% META title = 'All media' %]
 <h1>[% title | html %]</h1>
 [% IF media.count > 0 %]
 <ul class="thumbnails">
@@ -9,7 +10,7 @@
 	[% count = count + 1 %]
 	<li>
 		<a title="[% item.description | html %]" href="[% c.uri_for("/media/$item.id/generate") | html %]" rel="prettyPhoto[gal_root]">
-			<img src="[% c.uri_for("/media/$item.id/thumbnail") | html %]" alt="[% item.title | html %]"/>
+			<img src="[% c.uri_for("/media/$item.id/thumbnail") | html %]" alt="[% item.title | html %]" style="[% item.style %]"/>
 		</a>
 	</li>
 	[% item = media.next %]
