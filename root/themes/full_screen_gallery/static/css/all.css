@@ -9,22 +9,77 @@ body{
 	background-color:#000;
 	overflow:hidden;
 }
+#header {
+	position: fixed;
+	z-index: 9995;
+	width: 100%
+}
 #header h1.title{
 	font-family:"Myriad Pro","Trebuchet MS", Helvetica, sans-serif;
 	font-size:40px;
 	font-weight: normal;
 	letter-spacing: 4px;
 	color:#FFFFFF;
-	position: fixed;
 	margin:20px 120px 20px;
-	z-index:9999;
+	text-shadow: 0px 0px 7px #000000;
 }
 #right {
 	position: fixed;
 	width: 80%;
-	top: 100px;
+	top: 120px;
 	right: 0px;
+	padding: 20px;
+	background: #000;
 	z-index:9999;
+	border: 1px solid #333333;
+	opacity: 0.5;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+	z-index: 9990;
+}
+#gallery_info {
+	position: fixed;
+	width: 80%;
+	top: 120px;
+	right: 0px;
+	padding: 20px;
+	background: #000;
+	border: 1px solid #333333;
+	opacity: 0.5;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+	z-index: 9990;
+}
+#gallery_info h1 {
+	position: relative;
+	font-family:"Myriad Pro","Trebuchet MS", Helvetica, sans-serif;
+	font-size:30px;
+	font-weight: normal;
+	letter-spacing: 4px;
+	color:#FFFFFF;
+	display: block;
+}
+#gallery_info h2 {
+	font-family:"Myriad Pro","Trebuchet MS", Helvetica, sans-serif;
+	font-size:20px;
+	font-weight: normal;
+	letter-spacing: 4px;
+	color:#FFFFFF;
+	
+}
+#gallery_info p {
+	
+}
+
+#media_info {
+	position: fixed;
+	width: 80%;
+	top: 120px;
+	right: 0px;
+	padding: 20px;
+	background: #000;
+	border: 1px solid #333333;
+	opacity: 0.5;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+	z-index: 9990;
 }
 
 #navigation {
@@ -34,7 +89,7 @@ body{
 	width: 220px;
 	margin: 0px;
 	padding: 0px;
-	z-index:9998;
+	z-index:9999;
 }
 #navigation ul, ul li ul {
 	position: relative;
@@ -62,8 +117,8 @@ body{
  	margin-top: 20px; 
 	background: #000;
 	border: 1px solid #333333;
-/*	opacity: 0.6;
-	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=60);*/
+	opacity: 0.5;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=60);
 	text-decoration:none;
 }
 #navigation li a {
@@ -73,9 +128,9 @@ body{
 	background: #050505;
 }
 #navigation li a:hover,ul li ul li a:hover {
-	background: #111111;
-	/*	opacity: 1;
-	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=100);*/
+	text-shadow: 0px 0px 10px #FFFFFF;
+	opacity: 0.9;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=90);
 /* 	text-decoration:underline; */
 }
 #navigation .menu li .sub-menu li a {
@@ -160,6 +215,10 @@ img.clone{
 	z-index:999;
 	opacity:0.7;
 }
+#fp_next,
+#fp_prev {
+	z-index:9998;
+}
 .fp_next,
 .fp_prev{
 	width:50px;
@@ -169,10 +228,12 @@ img.clone{
 	margin-top:-15px;
 	cursor:pointer;
 	opacity:0.5;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50);
 }
 .fp_next:hover,
 .fp_prev:hover{
 	opacity:0.9;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=90);
 }
 .fp_next{
 	background:#000 url(../images/icons/next.png) no-repeat center center;

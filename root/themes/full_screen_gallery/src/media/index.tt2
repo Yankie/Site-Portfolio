@@ -1,26 +1,30 @@
+[% META title = "Kristina Koleso Photo Portfolio" %]
+<div id="right">
 <h1>[% title | html %]</h1>
+</div>
 [% IF media.count > 0 %]
-<ul class="thumbnails">
-	[% SET item = media.next %]
-	[% WHILE (item) %]
-	<div style="width: 720px;">
-	[% SET count = 0 %]
-	[% WHILE (item) && (count < per_page)  %]
-	[% count = count + 1 %]
-	<li>
-		<a title="[% item.description | html %]" href="[% c.uri_for("/media/$item.id/generate") | html %]" rel="prettyPhoto[gal_root]">
-			<img src="[% c.uri_for("/media/$item.id/thumbnail") | html %]" alt="[% item.title | html %]"/>
-		</a>
-	</li>
-	[% item = media.next %]
-	[% END %]
+<div id="fp_gallery" class="fp_gallery">
+	<img src="[% c.uri_for("/media/$media.first.id/thumbnail") | html %]" alt="" class="fp_preview" style="display:none;"/>
+	<div class="fp_overlay"></div>
+	<div id="fp_loading" class="fp_loading"></div>
+	<div id="fp_next" class="fp_next"></div>
+	<div id="fp_prev" class="fp_prev"></div>
+	<div id="outer_container">
+		<div id="thumbScroller">
+			<div class="container">
+				[% WHILE (item = media.next) %]
+				<div class="content">
+					<div>
+						<a href="#">
+							<img class="thumb" src="[% c.uri_for("/media/$item.id/thumbnail") | html %]" alt="[% c.uri_for("/media/$item.id/generate") | html %]"/>
+						</a>
+					</div>
+				</div>
+				[% END %]
+			</div>
+		</div>
 	</div>
-	[% END %]
-</ul>
-<div class="navigation">
-	<a href="#" class="prev">Previous</a>
-	<a href="#" class="next">Next</a>
-</div> <!-- END NAVIGATION -->
+</div>
 [% ELSE %]
 <p>No media yet!</p>
 [% END %]

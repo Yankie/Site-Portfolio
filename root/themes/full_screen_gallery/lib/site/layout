@@ -13,10 +13,12 @@
 [% IF validation %]
 <div class="message validation">[% validation | html %]</div>
 [% END %]
-<div id="header">
-[% PROCESS site/header %]
-</div>
-<div id="navigation">
-	[% PROCESS site/navigation %]
-</div> <!-- END RIGHT CONTENT -->
-[% content %]
+<div id="wrapper">
+	<div id="header">
+	[% PROCESS site/header %]
+	</div>
+	<div id="navigation">
+		[% PROCESS site/navigation %]
+	</div> <!-- END RIGHT CONTENT -->
+	[% content %]
+<div>

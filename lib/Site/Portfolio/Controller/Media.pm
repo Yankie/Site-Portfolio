@@ -203,7 +203,7 @@ sub generate_thumbnail : Chained('get_media') PathPart('thumbnail') Args(0) {
 	my $out;
 
 	$img->read( fh => $data ) or die $img->errstr;
-	$img = $img->scale( xpixels => $size, ypixels => $size, type=>'max', qtype => 'mixing' )->crop(width=>$size, height=>$size);
+	$img = $img->scale( xpixels => $size, ypixels => $size, type=>'max', qtype => 'mixing' ); #->crop(width=>$size, height=>$size);
 	
 	$img->write(
 		type => $mimeinfo->{ $media->mime },

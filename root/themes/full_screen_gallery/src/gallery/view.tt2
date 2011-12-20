@@ -1,5 +1,5 @@
-[% META title = 'View Gallery' %]
-<div id="right">
+[% META title = 'Kristina Koleso Photo Portfolio' %]
+<div id="gallery_info">
 <h1>[% gallery.title | html %]</h1>
 <p>[% gallery.description | html %]</p>
 </div>
@@ -17,7 +17,7 @@
 				<div class="content">
 					<div>
 						<a href="#">
-							<img class="thumb" src="[% c.uri_for("/media/$item.id/thumbnail") | html %]" alt="[% c.uri_for("/media/$item.id/slideshow") | html %]"/>
+							<img class="thumb" src="[% c.uri_for("/media/$item.id/thumbnail") | html %]" alt="[% c.uri_for("/media/$item.id/generate") | html %]"/>
 						</a>
 					</div>
 				</div>

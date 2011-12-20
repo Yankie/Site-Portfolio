@@ -50,6 +50,7 @@ sub view : Local {
 	$c->stash->{per_page} = 12;
 	$c->stash->{gallery} = $gallery;
 	$c->stash->{media} = $gallery->media;
+	$c->stash->{title} = $gallery->title;
 }
 
 =head2 add
