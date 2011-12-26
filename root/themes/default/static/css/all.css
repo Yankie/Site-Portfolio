@@ -451,7 +451,7 @@ a:hover {text-decoration:none; color: #0285da;}
 /*-------*/
 #right form {
 	width: 700px;
-	overflow: hidden;
+/* 	overflow: hidden; */
 	padding-top: 2px;
 	margin: 0 25px;
 }
@@ -490,8 +490,18 @@ a:hover {text-decoration:none; color: #0285da;}
 #right input:focus, textarea:focus {
 	outline: 1px solid #0285da;
 }
-
-.message {
+#right form span.error_message {
+	position: relative;
+	display: block;
+	color: red;
+	top: 2px;
+	right: 10px;
+	float: right;
+}
+#right form div.error {
+	border: 1px solid red;
+}
+#message div.message {
 	position: fixed;
 	z-index: 10;
 	top: -50px;
@@ -514,24 +524,24 @@ a:hover {text-decoration:none; color: #0285da;}
 /* 	border-radius: 12px; */
 }
 
-.info {
+#message div.info {
 	color: #00529B;
 	background: #BDE5F8 url('../images/message-information.png') no-repeat 10px center;
 }
-.success {
+#message div.success {
 	color: #4F8A10;
 	background: #DFF2BF url('../images/message-succes.png') no-repeat 10px center;
 }
-.warning {
+#message div.warning {
 	color: #9F6000;
 	background: #FEEFB3 url('../images/message-warning.png') no-repeat 10px center;
 }
-.error {
+#message div.error {
 	color: #D8000C;
 	background: #FFBABA url('../images/message-error.png') no-repeat 10px center;
 }
 
-.validation {
+#message div.validation {
 	color: #D63301;
 	background: #FFCCBA url('../images/message-validation.png') no-repeat 10px center;
 }

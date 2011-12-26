@@ -24,6 +24,8 @@ use Catalyst qw/
 	Session
 	Session::State::Cookie
 	Session::Store::FastMmap
+	Authentication
+	Authorization::Roles
 /;
 
 extends 'Catalyst';
@@ -56,12 +58,35 @@ __PACKAGE__->config(
 	enable_catalyst_header => 1,
 );
 
+__PACKAGE__->config( 'Plugin::Authentication' =>
+{
+	default => {
+		credential => {
+			class => 'Password',
+			password_field => 'password',
+			password_type => 'clear'
+		},
+		store => {
+			class => 'Minimal',
+			users => {
+				admin => {
+					password => "123",
+					 editor => 'yes',
+					 roles => [qw/admin create edit delete/],
+				},
+			}
+		}
+	}
+}
+);
 
 # Start the application
 __PACKAGE__->setup();
 
 ## Apply theme paths
 __PACKAGE__->config->{static}->{include_path} = [__PACKAGE__->config->{root}, __PACKAGE__->path_to('root','themes',__PACKAGE__->config->{theme} )];
+
+
 =head1 NAME
 
 Site::Portfolio - Catalyst based application

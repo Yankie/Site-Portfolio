@@ -76,7 +76,7 @@ sub add : Local FormConfig('media/add.yml') {
 	
 	## Check Authorization 
 	if ( $c->can('check_user_roles') && !$c->check_user_roles('admin') ) {
-		$c->flash->{error} = "You don't have the proper permissions to add photos here";
+		$c->flash->{error} = "You don't have proper permissions to add photos here";
 		$c->response->redirect( $c->uri_for_action('/media') );
 	}
 	# we're adding a new media to gallery or outside all galleries
@@ -134,7 +134,7 @@ sub edit : Local FormConfig('media/edit.yml') {
 	if ( $c->can('check_user_roles') && !$c->check_user_roles('admin') ) {
 
 		$c->flash->{error} =
-		"You don't have the proper permissions to add photos here";
+		"You don't have proper permissions to add photos here";
 		$c->response->redirect( 'media' );
 
 	}
@@ -195,23 +195,25 @@ sub get_media : Chained('/') PathPart('media') CaptureArgs(1) {
 =cut
 
 sub generate_thumbnail : Chained('get_media') PathPart('thumbnail') Args(0) {
-	my ( $self, $c ) = @_;
+	my ( $self, $c, $type ) = @_;
 	my $media = $c->stash->{media};
 	my $size  = $c->config->{thumbnail_size} || 50;
 	my $data = $media->path->open('r') or die "Error: $!";
 	my $img = Imager->new;
+	my $mime = MIME::Types->new;
 	my $out;
+	$type = $mime->mimeTypeOf( $type || 'jpeg') || 'image/jpeg';
 
 	$img->read( fh => $data ) or die $img->errstr;
 	$img = $img->scale( xpixels => $size, ypixels => $size, type=>'max', qtype => 'mixing' ); #->crop(width=>$size, height=>$size);
 	
 	$img->write(
-		type => $mimeinfo->{ $media->mime },
+		type => $mimeinfo->{ $type },
 		data => \$out
 	) or die $img->errstr;
-	$c->res->content_type( $media->mime );
+	$c->res->content_type( $type );
 	$c->res->content_length( -s $out );
-	$c->res->header( "Content-Disposition" => "inline; filename=" . $mimeinfo->{ $media->mime } );
+	$c->res->header( "Content-Disposition" => "inline; filename=" . $type );
 
 	binmode $out;
 	$c->res->body($out);
@@ -223,25 +225,32 @@ sub generate_thumbnail : Chained('get_media') PathPart('thumbnail') Args(0) {
   an image full-size
 
 =cut
+sub view_media : Chained('get_media') PathPart('generate') Args(0){
+	my ($self, $c) = @_;
+	$c->go('view_media_type', undef);
+}
 
-sub view_media : Chained('get_media') PathPart('generate') Args(0) {
-	my ( $self, $c ) = @_;
+sub view_media_type : Chained('get_media') PathPart('generate') Args(1) {
+	my ( $self, $c, $type ) = @_;
 	my $media = $c->stash->{media};
 	my $size  = $c->config->{view_size} || 300;
 	my $data = $media->path->open('r') or die "Error: $!";
+	my $mime = MIME::Types->new;
 	my $img = Imager->new;
 	my $out;
+	$type = $mime->mimeTypeOf( $type || 'jpeg') || 'image/jpeg';
+
+	$c->log->debug("Image type requested: $type");
 
 	$img->read( fh => $data ) or die $img->errstr;
 	$img = $img->scale( xpixels => $size, ypixels => $size, type=>'min', qtype => 'mixing' );
 	$img->write(
-		type => $mimeinfo->{ $media->mime },
+		type => $mimeinfo->{ $type },
 		data => \$out
 	) or die $img->errstr;
-	
-	$c->res->content_type( $media->mime );
+	$c->res->content_type(  $type  );
 	$c->res->content_length( -s $out );
-	$c->res->header( "Content-Disposition" => "inline; filename=" . $mimeinfo->{ $media->mime } );
+	$c->res->header( "Content-Disposition" => "inline; filename=" . $type );
 
 	binmode $out;
 	$c->res->body($out);
@@ -255,24 +264,27 @@ sub view_media : Chained('get_media') PathPart('generate') Args(0) {
 =cut
 
 sub preview_media : Chained('get_media') PathPart('slideshow') Args(0) {
-	my ( $self, $c ) = @_;
+	my ( $self, $c, $type) = @_;
 	my $media = $c->stash->{media};
 	my $xsize  = $c->config->{slideshow_width} || 719;
 	my $ysize  = $c->config->{slideshow_height} || 442;
 	my $data = $media->path->open('r') or die "Error: $!";
+	my $mime = MIME::Types->new;
 	my $img = Imager->new;
 	my $out;
+	$type = $mime->mimeTypeOf( $type || 'jpeg') || 'image/jpeg';
 
 	$img->read( fh => $data ) or die $img->errstr;
 	$img = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'mixing' )->crop(width=>$xsize, height=>$ysize);
 	$img->write(
-		type => $mimeinfo->{ $media->mime },
+		type => $mimeinfo->{ $type },
 		data => \$out
 	) or die $img->errstr;
 
-	$c->res->content_type( $media->mime );
+# 	$c->res->content_type( $media->mime );
+	$c->res->content_type( $type );
 	$c->res->content_length( -s $out );
-	$c->res->header( "Content-Disposition" => "inline; filename=" . $mimeinfo->{ $media->mime } );
+	$c->res->header( "Content-Disposition" => "inline; filename=" . $type );
 
 	binmode $out;
 	$c->res->body($out);

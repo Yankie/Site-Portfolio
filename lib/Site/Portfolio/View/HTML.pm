@@ -7,6 +7,7 @@ __PACKAGE__->config({
     INCLUDE_PATH => [
         Site::Portfolio->path_to( 'root', 'themes', Site::Portfolio->config->{theme}, 'src' ),
         Site::Portfolio->path_to( 'root', 'themes', Site::Portfolio->config->{theme}, 'lib' ),
+        Site::Portfolio->path_to( 'root', 'themes', 'default', 'src' ),
     ],
     DEFAULT_ENCODING   => 'utf-8',
     TEMPLATE_EXTENSION => '.tt2',

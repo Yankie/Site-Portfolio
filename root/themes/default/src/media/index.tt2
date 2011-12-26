@@ -9,7 +9,7 @@
 	[% WHILE (item) && (count < per_page)  %]
 	[% count = count + 1 %]
 	<li>
-		<a title="[% item.description | html %]" href="[% c.uri_for("/media/$item.id/generate") | html %]" rel="prettyPhoto[gal_root]">
+		<a title="[% item.description | html %]" href="[% c.uri_for("/media/$item.id/generate/jpg") | html %]" rel="prettyPhoto[gal_root]">
 			<img src="[% c.uri_for("/media/$item.id/thumbnail") | html %]" alt="[% item.title | html %]" style="[% item.style %]"/>
 		</a>
 	</li>
