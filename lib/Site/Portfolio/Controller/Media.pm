@@ -184,7 +184,7 @@ sub generate_thumbnail : Chained('get_media') PathPart('thumbnail') Args(0) {
 	my $img = Imager->new;
 	my $mime = MIME::Types->new;
 	my $out;
-	$type = $mime->mimeTypeOf( $type || 'jpeg') || 'image/jpeg';
+	$type = $mime->mimeTypeOf( $type || 'jpg') || 'image/jpeg';
 
 	$img->read( fh => $data ) or die $img->errstr;
 	$img = $img->scale( xpixels => $size, ypixels => $size, type=>'max', qtype => 'mixing' ); #->crop(width=>$size, height=>$size);
@@ -207,7 +207,7 @@ sub generate_thumbnail : Chained('get_media') PathPart('thumbnail') Args(0) {
   an image full-size
 
 =cut
-sub view_media : Chained('get_media') PathPart('generate') Args(0){
+sub view_media_def : Chained('get_media') PathPart('generate') Args(0){
 	my ($self, $c) = @_;
 	$c->go('view_media_type', undef);
 }
@@ -220,7 +220,7 @@ sub view_media_type : Chained('get_media') PathPart('generate') Args(1) {
 	my $mime = MIME::Types->new;
 	my $img = Imager->new;
 	my $out;
-	$type = $mime->mimeTypeOf( $type || 'jpeg') || 'image/jpeg';
+	$type = $mime->mimeTypeOf( $type || 'jpg') || 'image/jpeg';
 
 	$c->log->debug("Image type requested: $type");
 
@@ -254,7 +254,7 @@ sub preview_media : Chained('get_media') PathPart('slideshow') Args(0) {
 	my $mime = MIME::Types->new;
 	my $img = Imager->new;
 	my $out;
-	$type = $mime->mimeTypeOf( $type || 'jpeg') || 'image/jpeg';
+	$type = $mime->mimeTypeOf( $type || 'jpg') || 'image/jpeg';
 
 	$img->read( fh => $data ) or die $img->errstr;
 	$img = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'mixing' )->crop(width=>$xsize, height=>$ysize);

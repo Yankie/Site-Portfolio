@@ -17,7 +17,7 @@
 				<div class="content">
 					<div>
 						<a href="#">
-							<img class="thumb" src="[% c.uri_for("/media/$item.id/thumbnail") | html %]" alt="[% c.uri_for("/media/$item.id/generate") | html %]"/>
+							<img class="thumb" src="[% c.uri_for("/media/$item.id/thumbnail") | html %]" alt="[% c.uri_for("/media/$item.id/generate/jpg") | html %]"/>
 						</a>
 					</div>
 				</div>

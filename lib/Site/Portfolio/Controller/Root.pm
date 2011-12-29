@@ -30,7 +30,7 @@ sub index :Path :Args(0) {
 	my ( $self, $c ) = @_;
 	$c->stash->{media} = $c->model('PortfolioDb::Media');
 	$c->stash->{page_title} = $c->loc( 'page.main.title' );
-# 	$c->stash->{page_message} = $c->loc( 'page.main.message [_1] [_2]', $c->uri_for('/gallery'), $c->uri_for('/blog') );
+	$c->stash->{page_message} = $c->loc( 'page.main.message [_1] [_2]', $c->uri_for('/gallery'), $c->uri_for('/blog') );
 
 
 }

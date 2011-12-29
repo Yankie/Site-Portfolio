@@ -196,7 +196,7 @@ img.clone{
 	position:fixed;
 	top:0px;
 	left:0px;
-	background:transparent url(../images/icons/pattern1.png) repeat-x bottom left;
+	/*background:transparent url(../images/icons/pattern1.png) repeat-x bottom left;*/
 	opacity: 0.3;
 	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=30);
 }
