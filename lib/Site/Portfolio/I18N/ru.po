@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Site-Portfolio\n"
-"POT-Creation-Date: 2011-12-26 10:00+0400\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: 2011-12-28 10:00+0400\n"
 "Last-Translator: Pavel Yefimov <yankie@evilkoala>\n"
 "Language-Team: Russian\n"
@@ -140,9 +140,13 @@ msgstr "Новая запись"
 msgid "ui.error.gallery.no.add.permissions"
 msgstr "Недостаточно прав для создания галереи"
 
+#: lib/Site/Portfolio/Controller/Gallery.pm:126
+msgid "ui.error.gallery.no.delete.permissions"
+msgstr "Недостаточно прав для удаления галереи"
+
 #: lib/Site/Portfolio/Controller/Gallery.pm:87
 msgid "ui.error.gallery.no.edit.permissions"
-msgstr "Редактировать галерею"
+msgstr "Недостаточно прав для редактирования свойств галереи"
 
 #: lib/Site/Portfolio/Controller/Media.pm:129
 #: lib/Site/Portfolio/Controller/Media.pm:162
@@ -261,12 +265,12 @@ msgid "ui.message.gallery.add.success %1"
 msgstr "Галерея %1 успешно создана!"
 
 #. ($gallery->title)
-#: lib/Site/Portfolio/Controller/Gallery.pm:127
+#: lib/Site/Portfolio/Controller/Gallery.pm:133
 msgid "ui.message.gallery.delete.success %1"
 msgstr "Галерея %1 успешно удалена!"
 
 #. ($id)
-#: lib/Site/Portfolio/Controller/Gallery.pm:131
+#: lib/Site/Portfolio/Controller/Gallery.pm:137
 msgid "ui.message.gallery.no %1"
 msgstr "Галерея %1 не существует!"
 

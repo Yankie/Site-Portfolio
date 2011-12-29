@@ -128,6 +128,10 @@ msgstr ""
 msgid "ui.error.gallery.no.add.permissions"
 msgstr ""
 
+#: lib/Site/Portfolio/Controller/Gallery.pm:126
+msgid "ui.error.gallery.no.delete.permissions"
+msgstr ""
+
 #: lib/Site/Portfolio/Controller/Gallery.pm:87
 msgid "ui.error.gallery.no.edit.permissions"
 msgstr ""
@@ -242,12 +246,12 @@ msgid "ui.message.gallery.add.success %1"
 msgstr ""
 
 #. ($gallery->title)
-#: lib/Site/Portfolio/Controller/Gallery.pm:127
+#: lib/Site/Portfolio/Controller/Gallery.pm:133
 msgid "ui.message.gallery.delete.success %1"
 msgstr ""
 
 #. ($id)
-#: lib/Site/Portfolio/Controller/Gallery.pm:131
+#: lib/Site/Portfolio/Controller/Gallery.pm:137
 msgid "ui.message.gallery.no %1"
 msgstr ""
 

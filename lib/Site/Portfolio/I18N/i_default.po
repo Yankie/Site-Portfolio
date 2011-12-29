@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Site-Portfolio\n"
-"POT-Creation-Date: 2011-12-26 10:00+0400\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: 2011-12-28 10:00+0400\n"
 "Last-Translator: Pavel Yefimov <yankie@evilkoala>\n"
 "Language-Team: English\n"
@@ -137,6 +137,10 @@ msgstr "Add a new article"
 msgid "ui.error.gallery.no.add.permissions"
 msgstr "You don't have proper permissions to add to gallery"
 
+#: lib/Site/Portfolio/Controller/Gallery.pm:126
+msgid "ui.error.gallery.no.delete.permissions"
+msgstr "You don't have proper permissions to delete gallery"
+
 #: lib/Site/Portfolio/Controller/Gallery.pm:87
 msgid "ui.error.gallery.no.edit.permissions"
 msgstr "You don't have proper permissions to edit gallery"
@@ -258,12 +262,12 @@ msgid "ui.message.gallery.add.success %1"
 msgstr "New Gallery %1 added successfully!"
 
 #. ($gallery->title)
-#: lib/Site/Portfolio/Controller/Gallery.pm:127
+#: lib/Site/Portfolio/Controller/Gallery.pm:133
 msgid "ui.message.gallery.delete.success %1"
 msgstr "Gallery %1 deleted successfully!"
 
 #. ($id)
-#: lib/Site/Portfolio/Controller/Gallery.pm:131
+#: lib/Site/Portfolio/Controller/Gallery.pm:137
 msgid "ui.message.gallery.no %1"
 msgstr "Gallery %1 does not exist!"
 

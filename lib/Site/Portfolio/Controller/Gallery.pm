@@ -121,14 +121,21 @@ sub edit : Local : FormConfig('gallery/edit.yml') {
 
 sub delete : Local {
 	my ($self, $c, $id) = @_;
-	my $gallery = $c->model('PortfolioDb::Gallery')->find({id => $id});
-	$c->stash->{gallery} = $gallery;
-	if($gallery){
-		$c->flash->{success} = $c->loc('ui.message.gallery.delete.success [_1]', $gallery->title);
-		$gallery->delete;
+
+	if ( $c->can('check_user_roles') && !$c->check_user_roles("admin") ) {
+		$c->flash->{error} =  $c->loc('ui.error.gallery.no.delete.permissions'); #"You don't have proper permissions to delete images.";
 	}
 	else {
-		$c->flash->{error} = $c->loc('ui.message.gallery.no [_1]', $id ); #"No such gallery - $id";
+
+		my $gallery = $c->model('PortfolioDb::Gallery')->find({id => $id});
+		$c->stash->{gallery} = $gallery;
+		if($gallery){
+			$c->flash->{success} = $c->loc('ui.message.gallery.delete.success [_1]', $gallery->title);
+			$gallery->delete;
+		}
+		else {
+			$c->flash->{error} = $c->loc('ui.message.gallery.no [_1]', $id ); #"No such gallery - $id";
+		}
 	}
 	$c->response->redirect($c->uri_for_action('gallery/list'));
 	$c->detach();
