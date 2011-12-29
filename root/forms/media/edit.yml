@@ -1,23 +1,24 @@
 ---
+
 indicator: submit
+
+constraints:
+  - SingleValue
+
+filters:
+  - HTMLScrubber
 
 elements:
   - type: Text
     name: title
-    label: Name
+    label_loc: ui.form.label.title
     container_tag: div
 
   - type: Textarea
     name: description
-    label: Description
+    label_loc: ui.form.label.description
     container_tag: div
 
   - type: Submit
     name: submit
-    value: Update!
-
-constraints:
-  SingleValue
-
-filters:
-  HTMLScrubber
+    value_loc: ui.form.label.update

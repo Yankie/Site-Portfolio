@@ -1,8 +1,5 @@
-[% META title = 'Add/Edit Gallery Properties' %]
-<h1>[% gallery.title | html %]</h1>
-<!-- <p>[% gallery.description | html %]</p> -->
+<h1>[% page_title | html %]</h1>
+[% page_message %]
 [% UNLESS form.submitted_and_valid %]
 	[% form %]
-[% ELSE %]
-	<p>Success!</p>
 [% END %]

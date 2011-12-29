@@ -1,6 +1,5 @@
-[% META title = 'View Gallery' %]
-<h1>[% gallery.title | html %]</h1>
-<p>[% gallery.description | html %]</p>
+<h1>[% page_title | html %]</h1>
+<!--<p>[% gallery.description | html %]</p> -->
 [% IF media.count > 0 %]
 <ul class="thumbnails">
 	[% SET item = media.next %]
@@ -10,9 +9,17 @@
 	[% WHILE (item) && (count < per_page)  %]
 	[% count = count + 1 %]
 	<li>
+		[% IF c.can('check_user_roles') && c.check_user_roles( 'admin' ) %]
+		<div style="padding: 5px;width: 150px; position: absolute;">
+		<!-- <a href="[% #c.uri_for_action('/media/add',item.gid) | html %]">Add media</a> -->
+		<a class="manage" href="[% c.uri_for("/media/$item.id/edit") | html %]">[% c.loc("ui.media.link.edit") %]</a>
+		<a class="manage" href="[% c.uri_for("/media/$item.id/delete") | html %]">[% c.loc("ui.media.link.delete") %]</a>
+		</div>
+		[% END %]
 		<a title="[% item.description | html %]" href="[% c.uri_for("/media/$item.id/generate/jpg") | html %]" rel="prettyPhoto[gal_[% gallery.id %]]">
 			<img src="[% c.uri_for("/media/$item.id/thumbnail") | html %]" alt="[% item.title | html %]"/>
 		</a>
+
 	</li>
 	[% item = media.next %]
 	[% END %]
@@ -24,11 +31,11 @@
 	<a href="#" class="next">Next</a>
 </div> <!-- END NAVIGATION -->
 [% ELSE %]
-<p>No media yet!</p>
+<p>[% c.loc('page.gallery.list.no.media') | html %]</p>
 [% END %]
 [% IF c.can('check_user_roles') && c.check_user_roles( 'admin' ) %]
 <hr/>
 <p>
-	<a href="[% c.uri_for_action('/media/add', gallery.id) | html %]">Add a media to this gallery...</a>
+	<a href="[% c.uri_for_action('/media/add', gallery.id) | html %]">[% c.loc('page.gallery.link.add.media') | html %]</a>
 </p>
 [% END %]

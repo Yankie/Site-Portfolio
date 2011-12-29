@@ -1,23 +1,23 @@
 ---
-action: /login
+# action: /login
 indicator: submit
-auto_fieldset: 1
+
+constraints:
+  - SingleValue
 
 elements:
   - type: Text
-    label: Login
+    label_loc: ui.form.label.login
     name: username
     constraints:
         - Required
 
   - type: Password
     name: password
-    label: Password
+    label_loc: ui.form.label.password
     constraints:
         - Required
 
   - type: Submit
     name: submit
 
-constraints:
-  - SingleValue

@@ -5,8 +5,8 @@
 	[% IF c.can('check_user_roles') && c.check_user_roles( 'admin' ) %]
 	<p>
 		<!-- <a href="[% #c.uri_for_action('/media/add',gallery.id) | html %]">Add media</a> -->
-		<a href="[% c.uri_for_action('/gallery/edit',gallery.id) | html %]">Edit Gallery</a>
-		<a href="[% c.uri_for_action('/gallery/delete',gallery.id) | html %]">Delete Gallery</a>
+		<a href="[% c.uri_for_action('/gallery/edit',gallery.id) | html %]">[% c.loc("ui.gallery.link.edit") %]</a>
+		<a href="[% c.uri_for_action('/gallery/delete',gallery.id) | html %]">[% c.loc("ui.gallery.link.delete") %]</a>
 	</p>
 	[% END %] <!-- END if admin -->
 	</a>

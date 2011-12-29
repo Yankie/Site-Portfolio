@@ -32,17 +32,19 @@ sub access_denied : Private {
 sub login : Global FormConfig {
 	my ($self, $c) = @_;
 	my $form = $c->stash->{form};
+	$c->stash->{page_title} = $c->loc( 'ui.menu.link.admin' );
+	
 	return unless $form->submitted_and_valid;
 	if ($c->authenticate({
 			username => $form->param_value('username'),
 			password => $form->param_value('password'),
 		})) 	{
-		$c->flash->{success} = 'Logged in successfully.';
+		$c->flash->{success} = $c->loc('ui.message.login.success');
 		$c->res->redirect($c->uri_for('/'));
 		$c->detach();
 	}
 	else {
-		$c->flash->{error} = 'Login failed.';
+		$c->flash->{error} = $c->loc('ui.message.login.fail');
 		$c->res->redirect($c->uri_for('/'));
 		$c->detach();
 	}
@@ -55,7 +57,7 @@ sub login : Global FormConfig {
 sub logout : Global {
 	my ($self, $c) = @_;
 	$c->logout;
-	$c->flash->{success} = 'Logged out.';
+	$c->flash->{success} = $c->loc('ui.message.logout');
 	$c->res->redirect($c->uri_for('/'));
 }
 

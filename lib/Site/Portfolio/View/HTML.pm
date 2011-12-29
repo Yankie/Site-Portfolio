@@ -16,8 +16,17 @@ __PACKAGE__->config({
     ERROR              => 'error.tt2',
     TIMER              => 0,
     render_die         => 1,
+    ENCODING           => "UTF-8",
 });
 
+use Template::Filters;
+$Template::Filters::FILTERS->{escape_js_string} = \&escape_js_string;
+sub escape_js_string {
+  my $s = shift;
+  $s =~ s/(\\|'|"|\/)/\\$1/g;
+  return $s;
+}
+1;
 
 =head1 NAME
 

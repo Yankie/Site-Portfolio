@@ -25,7 +25,8 @@ Catalyst Controller.
 sub index :Path :Args(0) {
 	my ( $self, $c ) = @_;
 
-#     $c->stash->{message} = 'Matched Site::Portfolio::Controller::Gallery in Gallery.';
+    $c->stash->{page_title} = $c->loc('page.gallery.title');
+    $c->stash->{page_message} = $c->loc('page.gallery.message');
 	$c->go('list', []);
 }
 
@@ -37,6 +38,9 @@ sub index :Path :Args(0) {
 sub list : Local {
 	my ($self, $c) = @_;
 	my $galleries = $c->model('PortfolioDb::Gallery');
+
+	$c->stash->{page_title} = $c->loc('page.gallery.list.title');
+	$c->stash->{page_message} = $c->loc('page.gallery.list.message');
 	$c->stash->{galleries} = $galleries;
 }
 
@@ -47,10 +51,12 @@ sub list : Local {
 sub view : Local {
 	my ($self, $c, $id) = @_;
 	my $gallery = $c->model('PortfolioDb::Gallery')->find({id => $id});
+
 	$c->stash->{per_page} = 12;
 	$c->stash->{gallery} = $gallery;
 	$c->stash->{media} = $gallery->media;
-	$c->stash->{title} = $gallery->title;
+	$c->stash->{page_title} = $c->loc('page.gallery.view.title [_1]', $gallery->title);
+	$c->stash->{page_message} = $c->loc('page.gallery.view.title [_1]', $gallery->title);
 }
 
 =head2 add
@@ -59,6 +65,13 @@ sub view : Local {
 
 sub add : Local FormConfig('gallery/edit.yml') {
 	my ($self, $c) = @_;
+
+	## Check Authorization
+	if ( $c->can('check_user_roles') && !$c->check_user_roles('admin') ) {
+		$c->flash->{error} = $c->loc('ui.error.gallery.no.add.permissions'); #"You don't have proper permissions to add photos here";
+		$c->response->redirect( $c->uri_for_action('/gallery/list') );
+		$c->detach();
+	}
 	$c->go('edit', []);
 }
 
@@ -68,6 +81,13 @@ sub add : Local FormConfig('gallery/edit.yml') {
 
 sub edit : Local : FormConfig('gallery/edit.yml') {
 	my ($self, $c, $id) = @_;
+
+	## Check Authorization
+	if ( $c->can('check_user_roles') && !$c->check_user_roles('admin') ) {
+		$c->flash->{error} = $c->loc('ui.error.gallery.no.edit.permissions'); #"You don't have proper permissions to add photos here";
+		$c->response->redirect( $c->uri_for_action(($id ? '/gallery/view' : '/gallery/list'), $id) );
+		$c->detach();
+	}
 	my $form = $c->stash->{form};
 	my $gallery = $c->model('PortfolioDb::Gallery')->find_or_new({id => $id});
 	$c->stash->{gallery} = $gallery;
@@ -76,7 +96,7 @@ sub edit : Local : FormConfig('gallery/edit.yml') {
 		$gallery->title($form->param_value('title'));
 		$gallery->description($form->param_value( 'description'));
 		$gallery->update_or_insert;
-		$c->flash->{success} =  ($id > 0 ? 'Updated ' : 'Added ') . $gallery->title;
+		$c->flash->{success} =  ($id > 0 ? $c->loc( 'ui.message.gallery.update.success [_1]', $gallery->title) : $c->loc( 'ui.message.gallery.add.success [_1]', $gallery->title));
 		$c->response->redirect($c->uri_for_action('gallery/list'));
 		$c->detach();
 
@@ -84,7 +104,12 @@ sub edit : Local : FormConfig('gallery/edit.yml') {
 	else {
 		# first time through, or invalid form
 		if(!$id){
-			$c->stash->{title} = 'Adding a new gallery';
+			$c->stash->{page_title} = $c->loc('page.gallery.add.title');
+			$c->stash->{page_message} = $c->loc('page.gallery.add.message');
+		}
+		else {
+			$c->stash->{page_title} = $c->loc('page.gallery.edit.title [_1]', $gallery->title);
+			$c->stash->{page_message} = $c->loc('page.gallery.edit.message [_1]', $gallery->title);
 		}
 		$form->default_values({'title'  => $gallery->title, 'description' => $gallery->description});
 	}
@@ -99,11 +124,11 @@ sub delete : Local {
 	my $gallery = $c->model('PortfolioDb::Gallery')->find({id => $id});
 	$c->stash->{gallery} = $gallery;
 	if($gallery){
-		$c->flash->{success} = 'Deleted '. $gallery->title;
+		$c->flash->{success} = $c->loc('ui.message.gallery.delete.success [_1]', $gallery->title);
 		$gallery->delete;
 	}
 	else {
-		$c->flash->{error} = "No such gallery - $id";
+		$c->flash->{error} = $c->loc('ui.message.gallery.no [_1]', $id ); #"No such gallery - $id";
 	}
 	$c->response->redirect($c->uri_for_action('gallery/list'));
 	$c->detach();

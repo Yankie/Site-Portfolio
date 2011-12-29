@@ -1,20 +1,27 @@
-[% META title = 'All media' %]
-<h1>[% title | html %]</h1>
+<h1>[% page_title | html %]</h1>
+[% # page_message %]
 [% IF media.count > 0 %]
 <ul class="thumbnails">
 	[% SET item = media.next %]
 	[% WHILE (item) %]
 	<div style="width: 720px;">
-	[% SET count = 0 %]
-	[% WHILE (item) && (count < per_page)  %]
-	[% count = count + 1 %]
-	<li>
-		<a title="[% item.description | html %]" href="[% c.uri_for("/media/$item.id/generate/jpg") | html %]" rel="prettyPhoto[gal_root]">
-			<img src="[% c.uri_for("/media/$item.id/thumbnail") | html %]" alt="[% item.title | html %]" style="[% item.style %]"/>
-		</a>
-	</li>
-	[% item = media.next %]
-	[% END %]
+		[% SET count = 0 %]
+		[% WHILE (item) && (count < per_page)  %]
+		[% count = count + 1 %]
+		<li>
+			[% IF c.can('check_user_roles') && c.check_user_roles( 'admin' ) %]
+			<div style="padding: 5px;width: 150px; position: absolute;">
+			<!-- <a href="[% #c.uri_for_action('/media/add',item.gid) | html %]">Add media</a> -->
+			<a class="manage" href="[% c.uri_for("/media/$item.id/edit") | html %]">[% c.loc("ui.media.link.edit") %]</a>
+			<a class="manage" href="[% c.uri_for("/media/$item.id/delete") | html %]">[% c.loc("ui.media.link.delete") %]</a>
+			</div>
+			[% END %]
+			<a title="[% item.description | html %]" href="[% c.uri_for("/media/$item.id/generate/jpg") | html %]" rel="prettyPhoto[gal_root]">
+				<img src="[% c.uri_for("/media/$item.id/thumbnail") | html %]" alt="[% item.title | html %]" style="[% item.style %]"/>
+			</a>
+		</li>
+		[% item = media.next %]
+		[% END %]
 	</div>
 	[% END %]
 </ul>
@@ -28,6 +35,6 @@
 [% IF c.can('check_user_roles') && c.check_user_roles( 'admin' ) %]
 <hr/>
 <p>
-	<a href="[% c.uri_for_action('/media/add') | html %]">Add a media to root gallery...</a>
+	<a href="[% c.uri_for_action('/media/add') | html %]">[% c.loc('page.gallery.add.media') | html %]</a>
 </p>
 [% END %]

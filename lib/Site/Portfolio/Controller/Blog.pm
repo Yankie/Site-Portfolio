@@ -22,8 +22,8 @@ Catalyst Controller.
 =cut
 
 sub index :Path :Args(0) {
-    my ( $self, $c ) = @_;
-
+	my ( $self, $c ) = @_;
+	$c->stash->{page_title} = $c->loc( 'page.blog.title');
 }
 
 

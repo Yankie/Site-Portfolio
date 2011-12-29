@@ -1,8 +1,5 @@
-[% META title = "Kristina Koleso Photo Portfolio" %]
-
-<h1>Welcome to my Portfolio!</h1>
-<p>Feel free to browse <a href="[% c.uri_for('/gallery') %]">gallery</a> and read my <a href="[% c.uri_for('/blog') %]">blog</a></p>
-<p>Have a nice stay!</p>
+<h1>[% c.loc( 'page.main.title') %]</h1>
+[% c.loc( 'page.main.message [_1] [_2]', c.uri_for('/gallery'), c.uri_for('/blog')) %]
 [% IF media.count > 0 %]
 <div id="gallery-holder">
 	<ul class="slideshow">

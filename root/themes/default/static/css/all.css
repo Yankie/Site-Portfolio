@@ -325,6 +325,7 @@ a:hover {text-decoration:none; color: #0285da;}
 	float: left;
 	margin: 0 21px 18px 0;
 	border: 1px solid #eaeaea;
+	width: 153px;
 }
 
 #right .thumbnails li a {
@@ -335,6 +336,15 @@ a:hover {text-decoration:none; color: #0285da;}
 	overflow: hidden;
 	height: 150px;
 	width: 150px;
+}
+#right li a.manage  {
+	border: 0px;
+	padding: 0px;
+	margin: 0px;
+	background: #FFFFFF;
+	display: inline;
+/* 	width: 150px; */
+	height: 10px;
 }
 
 #right .navigation {

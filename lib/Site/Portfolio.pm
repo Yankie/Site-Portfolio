@@ -26,6 +26,7 @@ use Catalyst qw/
 	Session::Store::FastMmap
 	Authentication
 	Authorization::Roles
+	I18N
 /;
 
 extends 'Catalyst';
@@ -56,36 +57,41 @@ __PACKAGE__->config(
 	disable_component_resolution_regex_fallback => 1,
 	# Send X-Catalyst header
 	enable_catalyst_header => 1,
-);
-
-__PACKAGE__->config( 'Plugin::Authentication' =>
-{
-	default => {
-		credential => {
-			class => 'Password',
-			password_field => 'password',
-			password_type => 'clear'
-		},
-		store => {
-			class => 'Minimal',
-			users => {
-				admin => {
-					password => "123",
-					 editor => 'yes',
-					 roles => [qw/admin create edit delete/],
-				},
+	'Plugin::Authentication' => {
+		default => {
+			credential => {
+				class => 'Password',
+				password_field => 'password',
+				password_type => 'clear'
+			},
+			store => {
+				class => 'Minimal',
+				users => {
+					admin => {
+						password => "123",
+						editor => 'yes',
+						roles => [qw/admin create edit delete/],
+					},
+				}
 			}
 		}
-	}
-}
+	},
+	'Controller::HTML::FormFu' => {
+		constructor     => {
+# 			localize_class      => 'Site::Portfolio::I18N',
+# 			localize_class      => 'Catalyst::Plugin::I18N',
+		},
+		languages_from_context  => 1,
+		localize_from_context   => 1,
+	},
 );
+
 
 # Start the application
 __PACKAGE__->setup();
 
 ## Apply theme paths
 __PACKAGE__->config->{static}->{include_path} = [__PACKAGE__->config->{root}, __PACKAGE__->path_to('root','themes',__PACKAGE__->config->{theme} )];
-
 
 =head1 NAME
 

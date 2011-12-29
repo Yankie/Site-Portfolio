@@ -1,5 +1,2 @@
-[% META title = "Kristina Koleso Contacts" %]
-
-<h1>Contacts</h1>
-<p>Feel free to contact me via creditenials below</p>
-<p>Have a nice stay!</p>
+<h1>[% page_title %]</h1>
+[% c.loc("page.contact.message") %]

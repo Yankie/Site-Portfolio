@@ -1,7 +1,4 @@
-[% META title = 'Admin Login' %]
-<h1>[% title | html %]</h1>
+<h1>[% c.loc("ui.menu.link.admin") | html %]</h1>
 [% UNLESS form.submitted_and_valid %]
 	[% form %]
-[% ELSE %]
-	<p>Success!</p>
 [% END %]

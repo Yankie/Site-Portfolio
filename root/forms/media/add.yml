@@ -1,28 +1,30 @@
 ---
+
 indicator: submit
+
+constraints:
+  - SingleValue
+
+filters:
+  - HTMLScrubber
 
 elements:
   - type: Text
     name: title
-    label: Name
+    label_loc: ui.form.label.name
     container_tag: div
 
   - type: File
     name: media
-    label: File
+    label_loc: ui.form.label.file
     container_tag: div
 
   - type: Textarea
     name: description
-    label: Description
+    label_loc: ui.form.label.description
     container_tag: div
 
   - type: Submit
     name: submit
-    value: Upload!
+    value_loc: ui.form.label.upload
 
-constraints:
-  SingleValue
-
-filters:
-  HTMLScrubber

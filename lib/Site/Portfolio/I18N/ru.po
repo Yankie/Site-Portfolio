@@ -1,0 +1,316 @@
+# Russian translations for PACKAGE package.
+# Copyright (C) 2011 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Pavel Yefimov <yankie@evilkoala>, 2011.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Site-Portfolio\n"
+"POT-Creation-Date: 2011-12-26 10:00+0400\n"
+"PO-Revision-Date: 2011-12-28 10:00+0400\n"
+"Last-Translator: Pavel Yefimov <yankie@evilkoala>\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: root/themes/default/src/blog/index.tt2:9
+msgid "page.blog.message"
+msgstr ""
+"<p>Здесь иногда появляются мои мысли, статьи и просто заметки...</p>\n"
+"<p>Увлекательного чтения!</p>"
+
+#: lib/Site/Portfolio/Controller/Blog.pm:26
+msgid "page.blog.title"
+msgstr "Блог"
+
+#: root/themes/default/src/contact.tt2:2
+msgid "page.contact.message"
+msgstr ""
+"<p>Со мной можно связаться по данным контактам или отправить мне сообщение "
+"через форму ниже</p>"
+
+#: root/themes/default/src/media/index.tt2:38
+msgid "page.gallery.add.media"
+msgstr "Добавить в эту галерею..."
+
+#: lib/Site/Portfolio/Controller/Gallery.pm:108
+msgid "page.gallery.add.message"
+msgstr "<p>Создание новой галереи</p>"
+
+#: lib/Site/Portfolio/Controller/Gallery.pm:107
+msgid "page.gallery.add.title"
+msgstr "Создать галерею"
+
+#. ($gallery->title)
+#: lib/Site/Portfolio/Controller/Gallery.pm:112
+msgid "page.gallery.edit.message %1"
+msgstr "<p>Редактирование свойств галереи %1</p>"
+
+#. ($gallery->title)
+#: lib/Site/Portfolio/Controller/Gallery.pm:111
+msgid "page.gallery.edit.title %1"
+msgstr "Редактировать %1"
+
+#: root/themes/default/src/gallery/view.tt2:39
+msgid "page.gallery.link.add.media"
+msgstr "Добавить в эту галерею..."
+
+#: lib/Site/Portfolio/Controller/Gallery.pm:43
+msgid "page.gallery.list.message"
+msgstr "<p>Здесь представлены мои работы, сгруппированные по галереям</p>"
+
+#: root/themes/default/src/gallery/view.tt2:34
+msgid "page.gallery.list.no.media"
+msgstr "Ничего пока не загружено!"
+
+#: lib/Site/Portfolio/Controller/Gallery.pm:42
+msgid "page.gallery.list.title"
+msgstr "Список галерей"
+
+#: lib/Site/Portfolio/Controller/Gallery.pm:29
+msgid "page.gallery.message"
+msgstr "<p>Здесь представлены мои работы, сгруппированные по галереям</p>"
+
+#: lib/Site/Portfolio/Controller/Gallery.pm:28
+msgid "page.gallery.title"
+msgstr "Галереи"
+
+#. ($gallery->title)
+#: lib/Site/Portfolio/Controller/Gallery.pm:58
+#: lib/Site/Portfolio/Controller/Gallery.pm:59
+msgid "page.gallery.view.title %1"
+msgstr "Галерея %1"
+
+#. ($c->uri_for('/gallery')
+#. (c.uri_for('/gallery')
+#: lib/Site/Portfolio/Controller/Root.pm:33
+#: root/themes/default/src/index.tt2:2
+msgid "page.main.message %1 %2"
+msgstr ""
+"<p>Вы можете просмотреть <a href=\"%1\">галерею</a> и почитать мой <a href="
+"\"%2\">блог</a></p><p>Приятного отдыха!</p>"
+
+#: lib/Site/Portfolio/Controller/Root.pm:32
+#: root/themes/default/src/index.tt2:1
+msgid "page.main.title"
+msgstr "Добро пожаловать!"
+
+#. (($media->gid ? $media->gid->title : 'root')
+#: lib/Site/Portfolio/Controller/Media.pm:108
+msgid "page.media.add.message %1"
+msgstr "<p>Добавление нового произведения в галерею %1</p>"
+
+#. (($media->gid ? $media->gid->title : 'root')
+#: lib/Site/Portfolio/Controller/Media.pm:107
+msgid "page.media.add.title %1"
+msgstr "Добавить в %1"
+
+#. ($media->title, ($media->gid ? $media->gid->title : 'root')
+#: lib/Site/Portfolio/Controller/Media.pm:146
+msgid "page.media.edit.message %1 %2"
+msgstr "<p>Редактирование свойств произведения %1 в галерее %2</p>"
+
+#. ($media->title, ($media->gid ? $media->gid->title : 'root')
+#: lib/Site/Portfolio/Controller/Media.pm:145
+msgid "page.media.edit.title %1 %2"
+msgstr "Изменить %1"
+
+#: lib/Site/Portfolio/Controller/Media.pm:51
+msgid "page.media.message"
+msgstr "<p>Здесь собраны все произведения на сайте</p>"
+
+#: lib/Site/Portfolio/Controller/Media.pm:50
+msgid "page.media.title"
+msgstr "Все произведения"
+
+#: root/themes/default/lib/config/main:15
+msgid "site.title"
+msgstr "Портфолио Кристины"
+
+#: root/themes/default/src/blog/index.tt2:15
+msgid "ui.blog.link.add"
+msgstr "Новая запись"
+
+#: lib/Site/Portfolio/Controller/Gallery.pm:71
+msgid "ui.error.gallery.no.add.permissions"
+msgstr "Недостаточно прав для создания галереи"
+
+#: lib/Site/Portfolio/Controller/Gallery.pm:87
+msgid "ui.error.gallery.no.edit.permissions"
+msgstr "Редактировать галерею"
+
+#: lib/Site/Portfolio/Controller/Media.pm:129
+#: lib/Site/Portfolio/Controller/Media.pm:162
+msgid "ui.error.media.no"
+msgstr "Произведение не найдено"
+
+#: lib/Site/Portfolio/Controller/Media.pm:72
+msgid "ui.error.media.no.add.permissions"
+msgstr "Недостаточно прав для загрузки"
+
+#: lib/Site/Portfolio/Controller/Media.pm:303
+msgid "ui.error.media.no.delete.permissions"
+msgstr "Недостаточно прав для удаления"
+
+#: lib/Site/Portfolio/Controller/Media.pm:120
+msgid "ui.error.media.no.edit.permissions"
+msgstr "Недостаточно прав для редактирования свойств"
+
+#: root/forms/gallery/edit.yml:19 root/forms/media/add.yml:24
+#: root/forms/media/edit.yml:19
+msgid "ui.form.label.description"
+msgstr "Описание"
+
+#: root/forms/media/add.yml:19
+msgid "ui.form.label.file"
+msgstr "Файл"
+
+#: root/forms/auth/login.yml:10
+msgid "ui.form.label.login"
+msgstr "Логин"
+
+#: root/forms/media/add.yml:14
+msgid "ui.form.label.name"
+msgstr "Название"
+
+#: root/forms/gallery/edit.yml:24
+msgid "ui.form.label.ok"
+msgstr "ОК"
+
+#: root/forms/auth/login.yml:17
+msgid "ui.form.label.password"
+msgstr "Пароль"
+
+#: root/forms/gallery/edit.yml:14 root/forms/media/edit.yml:14
+msgid "ui.form.label.title"
+msgstr "Заголовок"
+
+#: root/forms/media/edit.yml:24
+msgid "ui.form.label.update"
+msgstr "Обновить"
+
+#: root/forms/media/add.yml:29
+msgid "ui.form.label.upload"
+msgstr "Загрузить"
+
+#: root/themes/default/src/gallery/list.tt2:16
+msgid "ui.gallery.link.add"
+msgstr "Новая галерея"
+
+#: root/themes/default/src/gallery/gallery_fragment.tt2:9
+msgid "ui.gallery.link.delete"
+msgstr "Удалить галерею"
+
+#: root/themes/default/src/gallery/gallery_fragment.tt2:8
+msgid "ui.gallery.link.edit"
+msgstr "Редактировать галерею"
+
+#: root/themes/default/src/gallery/view.tt2:16
+#: root/themes/default/src/media/index.tt2:16
+msgid "ui.media.link.delete"
+msgstr "Удалить"
+
+#: root/themes/default/src/gallery/view.tt2:15
+#: root/themes/default/src/media/index.tt2:15
+msgid "ui.media.link.edit"
+msgstr "Редактировать"
+
+#: lib/Site/Portfolio/Controller/Auth.pm:35
+#: root/themes/default/lib/site/menu:19
+#: root/themes/default/src/auth/login.tt2:1
+msgid "ui.menu.link.admin"
+msgstr "Админка"
+
+#: root/themes/default/lib/site/menu:3
+msgid "ui.menu.link.blog"
+msgstr "Блог"
+
+#: lib/Site/Portfolio/Controller/Root.pm:63
+#: root/themes/default/lib/site/menu:15
+msgid "ui.menu.link.contacts"
+msgstr "Контакты"
+
+#: root/themes/default/lib/site/menu:6
+msgid "ui.menu.link.galleries"
+msgstr "Галереи"
+
+#: root/themes/default/lib/site/menu:2
+msgid "ui.menu.link.home"
+msgstr "Главная"
+
+#: root/themes/default/lib/site/menu:25
+msgid "ui.menu.link.logout"
+msgstr "Выйти"
+
+#: root/themes/default/lib/site/menu:21
+msgid "ui.menu.link.manage.galleries"
+msgstr "Управление галереями"
+
+#: root/themes/default/lib/site/menu:22
+msgid "ui.menu.link.manage.media"
+msgstr "Управление медиа"
+
+#. ($gallery->title)
+#: lib/Site/Portfolio/Controller/Gallery.pm:99
+msgid "ui.message.gallery.add.success %1"
+msgstr "Галерея %1 успешно создана!"
+
+#. ($gallery->title)
+#: lib/Site/Portfolio/Controller/Gallery.pm:127
+msgid "ui.message.gallery.delete.success %1"
+msgstr "Галерея %1 успешно удалена!"
+
+#. ($id)
+#: lib/Site/Portfolio/Controller/Gallery.pm:131
+msgid "ui.message.gallery.no %1"
+msgstr "Галерея %1 не существует!"
+
+#. ($gallery->title)
+#: lib/Site/Portfolio/Controller/Gallery.pm:99
+msgid "ui.message.gallery.update.success %1"
+msgstr "Галерея %1 успешно обновлена!"
+
+#: lib/Site/Portfolio/Controller/Auth.pm:47
+msgid "ui.message.login.fail"
+msgstr "Попытка входа провалилась!"
+
+#: lib/Site/Portfolio/Controller/Auth.pm:42
+msgid "ui.message.login.success"
+msgstr "Вход выполнен успешно"
+
+#: lib/Site/Portfolio/Controller/Auth.pm:60
+msgid "ui.message.logout"
+msgstr "Выход выполнен успешно"
+
+#. ($media->title, ($gid ? $media->gid->title : 'root')
+#: lib/Site/Portfolio/Controller/Media.pm:99
+msgid "ui.message.media.add.success %1 %2"
+msgstr "Медиа %1 успешно создана в галерее %2!"
+
+#. ($media->title, ($media->gid ? $media->gid->title : 'root')
+#: lib/Site/Portfolio/Controller/Media.pm:308
+msgid "ui.message.media.delete.success %1 %2"
+msgstr "Медиа %1 в галерее %2 успешно удалена!"
+
+#. ($media->title, ($media->gid ? $media->gid->title : 'root')
+#: lib/Site/Portfolio/Controller/Media.pm:138
+msgid "ui.message.media.update.success %1 %2"
+msgstr "Медиа %1 успешно обновлена в галерее %2!"
+
+#: lib/Site/Portfolio/Controller/Media.pm:83
+msgid "ui.warning.media.add.no.gallery"
+msgstr "Галерея не выбрана!"
+
+#: lib/Site/Portfolio/Controller/Media.pm:80
+#: lib/Site/Portfolio/Controller/Media.pm:83
+msgid "ui.warning.media.add.root.gallery"
+msgstr "Загружаю в корневую галерею!"
+
+#: lib/Site/Portfolio/Controller/Media.pm:80
+msgid "ui.warning.media.add.wrong.gallery"
+msgstr "Нет такой галереи!"

@@ -45,20 +45,13 @@ use Data::Dumper;
 sub index :Path :Args(0) {
 	my ( $self, $c ) = @_;
 
-# 	my $page = $c->request->param('page');
-# 	$page = 1 if($page !~ /^\d+$/);
-
-# 	my $media = $c->model('PortfolioDb::Media')->search({}, {rows=>12, page => $page});
 	my $media = $c->model('PortfolioDb::Media');
-# 	$media = $media->page($page);
 
-# 	my $pager = $media->pager;
-
-	$c->stash->{title} = "All media";
+	$c->stash->{page_title} = $c->loc('page.media.title');#"All media";
+	$c->stash->{page_message} = $c->loc('page.media.message');
+	
 	$c->stash->{media} = $media;
 	$c->stash->{per_page} = 12;
-# 	$c->stash->{pager} = $pager;
-	
 }
 
 =head2 add
@@ -76,21 +69,20 @@ sub add : Local FormConfig('media/add.yml') {
 	
 	## Check Authorization 
 	if ( $c->can('check_user_roles') && !$c->check_user_roles('admin') ) {
-		$c->flash->{error} = "You don't have proper permissions to add photos here";
+		$c->flash->{error} = $c->loc('ui.error.media.no.add.permissions'); #"You don't have proper permissions to add photos here";
 		$c->response->redirect( $c->uri_for_action('/media') );
+		$c->detach();
 	}
 	# we're adding a new media to gallery or outside all galleries
 	# check that gallery defined and exists
 	my $gallery = $c->model('PortfolioDb::Gallery')->find({id => $gid});
 	if (!$gid) {
-		$c->flash->{warning} = 'No gallery selected! Uploading to root...';
+		$c->flash->{warning} =$c->loc('ui.warning.media.add.wrong.gallery'). $c->loc('ui.warning.media.add.root.gallery'); #'No gallery selected! Uploading to root...';
 	}
 	elsif (!$gallery) {
-		$c->flash->{warning} = 'No such gallery! Uploading to root...';
+		$c->flash->{warning} = $c->loc('ui.warning.media.add.no.gallery'). $c->loc('ui.warning.media.add.root.gallery'); #'No such gallery! Uploading to root...';
 	}
 	# create the new media
-	
-
 	if ( $form->submitted_and_valid ) {
 	
 		$media = $c->model('PortfolioDb::Media')->create(
@@ -104,61 +96,54 @@ sub add : Local FormConfig('media/add.yml') {
 			}
 		);
 	
-# 		$media->title( $form->param('title'));
-# 		$media->description($form->param('description'));
-# 		$media->uploaded(DateTime->now);
-# 		
-# 		$media->path($c->request->upload('media')->fh);
-# 		$media->mime($mime->mimeTypeOf( $c->request->upload('media')->basename ));
-		
-		$c->flash->{success} =  'Added new ' . $media->title . ' media for ' . ($gid ? $media->gid->title : 'root');
-		$c->response->redirect(($gid ? $c->uri_for_action('gallery/view', $gid) : '/media'));
+		$c->flash->{success} =  $c->loc( 'ui.message.media.add.success [_1] [_2]', $media->title, ($gid ? $media->gid->title : 'root'));
+		$c->response->redirect(($gid ? $c->uri_for_action('gallery/view', $media->gid->id) : '/media'));
 		$c->detach();
 	}
 	else {
 		$media = $c->model('PortfolioDb::Media')->new({gid => $gid});
 		# transfer data from database to form
 		$c->stash->{media} = $media;
-		$c->stash->{title} = 'Adding a new media';
-		$c->stash->{title} .= ' for '. $media->gid->title if $gid;
+		$c->stash->{page_title} = $c->loc('page.media.add.title [_1]', ($media->gid ? $media->gid->title : 'root'));
+		$c->stash->{page_message} = $c->loc('page.media.add.message [_1]', ($media->gid ? $media->gid->title : 'root'));
 		$form->default_values({'title'  => $media->title, 'description' => $media->description});
 	}
 }
 
-sub edit : Local FormConfig('media/edit.yml') {
-	my ($self, $c, $id, $gid) = @_;
+sub edit : Chained("get_media") PathPart('edit') Args(0) FormConfig('media/edit.yml') {
+	my ($self, $c, $id) = @_;
 
  	my $form = $c->stash->{form};
 	
 	## comment out this block if you're not using the Authorization plugin
 	if ( $c->can('check_user_roles') && !$c->check_user_roles('admin') ) {
-
-		$c->flash->{error} =
-		"You don't have proper permissions to add photos here";
-		$c->response->redirect( 'media' );
-
+		$c->flash->{error} = $c->loc('ui.error.media.no.edit.permissions'); #"You don't have proper permissions to edit photos here";
+		$c->response->redirect( 'gallery/list' );
+		$c->detach();
 	}
 
 	my $mime = MIME::Types->new;
-	my $media = $c->model('PortfolioDb::Media')->find({id => $id});
+# 	my $media = $c->model('PortfolioDb::Media')->find({id => $id});
+	my $media = $c->stash->{media};
 	if (!$media) {
-		$c->flash->{error} = 'No such media!';
+		$c->flash->{error} = $c->loc('ui.error.media.no'); #'No such media!';
 		$c->response->redirect( 'media' );
 		$c->detach();
 	}
 
 	if ( $form->submitted_and_valid ) {
-		$media->title( $form->param('title'));
-		$media->description($form->param('description'));
-		$c->flash->{success} =  'Updated ' . $media->title . ' media for ' . ($gid ? $media->gid->title : 'root');
-		$c->response->redirect(($gid ? $c->uri_for_action('gallery/view', $gid) : '/media'));
+		$media->title( $form->param_value('title'));
+		$media->description($form->param_value('description'));
+		$media->update;
+		$c->flash->{success} =  $c->loc( 'ui.message.media.update.success [_1] [_2]', $media->title, ($media->gid ? $media->gid->title : 'root'));
+		$c->response->redirect(($media->gid ? $c->uri_for_action('gallery/view', $media->gid->id) : '/media'));
 		$c->detach();
 	}
 	else {
 		# transfer data from database to form
 		$c->stash->{media} = $media;
-		$c->stash->{title} = 'Updating a media';
-		$c->stash->{title} .= ' for '. $media->gid->title if $gid;
+		$c->stash->{page_title} = $c->loc('page.media.edit.title [_1] [_2]', $media->title, ($media->gid ? $media->gid->title : 'root'));
+		$c->stash->{page_message} = $c->loc('page.media.edit.message [_1] [_2]', $media->title, ($media->gid ? $media->gid->title : 'root'));
 		$form->default_values({'title'  => $media->title, 'description' => $media->description});
 	}
 }
@@ -171,20 +156,17 @@ sub edit : Local FormConfig('media/edit.yml') {
 
 sub get_media : Chained('/') PathPart('media') CaptureArgs(1) {
 	my ( $self, $c, $id ) = @_;
-
 	my $media = $c->model('PortfolioDB::Media')->find($id);
 
 	unless ( defined $media ) {
-
-		$c->stash->{error} = "No such media.";
-
+		$c->flash->{error} = $c->loc('ui.error.media.no'); #"No such media.";
+		$c->response->redirect($c->uri_for_action('gallery/list'));
+		$c->detach();
+		
 	}
 	else {
-
 		$c->stash->{media} = $media;
-
 	}
-
 }
 
 =head2 generate_thumbnail
@@ -290,13 +272,13 @@ sub preview_media : Chained('get_media') PathPart('slideshow') Args(0) {
 	$c->res->body($out);
 }
 
-=head2 view_photo
+=head2 view_media
 
   view an individual media
 
 =cut
 
-sub view_photo : Chained("get_media") PathPart('view') Args(0) {
+sub view_media : Chained("get_media") PathPart('view') Args(0) {
 	my ( $self, $c ) = @_;
 
 	my $media = $c->stash->{media};
@@ -315,23 +297,19 @@ sub delete_media : Chained("get_media") PathPart('delete') Args(0) {
 	my ( $self, $c ) = @_;
 
 	my $media = $c->stash->{media};
-	$c->stash->{template} = 'media/delete.tt2';
+# 	$c->stash->{template} = 'media/delete.tt2';
 
 	if ( $c->can('check_user_roles') && !$c->check_user_roles("admin") ) {
-		$c->flash->{error} =  "You don't have proper permissions to delete images.";
-		$c->res->redirect("/media");
+		$c->flash->{error} =  $c->loc('ui.error.media.no.delete.permissions'); #"You don't have proper permissions to delete images.";
+		$c->response->redirect(($media->gid ? $c->uri_for_action('gallery/view', $media->gid->id) : '/media'));
 	}
 	else {
-		if ( $c->req->param('delete') eq 'yes' ) {
-
-			$media->delete;
-			$c->stash->{success} = "Media " . $media->id . " deleted!";
-			$c->detach;
-
-		}
-
+# 		if ( $c->req->param('delete') eq 'yes' ) {
+		$c->flash->{success} = $c->loc( 'ui.message.media.delete.success [_1] [_2]', $media->title, ($media->gid ? $media->gid->title : 'root')); # "Media " . $media->id . " deleted!";
+		$c->response->redirect(($media->gid ? $c->uri_for_action('gallery/view', $media->gid->id) : '/media'));
+		$media->delete;
+# 		}
 	}
-
 }
 
 =head1 AUTHOR

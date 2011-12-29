@@ -29,10 +29,23 @@ The root page (/)
 sub index :Path :Args(0) {
 	my ( $self, $c ) = @_;
 	$c->stash->{media} = $c->model('PortfolioDb::Media');
+	$c->stash->{page_title} = $c->loc( 'page.main.title' );
+# 	$c->stash->{page_message} = $c->loc( 'page.main.message [_1] [_2]', $c->uri_for('/gallery'), $c->uri_for('/blog') );
+
 
 }
 
+sub auto :Private {
+my ($self, $c) = @_;
+	if ($_ = scalar $c->req->param("lang") ) {
+		$c->languages( [$_] );
+	}
+	if ($c->debug) {
+		my $languages = $c->languages;
+		$c->log->debug( "Languages setting: " . Data::Dump::dump($languages) );
+	}
 
+}
 =head2 blog
 
 =cut
@@ -46,7 +59,8 @@ sub index :Path :Args(0) {
 =cut
 
 sub contact :Local {
-my ($self, $c) = @_;
+	my ($self, $c) = @_;
+	$c->stash->{page_title} = $c->loc( 'ui.menu.link.contacts' );
 
 
 }
