@@ -1,5 +1,18 @@
-[% META title = "Kristina Koleso Blog" %]
 <div id="right">
-<p>Feel free to contact me via creditenials below</p>
-<p>Have a nice stay!</p>
+[% IF articles.count > 0 %]
+<div id="article">
+	[% WHILE ( article = articles.next) %]
+		[% INCLUDE blog/article.tt2 %]
+	[% END %]
+</div>
+[% ELSE %]
+	[% page_message %]
+[% END %]
+
+[% IF c.can('check_user_roles') && c.check_user_roles( 'admin' ) %]
+<hr/>
+<p>
+	<a href="[% c.uri_for('/blog/add') | html %]">[% c.loc("ui.blog.link.add") %]</a>
+</p>
+[% END %]
 </div>

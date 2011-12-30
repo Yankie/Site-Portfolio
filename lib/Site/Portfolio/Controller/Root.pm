@@ -35,7 +35,7 @@ sub index :Path :Args(0) {
 
 }
 
-sub auto :Private {
+sub begin :Private {
 my ($self, $c) = @_;
 	if ($_ = scalar $c->req->param("lang") ) {
 		$c->languages( [$_] );

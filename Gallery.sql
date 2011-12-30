@@ -22,12 +22,19 @@ CREATE TABLE `media` (
   PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `media_gallery`;
-CREATE TABLE `media_gallery` (
-  `media` int REFERENCES media,
-  `gallery` int REFERENCES gallery,
-  PRIMARY KEY (`media`,`gallery`)
+DROP TABLE IF EXISTS `articles`;
+CREATE TABLE `articles` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `cutter` text,
+  `description` text,
+  PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=utf8;
+
+INSERT INTO `articles` VALUES
+	(NULL, NULL, NULL, 'Test','This is test message','This is test message continues...');
 
 
 INSERT INTO `gallery` VALUES
