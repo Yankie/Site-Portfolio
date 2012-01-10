@@ -15,7 +15,7 @@ __PACKAGE__->load_components("InflateColumn::DateTime");
 
 =head1 NAME
 
-Site::Portfolio::Schema::Result::Article
+Site::Portfolio::Schema::PortfolioDb::Result::Article
 
 =cut
 
@@ -84,8 +84,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07010 @ 2011-12-30 17:48:40
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:SXiZrZKSPCXn6cZkL+seCA
+# Created by DBIx::Class::Schema::Loader v0.07010 @ 2012-01-10 17:49:18
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:Lc0E+gswSej7mUBSs+4GRA
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

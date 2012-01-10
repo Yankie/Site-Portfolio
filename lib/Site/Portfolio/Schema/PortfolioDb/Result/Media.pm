@@ -9,10 +9,9 @@ use warnings;
 use Moose;
 use MooseX::NonMoose;
 use namespace::autoclean;
-
 extends 'DBIx::Class::Core';
 
-__PACKAGE__->load_components("InflateColumn::DateTime", "InflateColumn::FS", "PK::Auto", "Core");
+__PACKAGE__->load_components("InflateColumn::DateTime");
 
 =head1 NAME
 
@@ -88,10 +87,11 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07010 @ 2011-12-09 19:15:46
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:sxqOnpXqI6pBgcQ+OIRKkQ
+# Created by DBIx::Class::Schema::Loader v0.07010 @ 2012-01-10 18:07:58
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:/izQVMS1krEGU70ja2BTHw
 
-# use Site::Portfolio;
+
+__PACKAGE__->load_components("InflateColumn::FS", "PK::Auto", "Core");
 
 __PACKAGE__->add_columns(
 	"path",
@@ -105,6 +105,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->belongs_to(
 	gid => 'Site::Portfolio::Schema::PortfolioDb::Result::Gallery'
 );
+
+
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
-# __PACKAGE__->meta->make_immutable;
+__PACKAGE__->meta->make_immutable;
 1;
