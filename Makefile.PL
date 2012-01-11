@@ -22,15 +22,18 @@ requires 'Catalyst::Controller::HTML::FormFu';
 requires 'DateTime';
 requires 'Imager';
 requires 'MIME::Types';
+requires 'DBIx::Class::Core';
+requires 'DBIx::Class::Schema';
 requires 'DBIx::Class::PK';
 requires 'DBIx::Class::PK::Auto';
 requires 'DBIx::Class::InflateColumn::FS';
 requires 'DBIx::Class::InflateColumn::DateTime';
 
-
 requires 'Config::General'; # This should reflect the config file format you've chosen
                  # See Catalyst::Plugin::ConfigLoader for supported formats
 test_requires 'Test::More' => '0.88';
+
+
 catalyst;
 
 install_script glob('script/*.pl');
