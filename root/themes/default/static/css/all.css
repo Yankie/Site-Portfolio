@@ -284,14 +284,14 @@ a:hover {text-decoration:none; color: #0285da;}
 	float: right;
 }
 #right h1 {
-	font-family:'Museo700';
+	font-family:'Museo700', sans-serif;
 	font-size:25px;
 	font-weight:normal;
 	margin:5px 0 25px 0;
 	padding: 10px 10px 0 32px;
 }
 #right h2 {
-	font-family:'Museo700';
+	font-family:'Museo700', sans-serif;
 	font-size:18px;
 	font-weight:normal;
 	margin-bottom:5px;
@@ -432,7 +432,7 @@ a:hover {text-decoration:none; color: #0285da;}
 }
 
 #modules-holder .module h2 {
-	font-family:'Museo700';
+	font-family:'Museo700', sans-serif;
 	font-size:18px;
 	font-weight:normal;
 	margin-bottom:5px;
