@@ -10,24 +10,24 @@ name 'Site-Portfolio';
 all_from 'lib/Site/Portfolio.pm';
 
 requires 'Catalyst::Runtime' => '5.90007';
-requires 'Catalyst::Plugin::ConfigLoader';
-requires 'Catalyst::Plugin::Static::Simple';
 requires 'Catalyst::Action::RenderView';
-requires 'Moose';
-requires 'namespace::autoclean';
+requires 'Catalyst::Controller::HTML::FormFu';
+requires 'Catalyst::Plugin::ConfigLoader';
 requires 'Catalyst::Plugin::Session::State::Cookie';
 requires 'Catalyst::Plugin::Session::Store::FastMmap';
+requires 'Catalyst::Plugin::Static::Simple';
 requires 'Catalyst::Plugin::Unicode::Encoding';
-requires 'Catalyst::Controller::HTML::FormFu';
+requires 'DBIx::Class::Core';
+requires 'DBIx::Class::InflateColumn::DateTime';
+requires 'DBIx::Class::InflateColumn::FS';
+requires 'DBIx::Class::PK';
+requires 'DBIx::Class::PK::Auto';
+requires 'DBIx::Class::Schema';
 requires 'DateTime';
 requires 'Imager';
 requires 'MIME::Types';
-requires 'DBIx::Class::Core';
-requires 'DBIx::Class::Schema';
-requires 'DBIx::Class::PK';
-requires 'DBIx::Class::PK::Auto';
-requires 'DBIx::Class::InflateColumn::FS';
-requires 'DBIx::Class::InflateColumn::DateTime';
+requires 'Moose';
+requires 'namespace::autoclean';
 
 requires 'Config::General'; # This should reflect the config file format you've chosen
                  # See Catalyst::Plugin::ConfigLoader for supported formats
