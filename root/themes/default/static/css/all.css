@@ -46,7 +46,7 @@ body {
 /* GENERAL SETTINGS  */
 /*-------------------*/
 body {
-	margin-top: 64px;
+/* 	margin-top: 64px; */
 	height:100%;
 	font: 12px/12px "Lucida Sans", "Lucida Grande", sans-serif;
 	color: #000;
