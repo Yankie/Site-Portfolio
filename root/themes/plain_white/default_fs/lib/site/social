@@ -1,0 +1,12 @@
+<div class="social">
+	<span>Social:</span>
+	<ul>
+		<li><a class="tumblr" href="#">tumblr</a></li>
+		<li><a class="picasa" href="#">picasa</a></li>
+		<li><a class="vimeo" href="#">vimeo</a></li>
+		<li><a class="flickr" href="#">flickr</a></li>
+		<li><a class="twitter" href="#">twitter</a></li>
+		<li><a class="facebook" href="#">facebook</a></li>
+		<li><a class="rss" href="#">rss</a></li>
+	</ul>
+</div> <!-- END SOCIAL -->
