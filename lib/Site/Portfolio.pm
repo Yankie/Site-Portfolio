@@ -84,6 +84,9 @@ __PACKAGE__->config(
 		languages_from_context  => 1,
 		localize_from_context   => 1,
 	},
+	'Site::Portfolio::Schema::PortfolioDb::Result::Media' => {
+		store_path => __PACKAGE__->path_to('etc', 'media').""
+	}
 );
 
 

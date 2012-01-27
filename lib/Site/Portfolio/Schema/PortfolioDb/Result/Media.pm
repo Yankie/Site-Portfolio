@@ -1,21 +1,36 @@
+use utf8;
 package Site::Portfolio::Schema::PortfolioDb::Result::Media;
 
 # Created by DBIx::Class::Schema::Loader
 # DO NOT MODIFY THE FIRST PART OF THIS FILE
+
+=head1 NAME
+
+Site::Portfolio::Schema::PortfolioDb::Result::Media
+
+=cut
 
 use strict;
 use warnings;
 
 use Moose;
 use MooseX::NonMoose;
-use namespace::autoclean;
+use MooseX::MarkAsMethods autoclean => 1;
 extends 'DBIx::Class::Core';
+
+=head1 COMPONENTS LOADED
+
+=over 4
+
+=item * L<DBIx::Class::InflateColumn::DateTime>
+
+=back
+
+=cut
 
 __PACKAGE__->load_components("InflateColumn::DateTime");
 
-=head1 NAME
-
-Site::Portfolio::Schema::PortfolioDb::Result::Media
+=head1 TABLE: C<media>
 
 =cut
 
@@ -84,12 +99,22 @@ __PACKAGE__->add_columns(
   "description",
   { data_type => "text", is_nullable => 1 },
 );
+
+=head1 PRIMARY KEY
+
+=over 4
+
+=item * L</id>
+
+=back
+
+=cut
+
 __PACKAGE__->set_primary_key("id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07010 @ 2012-01-10 18:07:58
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:/izQVMS1krEGU70ja2BTHw
-
+# Created by DBIx::Class::Schema::Loader v0.07015 @ 2012-01-27 19:11:46
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:1UeFgnhQekvfmNx03X03WQ
 
 __PACKAGE__->load_components("InflateColumn::FS", "PK::Auto", "Core");
 
@@ -98,7 +123,7 @@ __PACKAGE__->add_columns(
 	{
 		data_type      => 'text',
 		is_fs_column   => 1,
-		fs_column_path => Site::Portfolio->path_to( 'etc', 'media' ) . ""
+		fs_column_path => Site::Portfolio->path_to('etc', 'media')."", #__PACKAGE__->config->{store_path}
 	}
 );
 

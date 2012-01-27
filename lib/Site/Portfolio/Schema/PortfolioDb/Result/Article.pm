@@ -1,21 +1,36 @@
+use utf8;
 package Site::Portfolio::Schema::PortfolioDb::Result::Article;
 
 # Created by DBIx::Class::Schema::Loader
 # DO NOT MODIFY THE FIRST PART OF THIS FILE
+
+=head1 NAME
+
+Site::Portfolio::Schema::PortfolioDb::Result::Article
+
+=cut
 
 use strict;
 use warnings;
 
 use Moose;
 use MooseX::NonMoose;
-use namespace::autoclean;
+use MooseX::MarkAsMethods autoclean => 1;
 extends 'DBIx::Class::Core';
+
+=head1 COMPONENTS LOADED
+
+=over 4
+
+=item * L<DBIx::Class::InflateColumn::DateTime>
+
+=back
+
+=cut
 
 __PACKAGE__->load_components("InflateColumn::DateTime");
 
-=head1 NAME
-
-Site::Portfolio::Schema::PortfolioDb::Result::Article
+=head1 TABLE: C<articles>
 
 =cut
 
@@ -81,11 +96,22 @@ __PACKAGE__->add_columns(
   "description",
   { data_type => "text", is_nullable => 1 },
 );
+
+=head1 PRIMARY KEY
+
+=over 4
+
+=item * L</id>
+
+=back
+
+=cut
+
 __PACKAGE__->set_primary_key("id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07010 @ 2012-01-10 17:49:18
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:Lc0E+gswSej7mUBSs+4GRA
+# Created by DBIx::Class::Schema::Loader v0.07015 @ 2012-01-27 19:11:46
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:JvWigWysfpEptDj0KXyspg
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
