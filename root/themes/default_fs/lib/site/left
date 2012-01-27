@@ -1,0 +1,6 @@
+<h1 class="logo"><a href="[% c.uri_for( '/' ) %]">KristinaKoleso</a></h1>
+[% PROCESS site/menu %]
+<div id="left-bottom">
+	[% # PROCESS site/social %]
+	[% # PROCESS site/search %]
+</div> <!-- END LEFT BOTTOM -->
