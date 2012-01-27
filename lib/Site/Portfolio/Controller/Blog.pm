@@ -3,6 +3,7 @@ use Moose;
 use namespace::autoclean;
 
 BEGIN {extends 'Catalyst::Controller'; }
+extends 'Catalyst::Controller::HTML::FormFu';
 
 =head1 NAME
 
@@ -64,7 +65,7 @@ sub add : Local FormConfig('blog/edit.yml') {
 
 =cut
 
-sub edit : Local : FormConfig('blog/edit.yml') {
+sub edit : Local FormConfig('blog/edit.yml') {
 	my ($self, $c, $id) = @_;
 
 	## Check Authorization

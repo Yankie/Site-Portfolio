@@ -62,7 +62,7 @@ sub index :Path :Args(0) {
 
 sub add : Local FormConfig('media/add.yml') {
 	my ($self, $c, $gid) = @_;
- 	my $form = $c->stash->{form};
+	my $form = $c->stash->{form};
 
 	my $mime = MIME::Types->new;
 	my $media;
