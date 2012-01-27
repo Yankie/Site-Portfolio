@@ -3,7 +3,7 @@
 </div>
 [% IF media.count > 0 %]
 <div id="fp_gallery" class="fp_gallery">
-	<img src="[% c.uri_for("/media/$media.count/generate/jpg") | html %]" alt="[% c.uri_for("/media/$media.count/generate/jpg") | html %]" class="fp_preview"/>
+	<img src="[% c.uri_for("/media/$media.first.id/generate/jpg") | html %]" alt="[% c.uri_for("/media/$media.first.id/generate/jpg") | html %]" class="fp_preview"/>
 	<div class="fp_overlay"></div>
 	<div id="fp_loading" class="fp_loading"></div>
 	<div id="fp_next" class="fp_next"></div>
