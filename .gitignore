@@ -6,6 +6,8 @@
 inc/
 blib/
 etc/media
+root/data/
+root/static/
 Makefile
 MYMETA.*
 META.*
