@@ -13,7 +13,7 @@
    # define a data structure to hold sitewide data
    site = {
      title     => c.loc('site.title'),
-     copyright => '2011 Your Name Here',
+     copyright => '2012 KristinaKoleso',
    };
 
    # load up any other configuration items

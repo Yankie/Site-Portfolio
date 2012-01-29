@@ -17,6 +17,7 @@
 </div>
 <div id="wrapper">
 	<div id="wrapper-top">
+		[% PROCESS site/header %]
 	</div> <!-- END WRAPPER TOP -->
 	<div id="left">
 		[% PROCESS site/left %]
@@ -24,6 +25,7 @@
 	<div id="right">
 		[% content %]
 	</div> <!-- END RIGHT CONTENT -->
-	<div id="wrapper-bottom">
+<!--	<div id="wrapper-bottom">
+		[% #PROCESS site/footer %]
 	</div> <!-- END WRAPPER BOTTOM -->
 </div> <!-- END WRAPPER -->

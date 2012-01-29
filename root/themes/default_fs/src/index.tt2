@@ -5,7 +5,7 @@
 	<ul class="slideshow">
 		[% WHILE (item = media.next) %]
 		<li>
-			<img src="[% c.uri_for("/media/$item.id/slideshow") | html %]" alt="slideshow [% $item.id %]"/>
+			<img src="[% c.uri_for("/static/previews/${item.id}.jpg") | html %]" alt="slideshow [% $item.id %]"/>
 		</li>
 		[% END %]
 	</ul> <!-- END SLIDESHOW -->
@@ -16,5 +16,5 @@
 	</div> <!-- END GALLERY NAVIGATION -->
 </div> <!-- END GALLERY HOLDER -->
 [% ELSE %]
-<p>No media yet!</p>
+<p>[% c.loc('page.gallery.list.no.media') | html %]</p>
 [% END %]
