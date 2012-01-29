@@ -123,7 +123,7 @@ __PACKAGE__->add_columns(
 	{
 		data_type      => 'text',
 		is_fs_column   => 1,
-		fs_column_path => Site::Portfolio->path_to('etc', 'media')."", #__PACKAGE__->config->{store_path}
+		fs_column_path => Site::Portfolio->path_to('root', 'data', 'media')."", #__PACKAGE__->config->{store_path}
 	}
 );
 

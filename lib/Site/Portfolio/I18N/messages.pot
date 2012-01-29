@@ -15,286 +15,363 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: root/themes/default/src/blog/index.tt2:9
+#: ../../../../lib/Site/Portfolio/Controller/Blog.pm:98
+msgid "page.blog.add.message"
+msgstr ""
+
+#: ../../../../lib/Site/Portfolio/Controller/Blog.pm:97
+msgid "page.blog.add.title"
+msgstr ""
+
+#. ($article->title)
+#: ../../../../lib/Site/Portfolio/Controller/Blog.pm:102
+msgid "page.blog.edit.message %1"
+msgstr ""
+
+#. ($article->title)
+#: ../../../../lib/Site/Portfolio/Controller/Blog.pm:101
+msgid "page.blog.edit.title %1"
+msgstr ""
+
+#: ../../../../lib/Site/Portfolio/Controller/Blog.pm:29
 msgid "page.blog.message"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Blog.pm:26
+#: ../../../../lib/Site/Portfolio/Controller/Blog.pm:28
 msgid "page.blog.title"
 msgstr ""
 
-#: root/themes/default/src/contact.tt2:2
+#. ($article->title)
+#: ../../../../lib/Site/Portfolio/Controller/Blog.pm:46
+msgid "page.blog.view.message %1"
+msgstr ""
+
+#. ($article->title)
+#: ../../../../lib/Site/Portfolio/Controller/Blog.pm:45
+msgid "page.blog.view.title %1"
+msgstr ""
+
+#: ../../../../root/themes/default/src/contact.tt2:2
 msgid "page.contact.message"
 msgstr ""
 
-#: root/themes/default/src/media/index.tt2:38
+#: ../../../../root/themes/default/src/media/index.tt2:37
 msgid "page.gallery.add.media"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Gallery.pm:108
+#: ../../../../lib/Site/Portfolio/Controller/Gallery.pm:108
 msgid "page.gallery.add.message"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Gallery.pm:107
+#: ../../../../lib/Site/Portfolio/Controller/Gallery.pm:107
 msgid "page.gallery.add.title"
 msgstr ""
 
 #. ($gallery->title)
-#: lib/Site/Portfolio/Controller/Gallery.pm:112
+#: ../../../../lib/Site/Portfolio/Controller/Gallery.pm:112
 msgid "page.gallery.edit.message %1"
 msgstr ""
 
 #. ($gallery->title)
-#: lib/Site/Portfolio/Controller/Gallery.pm:111
+#: ../../../../lib/Site/Portfolio/Controller/Gallery.pm:111
 msgid "page.gallery.edit.title %1"
 msgstr ""
 
-#: root/themes/default/src/gallery/view.tt2:39
+#: ../../../../root/themes/default/src/gallery/view.tt2:39
 msgid "page.gallery.link.add.media"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Gallery.pm:43
+#: ../../../../lib/Site/Portfolio/Controller/Gallery.pm:43
 msgid "page.gallery.list.message"
 msgstr ""
 
-#: root/themes/default/src/gallery/view.tt2:34
+#: ../../../../root/themes/default/src/gallery/view.tt2:34
 msgid "page.gallery.list.no.media"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Gallery.pm:42
+#: ../../../../lib/Site/Portfolio/Controller/Gallery.pm:42
 msgid "page.gallery.list.title"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Gallery.pm:29
+#: ../../../../lib/Site/Portfolio/Controller/Gallery.pm:29
 msgid "page.gallery.message"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Gallery.pm:28
+#: ../../../../lib/Site/Portfolio/Controller/Gallery.pm:28
 msgid "page.gallery.title"
 msgstr ""
 
 #. ($gallery->title)
-#: lib/Site/Portfolio/Controller/Gallery.pm:58 lib/Site/Portfolio/Controller/Gallery.pm:59
+#: ../../../../lib/Site/Portfolio/Controller/Gallery.pm:58 ../../../../lib/Site/Portfolio/Controller/Gallery.pm:59
 msgid "page.gallery.view.title %1"
 msgstr ""
 
 #. ($c->uri_for('/gallery')
 #. (c.uri_for('/gallery')
-#: lib/Site/Portfolio/Controller/Root.pm:33 root/themes/default/src/index.tt2:2
+#: ../../../../lib/Site/Portfolio/Controller/Root.pm:33 ../../../../root/themes/default/src/index.tt2:2
 msgid "page.main.message %1 %2"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Root.pm:32 root/themes/default/src/index.tt2:1
+#: ../../../../lib/Site/Portfolio/Controller/Root.pm:32
 msgid "page.main.title"
 msgstr ""
 
 #. (($media->gid ? $media->gid->title : 'root')
-#: lib/Site/Portfolio/Controller/Media.pm:108
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:108
 msgid "page.media.add.message %1"
 msgstr ""
 
 #. (($media->gid ? $media->gid->title : 'root')
-#: lib/Site/Portfolio/Controller/Media.pm:107
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:107
 msgid "page.media.add.title %1"
 msgstr ""
 
 #. ($media->title, ($media->gid ? $media->gid->title : 'root')
-#: lib/Site/Portfolio/Controller/Media.pm:146
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:146
 msgid "page.media.edit.message %1 %2"
 msgstr ""
 
 #. ($media->title, ($media->gid ? $media->gid->title : 'root')
-#: lib/Site/Portfolio/Controller/Media.pm:145
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:145
 msgid "page.media.edit.title %1 %2"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Media.pm:51
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:51
 msgid "page.media.message"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Media.pm:50
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:50
 msgid "page.media.title"
 msgstr ""
 
-#: root/themes/default/lib/config/main:15
+#: ../../../../root/themes/default/lib/config/main:15
 msgid "site.title"
 msgstr ""
 
-#: root/themes/default/src/blog/index.tt2:15
-msgid "ui.blog.link.add"
+#. (article.created.strftime('%F %T')
+#: ../../../../root/themes/default/src/blog/article.tt2:7
+msgid "ui.article.created.and.modified %1 %2"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Gallery.pm:71
+#: ../../../../root/themes/default/src/blog/index.tt2:15
+msgid "ui.article.link.add"
+msgstr ""
+
+#: ../../../../root/themes/default/src/blog/article.tt2:12
+msgid "ui.article.link.delete"
+msgstr ""
+
+#: ../../../../root/themes/default/src/blog/article.tt2:11
+msgid "ui.article.link.edit"
+msgstr ""
+
+#: ../../../../root/themes/default/src/blog/article.tt2:10
+msgid "ui.article.link.view"
+msgstr ""
+
+#: ../../../../lib/Site/Portfolio/Controller/Blog.pm:59
+msgid "ui.error.blog.no.add.permissions"
+msgstr ""
+
+#: ../../../../lib/Site/Portfolio/Controller/Blog.pm:116
+msgid "ui.error.blog.no.delete.permissions"
+msgstr ""
+
+#: ../../../../lib/Site/Portfolio/Controller/Blog.pm:75
+msgid "ui.error.blog.no.edit.permissions"
+msgstr ""
+
+#: ../../../../lib/Site/Portfolio/Controller/Gallery.pm:71
 msgid "ui.error.gallery.no.add.permissions"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Gallery.pm:126
+#: ../../../../lib/Site/Portfolio/Controller/Gallery.pm:126
 msgid "ui.error.gallery.no.delete.permissions"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Gallery.pm:87
+#: ../../../../lib/Site/Portfolio/Controller/Gallery.pm:87
 msgid "ui.error.gallery.no.edit.permissions"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Media.pm:129 lib/Site/Portfolio/Controller/Media.pm:162
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:129 ../../../../lib/Site/Portfolio/Controller/Media.pm:162
 msgid "ui.error.media.no"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Media.pm:72
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:72
 msgid "ui.error.media.no.add.permissions"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Media.pm:303
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:303
 msgid "ui.error.media.no.delete.permissions"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Media.pm:120
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:120
 msgid "ui.error.media.no.edit.permissions"
 msgstr ""
 
-#: root/forms/gallery/edit.yml:19 root/forms/media/add.yml:24 root/forms/media/edit.yml:19
+#: ../../../../root/forms/blog/edit.yml:19 ../../../../root/forms/gallery/edit.yml:19 ../../../../root/forms/media/add.yml:24 ../../../../root/forms/media/edit.yml:19
 msgid "ui.form.label.description"
 msgstr ""
 
-#: root/forms/media/add.yml:19
+#: ../../../../root/forms/media/add.yml:19
 msgid "ui.form.label.file"
 msgstr ""
 
-#: root/forms/auth/login.yml:10
+#: ../../../../root/forms/auth/login.yml:10
 msgid "ui.form.label.login"
 msgstr ""
 
-#: root/forms/media/add.yml:14
+#: ../../../../root/forms/media/add.yml:14
 msgid "ui.form.label.name"
 msgstr ""
 
-#: root/forms/gallery/edit.yml:24
+#: ../../../../root/forms/blog/edit.yml:24 ../../../../root/forms/gallery/edit.yml:24
 msgid "ui.form.label.ok"
 msgstr ""
 
-#: root/forms/auth/login.yml:17
+#: ../../../../root/forms/auth/login.yml:17
 msgid "ui.form.label.password"
 msgstr ""
 
-#: root/forms/gallery/edit.yml:14 root/forms/media/edit.yml:14
+#: ../../../../root/forms/blog/edit.yml:14 ../../../../root/forms/gallery/edit.yml:14 ../../../../root/forms/media/edit.yml:14
 msgid "ui.form.label.title"
 msgstr ""
 
-#: root/forms/media/edit.yml:24
+#: ../../../../root/forms/media/edit.yml:24
 msgid "ui.form.label.update"
 msgstr ""
 
-#: root/forms/media/add.yml:29
+#: ../../../../root/forms/media/add.yml:29
 msgid "ui.form.label.upload"
 msgstr ""
 
-#: root/themes/default/src/gallery/list.tt2:16
+#: ../../../../root/themes/default/src/gallery/list.tt2:16
 msgid "ui.gallery.link.add"
 msgstr ""
 
-#: root/themes/default/src/gallery/gallery_fragment.tt2:9
+#: ../../../../root/themes/default/src/gallery/gallery_fragment.tt2:9
 msgid "ui.gallery.link.delete"
 msgstr ""
 
-#: root/themes/default/src/gallery/gallery_fragment.tt2:8
+#: ../../../../root/themes/default/src/gallery/gallery_fragment.tt2:8
 msgid "ui.gallery.link.edit"
 msgstr ""
 
-#: root/themes/default/src/gallery/view.tt2:16 root/themes/default/src/media/index.tt2:16
+#: ../../../../root/themes/default/src/gallery/view.tt2:16 ../../../../root/themes/default/src/media/index.tt2:15
 msgid "ui.media.link.delete"
 msgstr ""
 
-#: root/themes/default/src/gallery/view.tt2:15 root/themes/default/src/media/index.tt2:15
+#: ../../../../root/themes/default/src/gallery/view.tt2:15 ../../../../root/themes/default/src/media/index.tt2:14
 msgid "ui.media.link.edit"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Auth.pm:35 root/themes/default/lib/site/menu:19 root/themes/default/src/auth/login.tt2:1
+#: ../../../../lib/Site/Portfolio/Controller/Auth.pm:35 ../../../../root/themes/default/lib/site/menu:19 ../../../../root/themes/default/src/auth/login.tt2:1
 msgid "ui.menu.link.admin"
 msgstr ""
 
-#: root/themes/default/lib/site/menu:3
+#: ../../../../root/themes/default/lib/site/menu:3
 msgid "ui.menu.link.blog"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Root.pm:63 root/themes/default/lib/site/menu:15
+#: ../../../../lib/Site/Portfolio/Controller/Root.pm:63 ../../../../root/themes/default/lib/site/menu:15
 msgid "ui.menu.link.contacts"
 msgstr ""
 
-#: root/themes/default/lib/site/menu:6
+#: ../../../../root/themes/default/lib/site/menu:6
 msgid "ui.menu.link.galleries"
 msgstr ""
 
-#: root/themes/default/lib/site/menu:2
+#: ../../../../root/themes/default/lib/site/menu:2
 msgid "ui.menu.link.home"
 msgstr ""
 
-#: root/themes/default/lib/site/menu:25
+#: ../../../../root/themes/default/lib/site/menu:25
 msgid "ui.menu.link.logout"
 msgstr ""
 
-#: root/themes/default/lib/site/menu:21
+#: ../../../../root/themes/default/lib/site/menu:21
 msgid "ui.menu.link.manage.galleries"
 msgstr ""
 
-#: root/themes/default/lib/site/menu:22
+#: ../../../../root/themes/default/lib/site/menu:22
 msgid "ui.menu.link.manage.media"
 msgstr ""
 
+#. ($article->title)
+#: ../../../../lib/Site/Portfolio/Controller/Blog.pm:89
+msgid "ui.message.blog.add.success %1"
+msgstr ""
+
+#. ($article->title)
+#: ../../../../lib/Site/Portfolio/Controller/Blog.pm:123
+msgid "ui.message.blog.delete.success %1"
+msgstr ""
+
+#. ($id)
+#: ../../../../lib/Site/Portfolio/Controller/Blog.pm:127
+msgid "ui.message.blog.no %1"
+msgstr ""
+
+#. ($article->title)
+#: ../../../../lib/Site/Portfolio/Controller/Blog.pm:89
+msgid "ui.message.blog.update.success %1"
+msgstr ""
+
 #. ($gallery->title)
-#: lib/Site/Portfolio/Controller/Gallery.pm:99
+#: ../../../../lib/Site/Portfolio/Controller/Gallery.pm:99
 msgid "ui.message.gallery.add.success %1"
 msgstr ""
 
 #. ($gallery->title)
-#: lib/Site/Portfolio/Controller/Gallery.pm:133
+#: ../../../../lib/Site/Portfolio/Controller/Gallery.pm:133
 msgid "ui.message.gallery.delete.success %1"
 msgstr ""
 
 #. ($id)
-#: lib/Site/Portfolio/Controller/Gallery.pm:137
+#: ../../../../lib/Site/Portfolio/Controller/Gallery.pm:137
 msgid "ui.message.gallery.no %1"
 msgstr ""
 
 #. ($gallery->title)
-#: lib/Site/Portfolio/Controller/Gallery.pm:99
+#: ../../../../lib/Site/Portfolio/Controller/Gallery.pm:99
 msgid "ui.message.gallery.update.success %1"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Auth.pm:47
+#: ../../../../lib/Site/Portfolio/Controller/Auth.pm:47
 msgid "ui.message.login.fail"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Auth.pm:42
+#: ../../../../lib/Site/Portfolio/Controller/Auth.pm:42
 msgid "ui.message.login.success"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Auth.pm:60
+#: ../../../../lib/Site/Portfolio/Controller/Auth.pm:60
 msgid "ui.message.logout"
 msgstr ""
 
 #. ($media->title, ($gid ? $media->gid->title : 'root')
-#: lib/Site/Portfolio/Controller/Media.pm:99
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:99
 msgid "ui.message.media.add.success %1 %2"
 msgstr ""
 
 #. ($media->title, ($media->gid ? $media->gid->title : 'root')
-#: lib/Site/Portfolio/Controller/Media.pm:308
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:308
 msgid "ui.message.media.delete.success %1 %2"
 msgstr ""
 
 #. ($media->title, ($media->gid ? $media->gid->title : 'root')
-#: lib/Site/Portfolio/Controller/Media.pm:138
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:138
 msgid "ui.message.media.update.success %1 %2"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Media.pm:83
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:83
 msgid "ui.warning.media.add.no.gallery"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Media.pm:80 lib/Site/Portfolio/Controller/Media.pm:83
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:80 ../../../../lib/Site/Portfolio/Controller/Media.pm:83
 msgid "ui.warning.media.add.root.gallery"
 msgstr ""
 
-#: lib/Site/Portfolio/Controller/Media.pm:80
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:80
 msgid "ui.warning.media.add.wrong.gallery"
 msgstr ""

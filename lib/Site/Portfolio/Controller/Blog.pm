@@ -1,6 +1,7 @@
 package Site::Portfolio::Controller::Blog;
 use Moose;
 use namespace::autoclean;
+use DateTime;
 
 BEGIN {extends 'Catalyst::Controller'; }
 extends 'Catalyst::Controller::HTML::FormFu';
@@ -43,6 +44,7 @@ sub view : Local {
 	$c->stash->{article} = $article;
 	$c->stash->{page_title} = $c->loc('page.blog.view.title [_1]', $article->title);
 # 	$c->stash->{page_message} = $c->loc('page.blog.view.message [_1]', $article->title);
+	$c->stash->{template} = 'blog/article.tt2';
 }
 
 =head2 add
@@ -55,7 +57,7 @@ sub add : Local FormConfig('blog/edit.yml') {
 	## Check Authorization
 	if ( $c->can('check_user_roles') && !$c->check_user_roles('admin') ) {
 		$c->flash->{error} = $c->loc('ui.error.blog.no.add.permissions'); #"You don't have proper permissions to add photos here";
-		$c->response->redirect( $c->uri_for_action('/blog') );
+		$c->response->redirect( $c->uri_for('/blog') );
 		$c->detach();
 	}
 	$c->go('edit', []);
@@ -71,7 +73,7 @@ sub edit : Local FormConfig('blog/edit.yml') {
 	## Check Authorization
 	if ( $c->can('check_user_roles') && !$c->check_user_roles('admin') ) {
 		$c->flash->{error} = $c->loc('ui.error.blog.no.edit.permissions'); #"You don't have proper permissions to add photos here";
-		$c->response->redirect( ($id ? $c->uri_for_action('/blog/view', $id) : $c->uri_for_action('/blog')));
+		$c->response->redirect( ($id ? $c->uri_for_action('/blog/view', $id) : $c->uri_for('/blog')));
 		$c->detach();
 	}
 	my $form = $c->stash->{form};
@@ -81,9 +83,11 @@ sub edit : Local FormConfig('blog/edit.yml') {
 		# form was submitted and it validated
 		$article->title($form->param_value('title'));
 		$article->description($form->param_value( 'description'));
+		$article->created(DateTime->now) unless $id;
+		$article->modified(DateTime->now);
 		$article->update_or_insert;
 		$c->flash->{success} =  ($id > 0 ? $c->loc( 'ui.message.blog.update.success [_1]', $article->title) : $c->loc( 'ui.message.blog.add.success [_1]', $article->title));
-		$c->response->redirect($c->uri_for_action('/blog'));
+		$c->response->redirect($c->uri_for('/blog'));
 		$c->detach();
 
 	}
@@ -123,7 +127,7 @@ sub delete : Local {
 			$c->flash->{error} = $c->loc('ui.message.blog.no [_1]', $id ); #"No such gallery - $id";
 		}
 	}
-	$c->response->redirect($c->uri_for_action('/blog'));
+	$c->response->redirect($c->uri_for('/blog'));
 	$c->detach();
 }
 

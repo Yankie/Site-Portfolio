@@ -87,15 +87,55 @@ sub add : Local FormConfig('media/add.yml') {
 	
 		$media = $c->model('PortfolioDb::Media')->create(
 			{
-				title		=> $form->param('title'),
-				path		=> $c->req->upload('media')->fh,
+				title			=> $form->param('title'),
+				path			=> $c->req->upload('media')->fh,
 				description	=> $form->param('description'),
-				uploaded	=> DateTime->now,
-				mime		=> $mime->mimeTypeOf( $c->req->upload('media')->basename ),
+				uploaded		=> DateTime->now,
+				mime			=> $mime->mimeTypeOf( $c->req->upload('media')->basename ),
 				gid			=> $gid,
 			}
 		);
-	
+		my $data = $media->path->open('r') or die "Error: $!";
+		my $img = Imager->new;
+		my $mime = MIME::Types->new;
+		my $out;
+
+		$img->read( fh => $data ) or die $img->errstr;
+
+		my $xsize;
+		my $ysize;
+		# Generate thumbnail
+		$xsize  = $c->config->{thumbnail_width} || $c->config->{thumbnail_size} || 50;
+		$ysize  = $c->config->{thumbnail_height} || $c->config->{thumbnail_size} || 50;
+
+		my $img1 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'mixing' ); #->crop(width=>$size, height=>$size);
+		
+		$img1->write(
+			type => 'jpeg',
+			file => $c->path_to('root', 'static', 'thumbnails')."/".$media->id.".jpg"
+		) or die $img->errstr;
+		# Generate preview
+		$xsize  = $c->config->{preview_width} || $c->config->{preview_size} || 640;
+		$ysize  = $c->config->{preview_height} || $c->config->{preview_size} || 480;
+
+		my $img2 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'mixing' )->crop(width=>$xsize, height=>$ysize);
+
+		$img2->write(
+			type => 'jpeg',
+			file => $c->path_to('root', 'static', 'previews')."/".$media->id.".jpg"
+		) or die $img->errstr;
+		# Generate view
+		$xsize  = $c->config->{view_width} || $c->config->{view_size} || 800;
+		$ysize  = $c->config->{view_height} || $c->config->{view_size} || 600;
+
+		my $img3 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'mixing' ); #->crop(width=>$size, height=>$size);
+
+		$img3->write(
+			type => 'jpeg',
+			file => $c->path_to('root', 'static', 'views')."/".$media->id.".jpg"
+		) or die $img->errstr;
+
+		
 		$c->flash->{success} =  $c->loc( 'ui.message.media.add.success [_1] [_2]', $media->title, ($gid ? $media->gid->title : 'root'));
 		$c->response->redirect(($gid ? $c->uri_for_action('gallery/view', $media->gid->id) : '/media'));
 		$c->detach();
@@ -110,7 +150,7 @@ sub add : Local FormConfig('media/add.yml') {
 	}
 }
 
-sub edit : Chained("get_media") PathPart('edit') Args(0) FormConfig('media/edit.yml') {
+sub edit : Local Args(1) FormConfig('media/edit.yml') {
 	my ($self, $c, $id) = @_;
 
  	my $form = $c->stash->{form};
@@ -148,13 +188,15 @@ sub edit : Chained("get_media") PathPart('edit') Args(0) FormConfig('media/edit.
 	}
 }
 
-=head2 get_media
 
-  set up media stash
+
+=head2 delete
+
+  delete a photo or photos
 
 =cut
 
-sub get_media : Chained('/') PathPart('media') CaptureArgs(1) {
+sub delete : Local Args(1) {
 	my ( $self, $c, $id ) = @_;
 	my $media = $c->model('PortfolioDB::Media')->find($id);
 
@@ -162,142 +204,8 @@ sub get_media : Chained('/') PathPart('media') CaptureArgs(1) {
 		$c->flash->{error} = $c->loc('ui.error.media.no'); #"No such media.";
 		$c->response->redirect($c->uri_for_action('gallery/list'));
 		$c->detach();
-		
+
 	}
-	else {
-		$c->stash->{media} = $media;
-	}
-}
-
-=head2 generate_thumbnail
-
-  this method generates a thumbnail of a
-  given image
-
-=cut
-
-sub generate_thumbnail : Chained('get_media') PathPart('thumbnail') Args(0) {
-	my ( $self, $c, $type ) = @_;
-	my $media = $c->stash->{media};
-	my $size  = $c->config->{thumbnail_size} || 50;
-	my $data = $media->path->open('r') or die "Error: $!";
-	my $img = Imager->new;
-	my $mime = MIME::Types->new;
-	my $out;
-	$type = $mime->mimeTypeOf( $type || 'jpg') || 'image/jpeg';
-
-	$img->read( fh => $data ) or die $img->errstr;
-	$img = $img->scale( xpixels => $size, ypixels => $size, type=>'max', qtype => 'mixing' ); #->crop(width=>$size, height=>$size);
-	
-	$img->write(
-		type => $mimeinfo->{ $type },
-		data => \$out
-	) or die $img->errstr;
-	$c->res->content_type( $type );
-	$c->res->content_length( -s $out );
-	$c->res->header( "Content-Disposition" => "inline; filename=" . $type );
-
-	binmode $out;
-	$c->res->body($out);
-}
-
-=head2 view_media
-
-  hackish method to view
-  an image full-size
-
-=cut
-sub view_media_def : Chained('get_media') PathPart('generate') Args(0){
-	my ($self, $c) = @_;
-	$c->go('view_media_type', undef);
-}
-
-sub view_media_type : Chained('get_media') PathPart('generate') Args(1) {
-	my ( $self, $c, $type ) = @_;
-	my $media = $c->stash->{media};
-	my $size  = $c->config->{view_size} || 300;
-	my $data = $media->path->open('r') or die "Error: $!";
-	my $mime = MIME::Types->new;
-	my $img = Imager->new;
-	my $out;
-	$type = $mime->mimeTypeOf( $type || 'jpg') || 'image/jpeg';
-
-	$c->log->debug("Image type requested: $type");
-
-	$img->read( fh => $data ) or die $img->errstr;
-	$img = $img->scale( xpixels => $size, ypixels => $size, type=>'min', qtype => 'mixing' );
-	$img->write(
-		type => $mimeinfo->{ $type },
-		data => \$out
-	) or die $img->errstr;
-	$c->res->content_type(  $type  );
-	$c->res->content_length( -s $out );
-	$c->res->header( "Content-Disposition" => "inline; filename=" . $type );
-
-	binmode $out;
-	$c->res->body($out);
-}
-
-=head2 preview_media
-
-  hackish method to view
-  an image full-size
-
-=cut
-
-sub preview_media : Chained('get_media') PathPart('slideshow') Args(0) {
-	my ( $self, $c, $type) = @_;
-	my $media = $c->stash->{media};
-	my $xsize  = $c->config->{slideshow_width} || 719;
-	my $ysize  = $c->config->{slideshow_height} || 442;
-	my $data = $media->path->open('r') or die "Error: $!";
-	my $mime = MIME::Types->new;
-	my $img = Imager->new;
-	my $out;
-	$type = $mime->mimeTypeOf( $type || 'jpg') || 'image/jpeg';
-
-	$img->read( fh => $data ) or die $img->errstr;
-	$img = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'mixing' )->crop(width=>$xsize, height=>$ysize);
-	$img->write(
-		type => $mimeinfo->{ $type },
-		data => \$out
-	) or die $img->errstr;
-
-# 	$c->res->content_type( $media->mime );
-	$c->res->content_type( $type );
-	$c->res->content_length( -s $out );
-	$c->res->header( "Content-Disposition" => "inline; filename=" . $type );
-
-	binmode $out;
-	$c->res->body($out);
-}
-
-=head2 view_media
-
-  view an individual media
-
-=cut
-
-sub view_media : Chained("get_media") PathPart('view') Args(0) {
-	my ( $self, $c ) = @_;
-
-	my $media = $c->stash->{media};
-
-	$c->stash->{template} = "media/view.tt2";
-
-}
-
-=head2 delete_photo
-
-  delete a photo or photos
-
-=cut
-
-sub delete_media : Chained("get_media") PathPart('delete') Args(0) {
-	my ( $self, $c ) = @_;
-
-	my $media = $c->stash->{media};
-# 	$c->stash->{template} = 'media/delete.tt2';
 
 	if ( $c->can('check_user_roles') && !$c->check_user_roles("admin") ) {
 		$c->flash->{error} =  $c->loc('ui.error.media.no.delete.permissions'); #"You don't have proper permissions to delete images.";
@@ -307,6 +215,10 @@ sub delete_media : Chained("get_media") PathPart('delete') Args(0) {
 # 		if ( $c->req->param('delete') eq 'yes' ) {
 		$c->flash->{success} = $c->loc( 'ui.message.media.delete.success [_1] [_2]', $media->title, ($media->gid ? $media->gid->title : 'root')); # "Media " . $media->id . " deleted!";
 		$c->response->redirect(($media->gid ? $c->uri_for_action('gallery/view', $media->gid->id) : '/media'));
+		# delete all generated images
+		foreach (qw(thumbnails previews views)) {
+			unlink($c->path_to('root', 'static', $_, $media->id.'.jpg'));
+		}
 		$media->delete;
 # 		}
 	}
