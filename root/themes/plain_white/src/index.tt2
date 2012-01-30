@@ -1,13 +1,23 @@
-<!--
-<h1>[% page_title %]</h1>
-[% c.loc( 'page.main.message [_1] [_2]', c.uri_for('/gallery'), c.uri_for('/blog')) %]
--->
 [% IF media.count > 0 %]
-<div id="slideshow" class="slideshow">
-	[% WHILE (item = media.next) %]
-	<img src="[% c.uri_for("/static/previews/${item.id}.jpg") | html %]" alt="slideshow [% item.id %]"/>
-	[% END %]
+<div id="gallery">
+	<div class="slideshow">
+		[% WHILE (item = media.next) %]
+		<div class="media">
+			<img src="[% c.uri_for("/static/previews/${item.id}.jpg") | html %]" alt="slideshow [% item.id %]"/>
+		</div>
+		[% END %]
+	</div>
+	<div class="navigation">
+		<a href="#" class="prev"></a>
+		<a href="#" class="next"></a>
+	</div> <!-- END GALLERY NAVIGATION -->
 </div> <!-- END SLIDESHOW -->
 [% ELSE %]
 <p>[% c.loc('page.gallery.list.no.media') | html %]</p>
+[% END %]
+[% IF c.can('check_user_roles') && c.check_user_roles( 'admin' ) %]
+<hr/>
+<p>
+	<a href="[% c.uri_for_action('/media/add', gallery.id) | html %]">[% c.loc('page.gallery.add.media') | html %]</a>
+</p>
 [% END %]

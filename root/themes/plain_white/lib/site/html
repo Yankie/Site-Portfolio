@@ -11,7 +11,8 @@
 	<body>
 		[% content %]
 	</body>
-<!-- 	<script type="text/javascript" src="[% c.uri_for('/static/js/jquery-1.6.1.min.js') %]"></script> -->
-<!-- 	<script type="text/javascript" src="[% c.uri_for('/static/js/jquery.cycle.all.latest.js') %]"></script> -->
-<!-- 	<script type="text/javascript" src="[% c.uri_for('/static/js/main.js') %]"></script> -->
+	<script type="text/javascript" src="[% c.uri_for('/static/js/jquery-1.7.1.min.js') %]"></script>
+	<script type='text/javascript' src="http://github.com/brandonaaron/jquery-mousewheel/raw/master/jquery.mousewheel.js"></script>
+	<script type="text/javascript" src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script>
+	<script type="text/javascript" src="[% c.uri_for('/static/js/main.js') %]"></script>
 </html>

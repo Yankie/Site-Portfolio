@@ -1,6 +1,6 @@
 [% PROCESS site/menu %]
 <div id="left-bottom">
 	[% PROCESS site/social %]
-	[% PROCESS site/search %]
+ 	[% PROCESS site/search %]
 	[% PROCESS site/footer %]
 </div> <!-- END LEFT BOTTOM -->

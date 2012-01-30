@@ -1,4 +1,8 @@
 <!-- BEGIN site/header -->
-<h1 class="logo"><a href="[% c.uri_for( '/' ) %]">KristinaKoleso</a></h1><!-- END LOGO -->
+<h1>
+	<a class="logo" href="[% c.uri_for( '/' ) %]">KristinaKoleso</a><!-- END LOGO -->
+	[% page_title | html %]
+</h1>
+[% # page_message %]
 <!-- <h1 class="title">[% template.title or site.title %]</h1> -->
 <!-- END site/header -->
