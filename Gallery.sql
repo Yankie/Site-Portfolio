@@ -38,9 +38,10 @@ INSERT INTO `articles` VALUES
 
 
 INSERT INTO `gallery` VALUES
-	(NULL, 'B & W', 'Some Black and White photos.'),
-	(NULL, 'Portriats', 'My friends and other strangers...');
-
+	(NULL, 'Портреты', 'Портреты друзей и не только...'),
+	(NULL, 'B & W', 'Немного черного и белого...'),
+	(NULL, 'Пейзажи', '');
+	
 USE `mysql`;
 INSERT INTO mysql.user (Host,User,Password) VALUES ('localhost','pg','4rtyuehe') ON DUPLICATE KEY UPDATE User='pg';
 FLUSH PRIVILEGES;
