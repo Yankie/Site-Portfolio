@@ -1,7 +1,0 @@
-[% META title = 'Add Media Properties' %]
-<h1>[% title | html %]</h1>
-[% UNLESS form.submitted_and_valid %]
-	[% form %]
-[% ELSE %]
-	<p>Success!</p>
-[% END %]

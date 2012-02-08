@@ -1,6 +1,0 @@
-<h1>[% page_title | html %]</h1>
-[% page_message %]
-[% UNLESS form.submitted_and_valid %]
-	[% INCLUDE media/view.tt2 %]
-	[% form %]
-[% END %]
