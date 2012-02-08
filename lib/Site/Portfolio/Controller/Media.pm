@@ -158,16 +158,16 @@ sub edit : Local Args(1) FormConfig('media/edit.yml') {
 	## comment out this block if you're not using the Authorization plugin
 	if ( $c->can('check_user_roles') && !$c->check_user_roles('admin') ) {
 		$c->flash->{error} = $c->loc('ui.error.media.no.edit.permissions'); #"You don't have proper permissions to edit photos here";
-		$c->response->redirect( 'gallery/list' );
+		$c->response->redirect( '/gallery/list' );
 		$c->detach();
 	}
 
 	my $mime = MIME::Types->new;
-# 	my $media = $c->model('PortfolioDb::Media')->find({id => $id});
-	my $media = $c->stash->{media};
+	my $media = $c->model('PortfolioDb::Media')->find({id => $id});
+# 	my $media = $c->stash->{media};
 	if (!$media) {
 		$c->flash->{error} = $c->loc('ui.error.media.no'); #'No such media!';
-		$c->response->redirect( 'media' );
+		$c->response->redirect( '/media' );
 		$c->detach();
 	}
 
