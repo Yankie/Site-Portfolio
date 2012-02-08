@@ -30,11 +30,11 @@ extends 'DBIx::Class::Core';
 
 __PACKAGE__->load_components("InflateColumn::DateTime");
 
-=head1 TABLE: C<articles>
+=head1 TABLE: C<article>
 
 =cut
 
-__PACKAGE__->table("articles");
+__PACKAGE__->table("article");
 
 =head1 ACCESSORS
 
@@ -110,8 +110,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07015 @ 2012-01-27 19:11:46
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:JvWigWysfpEptDj0KXyspg
+# Created by DBIx::Class::Schema::Loader v0.07015 @ 2012-02-08 14:23:16
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:rvM8uKKZgt4yNIuslJKL6A
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
