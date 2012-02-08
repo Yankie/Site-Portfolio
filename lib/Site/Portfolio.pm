@@ -94,7 +94,7 @@ __PACKAGE__->config(
 __PACKAGE__->setup();
 
 ## Apply theme paths
-__PACKAGE__->config->{static}->{include_path} = [__PACKAGE__->config->{root}, __PACKAGE__->path_to('root','themes',__PACKAGE__->config->{theme} )];
+__PACKAGE__->config->{static}->{include_path} = [__PACKAGE__->config->{root}, __PACKAGE__->path_to('etc','themes',__PACKAGE__->config->{theme} )];
 
 =head1 NAME
 
