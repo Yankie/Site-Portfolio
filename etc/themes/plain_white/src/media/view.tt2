@@ -1,5 +1,5 @@
 <p>
-	<img src="[% c.uri_for("/static/previews/$media.id") | html %]" alt="[% media.title | html %]" />
+	<img src="[% c.uri_for("/static/previews/${media.id}.jpg") | html %]" alt="[% media.title | html %]" />
 	<br/>
 	<br/>
 	[% media.description | html %]

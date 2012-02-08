@@ -4,6 +4,7 @@
 		<title>[% site.title %]: [% page_title or template.title %]</title>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
 		<link rel="stylesheet" type="text/css" href="[% c.uri_for('/static/css/all.css') %]" media="screen" />
+		<link rel="stylesheet" type="text/css" href="[% c.uri_for('/static/css/prettyPhoto.css') %]" media="screen" />
 		<link type="image/x-icon" rel="icon" href="[% c.uri_for('/static/images/favicon.ico') %]">
 		<link type="image/x-icon" rel="shortcut icon" href="[% c.uri_for('/static/images/favicon.ico') %]">
 
@@ -11,7 +12,8 @@
 	<body>
 		[% content %]
 	</body>
-<!-- 	<script type="text/javascript" src="[% c.uri_for('/static/js/jquery-1.6.1.min.js') %]"></script> -->
-<!-- 	<script type="text/javascript" src="[% c.uri_for('/static/js/jquery.cycle.all.latest.js') %]"></script> -->
-<!-- 	<script type="text/javascript" src="[% c.uri_for('/static/js/main.js') %]"></script> -->
+	<script type="text/javascript" src="[% c.uri_for('/static/js/jquery-1.6.1.min.js') %]"></script>
+	<script type="text/javascript" src="[% c.uri_for('/static/js/jquery.cycle.all.latest.js') %]"></script>
+	<script type="text/javascript" src="[% c.uri_for('/static/js/jquery.prettyPhoto.js') %]"></script>
+	<script type="text/javascript" src="[% c.uri_for('/static/js/main.js') %]"></script>
 </html>
