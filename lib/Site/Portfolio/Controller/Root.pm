@@ -87,6 +87,7 @@ sub end : ActionClass('RenderView') {
 	my ( $self, $c ) = @_;
 	my $galleries = $c->model('PortfolioDb::Gallery');
 	$c->stash->{menu} = $galleries;
+	$c->stash->{ENV} = \%ENV;
 
 }
 

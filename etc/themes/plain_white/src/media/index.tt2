@@ -1,4 +1,3 @@
-<h1>[% page_title | html %]</h1>
 [% # page_message %]
 [% IF media.count > 0 %]
 <ul class="thumbnails">

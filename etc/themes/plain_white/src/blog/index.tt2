@@ -1,4 +1,3 @@
-<h1>[% page_title %]</h1>
 [% IF articles.count > 0 %]
 <div id="modules-holder">
 	[% WHILE ( article = articles.next) %]

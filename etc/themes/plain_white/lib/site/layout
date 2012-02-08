@@ -29,3 +29,17 @@
 		[% #PROCESS site/footer %]
 	</div> <!-- END WRAPPER BOTTOM -->
 </div> <!-- END WRAPPER -->
+<div id="wrapper-bottom">
+<!--<pre>URI:  [% c.req.uri %]</pre>
+<pre>
+[% #USE Dumper(Indent=1 Sortkeys=1) -%]
+Base
+[% #c.req.base %]
+Path
+[% #c.req.path %]
+ENV
+[% #Dumper.dump(ENV) %]
+Req
+[% #Dumper.dump(c.req) %]</pre> -->
+
+</div>

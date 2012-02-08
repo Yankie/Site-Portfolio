@@ -50,7 +50,7 @@ body {
 /* 	height:100%; */
 	font: 12px/12px "Lucida Sans", "Lucida Grande", sans-serif;
 	color: #000;
-	background: url('../images/bg.jpg') repeat #fff;
+/* 	background: url('../images/bg.jpg') repeat #fff; */
 	border-collapse: collapse;
 }
 a {text-decoration:none; color: #000;}

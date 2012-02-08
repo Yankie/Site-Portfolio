@@ -95,6 +95,7 @@ __PACKAGE__->setup();
 
 ## Apply theme paths
 __PACKAGE__->config->{static}->{include_path} = [__PACKAGE__->config->{root}, __PACKAGE__->path_to('etc','themes',__PACKAGE__->config->{theme} )];
+#__path_to(messages.yml)__
 
 =head1 NAME
 

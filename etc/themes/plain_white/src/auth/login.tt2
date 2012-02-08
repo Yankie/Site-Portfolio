@@ -1,4 +1,3 @@
-<h1>[% c.loc("ui.menu.link.admin") | html %]</h1>
 [% UNLESS form.submitted_and_valid %]
 	[% form %]
 [% END %]

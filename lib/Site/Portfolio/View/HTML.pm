@@ -5,10 +5,10 @@ use base 'Catalyst::View::TT';
 
 __PACKAGE__->config({
     INCLUDE_PATH => [
-        Site::Portfolio->path_to( 'root', 'themes', Site::Portfolio->config->{theme}, 'src' ),
-        Site::Portfolio->path_to( 'root', 'themes', Site::Portfolio->config->{theme}, 'lib' ),
-        Site::Portfolio->path_to( 'root', 'themes', 'default', 'src' ),
-        Site::Portfolio->path_to( 'root', 'themes', 'default', 'lib' ),
+        Site::Portfolio->path_to( 'etc', 'themes', Site::Portfolio->config->{theme}, 'src' ),
+        Site::Portfolio->path_to( 'etc', 'themes', Site::Portfolio->config->{theme}, 'lib' ),
+        Site::Portfolio->path_to( 'etc', 'themes', 'default', 'src' ),
+        Site::Portfolio->path_to( 'etc', 'themes', 'default', 'lib' ),
     ],
     DEFAULT_ENCODING   => 'utf-8',
     TEMPLATE_EXTENSION => '.tt2',
