@@ -1,12 +1,14 @@
 <div class="social">
-	<span>Social:</span>
+	<!--<span>Social:</span>-->
 	<ul>
-		<li><a class="tumblr" href="#">tumblr</a></li>
-		<li><a class="picasa" href="#">picasa</a></li>
-		<li><a class="vimeo" href="#">vimeo</a></li>
-		<li><a class="flickr" href="#">flickr</a></li>
-		<li><a class="twitter" href="#">twitter</a></li>
-		<li><a class="facebook" href="#">facebook</a></li>
-		<li><a class="rss" href="#">rss</a></li>
+		<li><a rel="nofollow" class="blogger" href="#" onclick="window.open('http://www.blogger.com/blog_this.pyra?t&amp;u=[% c.req.base | uri %]&amp;n=[% site.title | uri %]', '_blank', 'scrollbars=0, resizable=1, menubar=0, left=200, top=200, width=550, height=440, toolbar=0, status=0');return false" title="Опубликовать в Blogger.com" target="_blank">Опубликовать в Blogger.com</a></li>
+		<li><a rel="nofollow" class="facebook" href="#" onclick="window.open('http://www.facebook.com/sharer.php?u=[% c.req.base | uri %]&amp;t=[% site.title | uri %]', '_blank', 'scrollbars=0, resizable=1, menubar=0, left=200, top=200, width=550, height=440, toolbar=0, status=0');return false" title="Поделиться в Facebook" target="_blank">Поделиться в Facebook</a></li>
+		<li><a rel="nofollow" class="liveinternet" href="http://www.liveinternet.ru/journal_post.php?action=n_add&amp;cnurl=[% c.req.base | uri %]&amp;cntitle=[% site.title | uri %]" title="Опубликовать в LiveInternet" target="_blank">Опубликовать в LiveInternet</a></li>
+		<li><a rel="nofollow" class="livejournal" href="http://www.livejournal.com/update.bml?event=[% c.req.base | uri %]&amp;subject=[% site.title | uri %]" title="Опубликовать в LiveJournal" target="_blank">Опубликовать в LiveJournal</a></li>
+		<li><a rel="nofollow" class="yandex" href="http://share.yandex.ru/go.xml?service=moikrug&amp;url=[% c.req.base | uri %]&amp;title=[% site.title | uri %]" title="Поделиться в Мой Круг" target="_blank">Поделиться в Мой Круг</a></li>
+		<li><a rel="nofollow" class="odnoklassniki" href="#" onclick="window.open('http://www.odnoklassniki.ru/dk?st.cmd=addShare&amp;st._surl=[% c.req.base | uri %]&amp;title=[% site.title | uri %]', '_blank', 'scrollbars=0, resizable=1, menubar=0, left=200, top=200, width=550, height=440, toolbar=0, status=0');return false" title="Добавить в Одноклассники" target="_blank">Добавить в Одноклассники</a></li>
+		<li><a rel="nofollow" class="twitter" href="#" onclick="window.open('http://twitter.com/share?text=[% site.title | uri %]&amp;url=[% c.req.base | uri %]', '_blank', 'scrollbars=0, resizable=1, menubar=0, left=200, top=200, width=550, height=440, toolbar=0, status=0');return false" title="Добавить в Twitter" target="_blank">Добавить в Twitter</a></li>
+		<li><a rel="nofollow" class="vkontakte" href="#" onclick="window.open('http://vkontakte.ru/share.php?url=[% c.req.base | uri %]', '_blank', 'scrollbars=0, resizable=1, menubar=0, left=200, top=200, width=554, height=421, toolbar=0, status=0');return false" title="Поделиться В Контакте" target="_blank">Поделиться В Контакте</a></li>
+		<li><a rel="nofollow" class="ya" href="http://my.ya.ru/posts_add_link.xml?URL=[% c.req.base | uri %]&amp;title=[% site.title | uri %]" title="Поделиться в Я.ру" target="_blank">Поделиться в Я.ру</a></li>
 	</ul>
 </div> <!-- END SOCIAL -->

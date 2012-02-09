@@ -157,7 +157,7 @@ msgstr "Все произведения"
 
 #: ../../../../root/themes/default/lib/config/main:15
 msgid "site.title"
-msgstr "Портфолио Кристины"
+msgstr "Портфолио Кристины Колесо"
 
 #. (article.created.strftime('%F %T')
 #: ../../../../root/themes/default/src/blog/article.tt2:7

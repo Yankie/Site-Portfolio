@@ -170,7 +170,7 @@ a.logo {
 	height: 34px;
 /* 	border-top: 1px solid #eaeaea; */
 /* 	border-bottom: 1px solid #eaeaea; */
-	padding-left:25px;
+	padding-left:23px;
 }
 
 #left-bottom .copyright{
@@ -184,7 +184,7 @@ a.logo {
 
 #left-bottom .social ul {
 	float:left;
-	margin:9px 0 0 10px;
+	margin-top:10px;
 }
 
 #left-bottom .social ul li {
@@ -193,64 +193,51 @@ a.logo {
 }
 
 #left-bottom .social ul li a {
-	background:url("../images/sprite.png") no-repeat scroll -5px -50px transparent;
-	display:block;
-	height:16px;
+	display:inline-block;
+	vertical-align:bottom;
 	width:16px;
-	margin: 0 5px 0 0;
+	height:16px;
+	margin:0 6px 6px 0;
+	outline:none;
+	background:url(../images/social.png);
 	text-indent: -999999px;
+	opacity: 0.6;
+	-moz-opacity: 0.6;
+	filter: alpha(opacity=60);
 }
 
 #left-bottom .social ul li a:hover {
-	background-position: -5px -80px;
+	opacity: 1;
+	-moz-opacity: 1;
+	filter: alpha(opacity=100);
 }
 
-#left-bottom .social ul li a.picasa {
-	background-position: -26px -50px;
+#left-bottom .social ul li a.blogger {
+	background-position: -0px 0
 }
-
-#left-bottom .social ul li a.picasa:hover {
-	background-position: -26px -80px;
-}
-
-#left-bottom .social ul li a.vimeo {
-	background-position: -47px -50px;
-}
-
-#left-bottom .social ul li a.vimeo:hover {
-	background-position: -47px -80px;
-}
-
-#left-bottom .social ul li a.flickr {
-	background-position: -68px -50px;
-}
-
-#left-bottom .social ul li a.flickr:hover {
-	background-position: -68px -80px;
-}
-
-#left-bottom .social ul li a.twitter {
-	background-position: -89px -50px;
-}
-
-#left-bottom .social ul li a.twitter:hover {
-	background-position: -89px -80px;
-}
-
 #left-bottom .social ul li a.facebook {
-	background-position: -110px -50px;
+	background-position: -16px 0
 }
-
-#left-bottom .social ul li a.facebook:hover {
-	background-position: -110px -80px;
+#left-bottom .social ul li a.liveinternet {
+	background-position: -32px 0
 }
-
-#left-bottom .social ul li a.rss {
-	background-position: -131px -50px;
+#left-bottom .social ul li a.livejournal {
+	background-position: -48px 0
 }
-
-#left-bottom .social ul li a.rss:hover {
-	background-position: -131px -80px;
+#left-bottom .social ul li a.yandex {
+	background-position: -64px 0
+}
+#left-bottom .social ul li a.odnoklassniki {
+	background-position: -80px 0
+}
+#left-bottom .social ul li a.twitter {
+	background-position: -96px 0
+}
+#left-bottom .social ul li a.vkontakte {
+	background-position: -112px 0
+}
+#left-bottom .social ul li a.ya {
+	background-position: -128px 0;
 }
 
 /* Search */
