@@ -112,7 +112,7 @@ sub add : Local FormConfig('media/add.yml') {
 		
 		$img1->write(
 			type => 'jpeg',
-			file => $c->path_to('root', 'static', 'thumbnails')."/".$media->id.".jpg"
+			file => $c->path_to($c->config->{local_static}, 'static', 'thumbnails')."/".$media->id.".jpg"
 		) or die $img->errstr;
 		# Generate preview
 		$xsize  = $c->config->{preview_width} || $c->config->{preview_size} || 640;
@@ -122,7 +122,7 @@ sub add : Local FormConfig('media/add.yml') {
 
 		$img2->write(
 			type => 'jpeg',
-			file => $c->path_to('root', 'static', 'previews')."/".$media->id.".jpg"
+			file => $c->path_to($c->config->{local_static}, 'static', 'previews')."/".$media->id.".jpg"
 		) or die $img->errstr;
 		# Generate view
 		$xsize  = $c->config->{view_width} || $c->config->{view_size} || 800;
@@ -132,7 +132,7 @@ sub add : Local FormConfig('media/add.yml') {
 
 		$img3->write(
 			type => 'jpeg',
-			file => $c->path_to('root', 'static', 'views')."/".$media->id.".jpg"
+			file => $c->path_to($c->config->{local_static}, 'static', 'views')."/".$media->id.".jpg"
 		) or die $img->errstr;
 
 		
@@ -217,7 +217,7 @@ sub delete : Local Args(1) {
 		$c->response->redirect(($media->gid ? $c->uri_for_action('gallery/view', $media->gid->id) : '/media'));
 		# delete all generated images
 		foreach (qw(thumbnails previews views)) {
-			unlink($c->path_to('root', 'static', $_, $media->id.'.jpg'));
+			unlink($c->path_to($c->config->{local_static}, 'static', $_, $media->id.'.jpg'));
 		}
 		$media->delete;
 # 		}
