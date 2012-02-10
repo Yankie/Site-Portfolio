@@ -25,6 +25,7 @@ requires 'DBIx::Class::PK::Auto';
 requires 'DBIx::Class::Schema';
 requires 'DateTime';
 requires 'Imager';
+requires 'Imager::File::JPEG';
 requires 'MIME::Types';
 requires 'Moose';
 requires 'namespace::autoclean';
