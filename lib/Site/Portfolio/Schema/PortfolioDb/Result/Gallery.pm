@@ -79,8 +79,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07015 @ 2012-01-27 19:11:46
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:YN6w74y6vTt9sVPpvPdBPA
+# Created by DBIx::Class::Schema::Loader v0.07017 @ 2012-02-14 00:12:04
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:vgHuxyvV5vtjWvia1QmD8Q
 
 __PACKAGE__->load_components("PK::Auto", "Core");
 

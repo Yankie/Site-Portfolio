@@ -1,21 +1,36 @@
+use utf8;
 package Site::Portfolio::Schema::PortfolioDb::Result::Feedback;
 
 # Created by DBIx::Class::Schema::Loader
 # DO NOT MODIFY THE FIRST PART OF THIS FILE
+
+=head1 NAME
+
+Site::Portfolio::Schema::PortfolioDb::Result::Feedback
+
+=cut
 
 use strict;
 use warnings;
 
 use Moose;
 use MooseX::NonMoose;
-use namespace::autoclean;
+use MooseX::MarkAsMethods autoclean => 1;
 extends 'DBIx::Class::Core';
+
+=head1 COMPONENTS LOADED
+
+=over 4
+
+=item * L<DBIx::Class::InflateColumn::DateTime>
+
+=back
+
+=cut
 
 __PACKAGE__->load_components("InflateColumn::DateTime");
 
-=head1 NAME
-
-Site::Portfolio::Schema::PortfolioDb::Result::Feedback
+=head1 TABLE: C<feedback>
 
 =cut
 
@@ -70,11 +85,22 @@ __PACKAGE__->add_columns(
   "message",
   { data_type => "text", is_nullable => 1 },
 );
+
+=head1 PRIMARY KEY
+
+=over 4
+
+=item * L</id>
+
+=back
+
+=cut
+
 __PACKAGE__->set_primary_key("id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07010 @ 2012-02-13 19:22:05
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:Q5oetL3H37M5N2IB9s+u5A
+# Created by DBIx::Class::Schema::Loader v0.07017 @ 2012-02-14 00:12:04
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:nONLhZqyqnc9iyXsuO5bvA
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
