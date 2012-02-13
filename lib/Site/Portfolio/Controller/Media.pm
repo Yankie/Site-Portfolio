@@ -9,7 +9,6 @@ use namespace::autoclean;
 use DateTime;
 use Imager;
 use MIME::Types;
-use Data::Dumper;
 
 BEGIN {extends 'Catalyst::Controller'; }
 extends 'Catalyst::Controller::HTML::FormFu';
@@ -41,7 +40,6 @@ Catalyst Controller.
 =head2 index
 
 =cut
-use Data::Dumper;
 sub index :Path :Args(0) {
 	my ( $self, $c ) = @_;
 
@@ -97,7 +95,6 @@ sub add : Local FormConfig('media/add.yml') {
 		);
 		my $data = $media->path->open('r') or die "Error: $!";
 		my $img = Imager->new;
-		my $mime = MIME::Types->new;
 		my $out;
 
 		$img->read( fh => $data ) or die $img->errstr;
@@ -162,7 +159,6 @@ sub edit : Local Args(1) FormConfig('media/edit.yml') {
 		$c->detach();
 	}
 
-	my $mime = MIME::Types->new;
 	my $media = $c->model('PortfolioDb::Media')->find({id => $id});
 # 	my $media = $c->stash->{media};
 	if (!$media) {
@@ -175,6 +171,45 @@ sub edit : Local Args(1) FormConfig('media/edit.yml') {
 		$media->title( $form->param_value('title'));
 		$media->description($form->param_value('description'));
 		$media->update;
+		my $data = $media->path->open('r') or die "Error: $!";
+		my $img = Imager->new;
+		my $out;
+
+		$img->read( fh => $data ) or die $img->errstr;
+
+		my $xsize;
+		my $ysize;
+		# Generate thumbnail
+		$xsize  = $c->config->{thumbnail_width} || $c->config->{thumbnail_size} || 50;
+		$ysize  = $c->config->{thumbnail_height} || $c->config->{thumbnail_size} || 50;
+
+		my $img1 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'mixing' ); #->crop(width=>$size, height=>$size);
+
+		$img1->write(
+			type => 'jpeg',
+			file => $c->path_to('root', 'static', 'thumbnails')."/".$media->id.".jpg"
+		) or die $img->errstr;
+		# Generate preview
+		$xsize  = $c->config->{preview_width} || $c->config->{preview_size} || 640;
+		$ysize  = $c->config->{preview_height} || $c->config->{preview_size} || 480;
+
+		my $img2 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'mixing' )->crop(width=>$xsize, height=>$ysize);
+
+		$img2->write(
+			type => 'jpeg',
+			file => $c->path_to('root', 'static', 'previews')."/".$media->id.".jpg"
+		) or die $img->errstr;
+		# Generate view
+		$xsize  = $c->config->{view_width} || $c->config->{view_size} || 800;
+		$ysize  = $c->config->{view_height} || $c->config->{view_size} || 600;
+
+		my $img3 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'mixing' ); #->crop(width=>$size, height=>$size);
+
+		$img3->write(
+			type => 'jpeg',
+			file => $c->path_to('root', 'static', 'views')."/".$media->id.".jpg"
+		) or die $img->errstr;
+
 		$c->flash->{success} =  $c->loc( 'ui.message.media.update.success [_1] [_2]', $media->title, ($media->gid ? $media->gid->title : 'root'));
 		$c->response->redirect(($media->gid ? $c->uri_for_action('gallery/view', $media->gid->id) : '/media'));
 		$c->detach();
