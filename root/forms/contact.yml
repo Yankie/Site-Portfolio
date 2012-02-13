@@ -1,0 +1,32 @@
+---
+
+indicator: submit
+
+constraints:
+  - SingleValue
+
+filters:
+  - HTMLScrubber
+
+elements:
+  - type: Text
+    name: name
+    label_loc: ui.form.label.uname
+    constraints:
+      - Required
+
+  - type: Text
+    name: email
+    label_loc: ui.form.label.email
+    constraints:
+      - Required
+      - Email
+
+  - type: Textarea
+    name: message
+    label_loc: ui.form.label.message
+
+  - type: Submit
+    name: submit
+    value_loc: ui.form.label.ok
+

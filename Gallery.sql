@@ -22,7 +22,7 @@ CREATE TABLE `media` (
   PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `articles`;
+DROP TABLE IF EXISTS `article`;
 CREATE TABLE `articles` (
   `id` int NOT NULL AUTO_INCREMENT,
   `created` datetime NOT NULL,
@@ -30,6 +30,16 @@ CREATE TABLE `articles` (
   `title` varchar(255) NOT NULL,
   `cutter` text,
   `description` text,
+  PRIMARY KEY (`id`)
+) DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `feedback`;
+CREATE TABLE `feedback` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `message` text,
   PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=utf8;
 

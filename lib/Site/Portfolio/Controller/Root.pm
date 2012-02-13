@@ -3,6 +3,7 @@ use Moose;
 use namespace::autoclean;
 
 BEGIN { extends 'Catalyst::Controller' }
+extends 'Catalyst::Controller::HTML::FormFu';
 
 #
 # Sets the actions in this controller to be registered with no prefix
@@ -28,9 +29,16 @@ The root page (/)
 
 sub index :Path :Args(0) {
 	my ( $self, $c ) = @_;
-	$c->stash->{media} = $c->model('PortfolioDb::Media');
-	$c->stash->{page_title} = $c->loc( 'page.main.title' );
-	$c->stash->{page_message} = $c->loc( 'page.main.message [_1] [_2]', $c->uri_for('/gallery'), $c->uri_for('/blog') );
+	if ($c->config->{start_page}) {
+		$c->response->redirect( $c->uri_for($c->config->{start_page}) );
+		$c->detach();
+
+	}
+	else {
+		$c->stash->{media} = $c->model('PortfolioDb::Media');
+		$c->stash->{page_title} = $c->loc( 'page.main.title' );
+		$c->stash->{page_message} = $c->loc( 'page.main.message [_1] [_2]', $c->uri_for('/gallery'), $c->uri_for('/blog') );
+	}
 
 
 }
@@ -58,11 +66,27 @@ my ($self, $c) = @_;
 
 =cut
 
-sub contact :Local {
+sub contact :Local  : FormConfig('contact.yml'){
 	my ($self, $c) = @_;
 	$c->stash->{page_title} = $c->loc( 'ui.menu.link.contacts' );
-
-
+	$c->stash->{messages} = $c->model('PortfolioDb::Feedback');
+	my $form = $c->stash->{form};
+	if ($form->submitted_and_valid) {
+		# form was submitted and it validated
+		my $feedback = $c->model('PortfolioDb::Feedback')->create({
+			name		=> $form->param_value('name'),
+			email		=> $form->param_value('email'),
+			message	=> $form->param_value('message'),
+			created	=> DateTime->now
+		});
+		$c->flash->{success} = $c->loc( 'ui.message.feedback.add.success' );
+		$c->response->redirect( $c->uri_for('/') );
+		$c->detach();
+	}
+	else {
+		# first time through, or invalid form
+# 		$form->default_values({'title'  => $gallery->title, 'description' => $gallery->description});
+	}
 }
 
 =head2 default
