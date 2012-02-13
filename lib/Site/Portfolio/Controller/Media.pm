@@ -259,6 +259,64 @@ sub delete : Local Args(1) {
 	}
 }
 
+sub update_static : Local  {
+	my ($self, $c) = @_;
+
+	## comment out this block if you're not using the Authorization plugin
+	if ( $c->can('check_user_roles') && !$c->check_user_roles('admin') ) {
+		$c->flash->{error} = $c->loc('ui.error.media.no.edit.permissions'); #"You don't have proper permissions to edit photos here";
+		$c->response->redirect( '/gallery/list' );
+		$c->detach();
+	}
+
+	my $media;
+	foreach $media ($c->model('PortfolioDb::Media')->all) {
+
+		my $data = $media->path->open('r') or die "Error: $!";
+		my $img = Imager->new;
+		my $out;
+
+		$img->read( fh => $data ) or die $img->errstr;
+
+		my $xsize;
+		my $ysize;
+		# Generate thumbnail
+		$xsize  = $c->config->{thumbnail_width} || $c->config->{thumbnail_size} || 50;
+		$ysize  = $c->config->{thumbnail_height} || $c->config->{thumbnail_size} || 50;
+
+		my $img1 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'mixing' ); #->crop(width=>$size, height=>$size);
+
+		$img1->write(
+			type => 'jpeg',
+			file => $c->path_to('root', 'static', 'thumbnails')."/".$media->id.".jpg"
+		) or die $img->errstr;
+		# Generate preview
+		$xsize  = $c->config->{preview_width} || $c->config->{preview_size} || 640;
+		$ysize  = $c->config->{preview_height} || $c->config->{preview_size} || 480;
+
+		my $img2 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'mixing' )->crop(width=>$xsize, height=>$ysize);
+
+		$img2->write(
+			type => 'jpeg',
+			file => $c->path_to('root', 'static', 'previews')."/".$media->id.".jpg"
+		) or die $img->errstr;
+		# Generate view
+		$xsize  = $c->config->{view_width} || $c->config->{view_size} || 800;
+		$ysize  = $c->config->{view_height} || $c->config->{view_size} || 600;
+
+		my $img3 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'mixing' ); #->crop(width=>$size, height=>$size);
+
+		$img3->write(
+			type => 'jpeg',
+			file => $c->path_to('root', 'static', 'views')."/".$media->id.".jpg"
+		) or die $img->errstr;
+
+	}
+	$c->flash->{success} =  $c->loc( 'ui.message.media.resize.success');
+	$c->response->redirect('/media');
+	$c->detach();
+}
+
 =head1 AUTHOR
 
 Pavel Yefimov,,,

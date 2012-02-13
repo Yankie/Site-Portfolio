@@ -51,15 +51,15 @@ msgstr ""
 msgid "page.blog.view.title %1"
 msgstr ""
 
-#: ../../../../etc/themes/kristy1/src/contact.tt2:16
+#: ../../../../etc/themes/kristy/src/contact.tt2:19
 msgid "page.contact.list.no.messages"
 msgstr ""
 
-#: ../../../../etc/themes/default/src/contact.tt2:2 ../../../../etc/themes/kristy/src/contact.tt2:2 ../../../../etc/themes/kristy1/src/contact.tt2:2
+#: ../../../../etc/themes/default/src/contact.tt2:2 ../../../../etc/themes/kristy/src/contact.tt2:2
 msgid "page.contact.message"
 msgstr ""
 
-#: ../../../../etc/themes/default/src/gallery/view.tt2:37 ../../../../etc/themes/default/src/media/index.tt2:37 ../../../../etc/themes/kristy/src/gallery/view.tt2:37 ../../../../etc/themes/kristy/src/media/index.tt2:37 ../../../../etc/themes/kristy1/src/gallery/view.tt2:37 ../../../../etc/themes/kristy1/src/media/index.tt2:37
+#: ../../../../etc/themes/default/src/gallery/view.tt2:37 ../../../../etc/themes/default/src/media/index.tt2:37 ../../../../etc/themes/kristy/src/gallery/view.tt2:37 ../../../../etc/themes/kristy/src/media/index.tt2:37
 msgid "page.gallery.add.media"
 msgstr ""
 
@@ -85,12 +85,8 @@ msgstr ""
 msgid "page.gallery.list.message"
 msgstr ""
 
-#: ../../../../etc/themes/default/src/gallery/view.tt2:32 ../../../../etc/themes/default/src/index.tt2:17 ../../../../etc/themes/default/src/media/index.tt2:32 ../../../../etc/themes/kristy/src/gallery/view.tt2:32 ../../../../etc/themes/kristy/src/index.tt2:17 ../../../../etc/themes/kristy/src/media/index.tt2:32 ../../../../etc/themes/kristy1/src/gallery/view.tt2:32 ../../../../etc/themes/kristy1/src/index.tt2:17 ../../../../etc/themes/kristy1/src/media/index.tt2:32
+#: ../../../../etc/themes/default/src/gallery/view.tt2:32 ../../../../etc/themes/default/src/index.tt2:17 ../../../../etc/themes/default/src/media/index.tt2:32 ../../../../etc/themes/kristy/src/gallery/view.tt2:32 ../../../../etc/themes/kristy/src/index.tt2:17 ../../../../etc/themes/kristy/src/media/index.tt2:32
 msgid "page.gallery.list.no.media"
-msgstr ""
-
-#: ../../../../etc/themes/kristy/src/gallery/list.tt2:10
-msgid "page.gallery.list.none"
 msgstr ""
 
 #: ../../../../lib/Site/Portfolio/Controller/Gallery.pm:42
@@ -112,7 +108,7 @@ msgstr ""
 
 #. ($c->uri_for('/gallery')
 #. (c.uri_for('/gallery')
-#: ../../../../etc/themes/default/src/index.tt2:2 ../../../../etc/themes/kristy/src/index.tt2:2 ../../../../etc/themes/kristy1/src/index.tt2:2 ../../../../lib/Site/Portfolio/Controller/Root.pm:40
+#: ../../../../etc/themes/default/src/index.tt2:2 ../../../../etc/themes/kristy/src/index.tt2:2 ../../../../lib/Site/Portfolio/Controller/Root.pm:40
 msgid "page.main.message %1 %2"
 msgstr ""
 
@@ -121,55 +117,55 @@ msgid "page.main.title"
 msgstr ""
 
 #. (($media->gid ? $media->gid->title : 'root')
-#: ../../../../lib/Site/Portfolio/Controller/Media.pm:148
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:145
 msgid "page.media.add.message %1"
 msgstr ""
 
 #. (($media->gid ? $media->gid->title : 'root')
-#: ../../../../lib/Site/Portfolio/Controller/Media.pm:147
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:144
 msgid "page.media.add.title %1"
 msgstr ""
 
 #. ($media->title, ($media->gid ? $media->gid->title : 'root')
-#: ../../../../lib/Site/Portfolio/Controller/Media.pm:186
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:221
 msgid "page.media.edit.message %1 %2"
 msgstr ""
 
 #. ($media->title, ($media->gid ? $media->gid->title : 'root')
-#: ../../../../lib/Site/Portfolio/Controller/Media.pm:185
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:220
 msgid "page.media.edit.title %1 %2"
 msgstr ""
 
-#: ../../../../lib/Site/Portfolio/Controller/Media.pm:51
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:49
 msgid "page.media.message"
 msgstr ""
 
-#: ../../../../lib/Site/Portfolio/Controller/Media.pm:50
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:48
 msgid "page.media.title"
 msgstr ""
 
-#: ../../../../etc/themes/default/lib/config/main:15 ../../../../etc/themes/kristy/lib/config/main:15 ../../../../etc/themes/kristy1/lib/config/main:15
+#: ../../../../etc/themes/default/lib/config/main:15 ../../../../etc/themes/kristy/lib/config/main:15
 msgid "site.title"
 msgstr ""
 
 #. (article.created.strftime('%F %T')
-#: ../../../../etc/themes/default/src/blog/article.tt2:7 ../../../../etc/themes/kristy/src/blog/article.tt2:7 ../../../../etc/themes/kristy1/src/blog/article.tt2:7
+#: ../../../../etc/themes/default/src/blog/article.tt2:7 ../../../../etc/themes/kristy/src/blog/article.tt2:7
 msgid "ui.article.created.and.modified %1 %2"
 msgstr ""
 
-#: ../../../../etc/themes/default/src/blog/index.tt2:15 ../../../../etc/themes/kristy/src/blog/index.tt2:15 ../../../../etc/themes/kristy1/src/blog/index.tt2:15
+#: ../../../../etc/themes/default/src/blog/index.tt2:15 ../../../../etc/themes/kristy/src/blog/index.tt2:15
 msgid "ui.article.link.add"
 msgstr ""
 
-#: ../../../../etc/themes/default/src/blog/article.tt2:12 ../../../../etc/themes/kristy/src/blog/article.tt2:12 ../../../../etc/themes/kristy1/src/blog/article.tt2:12
+#: ../../../../etc/themes/default/src/blog/article.tt2:12 ../../../../etc/themes/kristy/src/blog/article.tt2:12
 msgid "ui.article.link.delete"
 msgstr ""
 
-#: ../../../../etc/themes/default/src/blog/article.tt2:11 ../../../../etc/themes/kristy/src/blog/article.tt2:11 ../../../../etc/themes/kristy1/src/blog/article.tt2:11
+#: ../../../../etc/themes/default/src/blog/article.tt2:11 ../../../../etc/themes/kristy/src/blog/article.tt2:11
 msgid "ui.article.link.edit"
 msgstr ""
 
-#: ../../../../etc/themes/default/src/blog/article.tt2:10 ../../../../etc/themes/kristy/src/blog/article.tt2:10 ../../../../etc/themes/kristy1/src/blog/article.tt2:10
+#: ../../../../etc/themes/default/src/blog/article.tt2:10 ../../../../etc/themes/kristy/src/blog/article.tt2:10
 msgid "ui.article.link.view"
 msgstr ""
 
@@ -197,23 +193,23 @@ msgstr ""
 msgid "ui.error.gallery.no.edit.permissions"
 msgstr ""
 
-#: ../../../../lib/Site/Portfolio/Controller/Media.pm:169 ../../../../lib/Site/Portfolio/Controller/Media.pm:204
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:165 ../../../../lib/Site/Portfolio/Controller/Media.pm:239
 msgid "ui.error.media.no"
 msgstr ""
 
-#: ../../../../lib/Site/Portfolio/Controller/Media.pm:72
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:70
 msgid "ui.error.media.no.add.permissions"
 msgstr ""
 
-#: ../../../../lib/Site/Portfolio/Controller/Media.pm:211
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:246
 msgid "ui.error.media.no.delete.permissions"
 msgstr ""
 
-#: ../../../../lib/Site/Portfolio/Controller/Media.pm:160
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:157 ../../../../lib/Site/Portfolio/Controller/Media.pm:267
 msgid "ui.error.media.no.edit.permissions"
 msgstr ""
 
-#: ../../../../etc/themes/kristy1/src/contact.tt2:11
+#: ../../../../etc/themes/kristy/src/contact.tt2:13
 msgid "ui.form.label.created"
 msgstr ""
 
@@ -221,7 +217,7 @@ msgstr ""
 msgid "ui.form.label.description"
 msgstr ""
 
-#: ../../../../etc/themes/kristy1/src/contact.tt2:10 ../../../../root/forms/contact.yml:21
+#: ../../../../etc/themes/kristy/src/contact.tt2:12 ../../../../root/forms/contact.yml:20
 msgid "ui.form.label.email"
 msgstr ""
 
@@ -233,7 +229,7 @@ msgstr ""
 msgid "ui.form.label.login"
 msgstr ""
 
-#: ../../../../etc/themes/kristy1/src/contact.tt2:12 ../../../../root/forms/contact.yml:29
+#: ../../../../etc/themes/kristy/src/contact.tt2:14 ../../../../root/forms/contact.yml:27
 msgid "ui.form.label.message"
 msgstr ""
 
@@ -241,7 +237,7 @@ msgstr ""
 msgid "ui.form.label.name"
 msgstr ""
 
-#: ../../../../root/forms/blog/edit.yml:24 ../../../../root/forms/contact.yml:34 ../../../../root/forms/gallery/edit.yml:24
+#: ../../../../root/forms/blog/edit.yml:24 ../../../../root/forms/contact.yml:31 ../../../../root/forms/gallery/edit.yml:24
 msgid "ui.form.label.ok"
 msgstr ""
 
@@ -253,7 +249,7 @@ msgstr ""
 msgid "ui.form.label.title"
 msgstr ""
 
-#: ../../../../etc/themes/kristy1/src/contact.tt2:9 ../../../../root/forms/contact.yml:14
+#: ../../../../etc/themes/kristy/src/contact.tt2:11 ../../../../root/forms/contact.yml:14
 msgid "ui.form.label.uname"
 msgstr ""
 
@@ -265,55 +261,55 @@ msgstr ""
 msgid "ui.form.label.upload"
 msgstr ""
 
-#: ../../../../etc/themes/default/src/gallery/list.tt2:16 ../../../../etc/themes/kristy/src/gallery/list.tt2:16 ../../../../etc/themes/kristy1/src/gallery/list.tt2:16
+#: ../../../../etc/themes/default/src/gallery/list.tt2:16 ../../../../etc/themes/kristy/src/gallery/list.tt2:16
 msgid "ui.gallery.link.add"
 msgstr ""
 
-#: ../../../../etc/themes/default/src/gallery/gallery_fragment.tt2:9 ../../../../etc/themes/kristy/src/gallery/gallery_fragment.tt2:9 ../../../../etc/themes/kristy1/src/gallery/gallery_fragment.tt2:9
+#: ../../../../etc/themes/default/src/gallery/gallery_fragment.tt2:9 ../../../../etc/themes/kristy/src/gallery/gallery_fragment.tt2:9
 msgid "ui.gallery.link.delete"
 msgstr ""
 
-#: ../../../../etc/themes/default/src/gallery/gallery_fragment.tt2:8 ../../../../etc/themes/kristy/src/gallery/gallery_fragment.tt2:8 ../../../../etc/themes/kristy1/src/gallery/gallery_fragment.tt2:8
+#: ../../../../etc/themes/default/src/gallery/gallery_fragment.tt2:8 ../../../../etc/themes/kristy/src/gallery/gallery_fragment.tt2:8
 msgid "ui.gallery.link.edit"
 msgstr ""
 
-#: ../../../../etc/themes/default/src/gallery/view.tt2:15 ../../../../etc/themes/default/src/media/index.tt2:15 ../../../../etc/themes/kristy/src/gallery/view.tt2:15 ../../../../etc/themes/kristy/src/media/index.tt2:15 ../../../../etc/themes/kristy1/src/gallery/view.tt2:15 ../../../../etc/themes/kristy1/src/media/index.tt2:15
+#: ../../../../etc/themes/default/src/gallery/view.tt2:15 ../../../../etc/themes/default/src/media/index.tt2:15 ../../../../etc/themes/kristy/src/gallery/view.tt2:15 ../../../../etc/themes/kristy/src/media/index.tt2:15
 msgid "ui.media.link.delete"
 msgstr ""
 
-#: ../../../../etc/themes/default/src/gallery/view.tt2:14 ../../../../etc/themes/default/src/media/index.tt2:14 ../../../../etc/themes/kristy/src/gallery/view.tt2:14 ../../../../etc/themes/kristy/src/media/index.tt2:14 ../../../../etc/themes/kristy1/src/gallery/view.tt2:14 ../../../../etc/themes/kristy1/src/media/index.tt2:14
+#: ../../../../etc/themes/default/src/gallery/view.tt2:14 ../../../../etc/themes/default/src/media/index.tt2:14 ../../../../etc/themes/kristy/src/gallery/view.tt2:14 ../../../../etc/themes/kristy/src/media/index.tt2:14
 msgid "ui.media.link.edit"
 msgstr ""
 
-#: ../../../../etc/themes/default/lib/site/menu:19 ../../../../etc/themes/default/src/auth/login.tt2:1 ../../../../etc/themes/kristy/lib/site/menu:21 ../../../../etc/themes/kristy/src/auth/login.tt2:1 ../../../../etc/themes/kristy1/lib/site/menu:18 ../../../../etc/themes/kristy1/src/auth/login.tt2:1 ../../../../lib/Site/Portfolio/Controller/Auth.pm:35
+#: ../../../../etc/themes/default/lib/site/menu:19 ../../../../etc/themes/default/src/auth/login.tt2:1 ../../../../etc/themes/kristy/lib/site/menu:18 ../../../../etc/themes/kristy/src/auth/login.tt2:1 ../../../../lib/Site/Portfolio/Controller/Auth.pm:35
 msgid "ui.menu.link.admin"
 msgstr ""
 
-#: ../../../../etc/themes/default/lib/site/menu:3 ../../../../etc/themes/kristy/lib/site/menu:14 ../../../../etc/themes/kristy1/lib/site/menu:2
+#: ../../../../etc/themes/default/lib/site/menu:3 ../../../../etc/themes/kristy/lib/site/menu:2
 msgid "ui.menu.link.blog"
 msgstr ""
 
-#: ../../../../etc/themes/default/lib/site/menu:15 ../../../../etc/themes/kristy/lib/site/menu:16 ../../../../etc/themes/kristy1/lib/site/menu:14 ../../../../lib/Site/Portfolio/Controller/Root.pm:71
+#: ../../../../etc/themes/default/lib/site/menu:15 ../../../../etc/themes/kristy/lib/site/menu:14 ../../../../lib/Site/Portfolio/Controller/Root.pm:71
 msgid "ui.menu.link.contacts"
 msgstr ""
 
-#: ../../../../etc/themes/default/lib/site/menu:6 ../../../../etc/themes/kristy/lib/site/menu:5 ../../../../etc/themes/kristy1/lib/site/menu:5
+#: ../../../../etc/themes/default/lib/site/menu:6 ../../../../etc/themes/kristy/lib/site/menu:5
 msgid "ui.menu.link.galleries"
 msgstr ""
 
-#: ../../../../etc/themes/default/lib/site/menu:2 ../../../../etc/themes/kristy/lib/site/menu:2
+#: ../../../../etc/themes/default/lib/site/menu:2
 msgid "ui.menu.link.home"
 msgstr ""
 
-#: ../../../../etc/themes/default/lib/site/menu:25 ../../../../etc/themes/kristy/lib/site/menu:27 ../../../../etc/themes/kristy1/lib/site/menu:24
+#: ../../../../etc/themes/default/lib/site/menu:25 ../../../../etc/themes/kristy/lib/site/menu:24
 msgid "ui.menu.link.logout"
 msgstr ""
 
-#: ../../../../etc/themes/default/lib/site/menu:21 ../../../../etc/themes/kristy/lib/site/menu:23 ../../../../etc/themes/kristy1/lib/site/menu:20
+#: ../../../../etc/themes/default/lib/site/menu:21 ../../../../etc/themes/kristy/lib/site/menu:20
 msgid "ui.menu.link.manage.galleries"
 msgstr ""
 
-#: ../../../../etc/themes/default/lib/site/menu:22 ../../../../etc/themes/kristy/lib/site/menu:24 ../../../../etc/themes/kristy1/lib/site/menu:21
+#: ../../../../etc/themes/default/lib/site/menu:22 ../../../../etc/themes/kristy/lib/site/menu:21
 msgid "ui.menu.link.manage.media"
 msgstr ""
 
@@ -374,28 +370,32 @@ msgid "ui.message.logout"
 msgstr ""
 
 #. ($media->title, ($gid ? $media->gid->title : 'root')
-#: ../../../../lib/Site/Portfolio/Controller/Media.pm:139
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:136
 msgid "ui.message.media.add.success %1 %2"
 msgstr ""
 
 #. ($media->title, ($media->gid ? $media->gid->title : 'root')
-#: ../../../../lib/Site/Portfolio/Controller/Media.pm:216
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:251
 msgid "ui.message.media.delete.success %1 %2"
 msgstr ""
 
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:315
+msgid "ui.message.media.resize.success"
+msgstr ""
+
 #. ($media->title, ($media->gid ? $media->gid->title : 'root')
-#: ../../../../lib/Site/Portfolio/Controller/Media.pm:178
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:213
 msgid "ui.message.media.update.success %1 %2"
 msgstr ""
 
-#: ../../../../lib/Site/Portfolio/Controller/Media.pm:83
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:81
 msgid "ui.warning.media.add.no.gallery"
 msgstr ""
 
-#: ../../../../lib/Site/Portfolio/Controller/Media.pm:80 ../../../../lib/Site/Portfolio/Controller/Media.pm:83
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:78 ../../../../lib/Site/Portfolio/Controller/Media.pm:81
 msgid "ui.warning.media.add.root.gallery"
 msgstr ""
 
-#: ../../../../lib/Site/Portfolio/Controller/Media.pm:80
+#: ../../../../lib/Site/Portfolio/Controller/Media.pm:78
 msgid "ui.warning.media.add.wrong.gallery"
 msgstr ""
