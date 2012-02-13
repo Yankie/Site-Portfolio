@@ -1,0 +1,26 @@
+<ul class="menu">
+	<li><a href="[% c.uri_for( '/blog' ) %]">[% c.loc("ui.menu.link.blog") | html %]</a></li>
+	[% IF menu %]
+	<li>
+		<a class="opened" href="[% c.uri_for( '/gallery' ) %]">[% c.loc("ui.menu.link.galleries") | html %]</a>
+		<ul class="sub-menu">
+			[% WHILE (gallery = menu.next) %]
+			<li><a href="[% c.uri_for_action('/gallery/view',gallery.id) | html %]">[% gallery.title | html %]</a></li>
+			[% END %]
+		</ul> <!-- END galleries SUB MENU -->
+	</li>
+	[% END %]
+
+	<li><a href="[% c.uri_for( '/contact' ) %]">[% c.loc("ui.menu.link.contacts") | html %]</a></li>
+	[% IF c.can('check_user_roles') && c.check_user_roles( 'admin' ) %]
+	<li><a>&nbsp;</a></li>
+	<li>
+		<a class="closed" href="[% c.uri_for( '/denied' ) %]">[% c.loc("ui.menu.link.admin") | html %]</a>
+		<ul class="sub-menu closed">
+                        <li><a href="[% c.uri_for( '/gallery/list' ) %]">[% c.loc("ui.menu.link.manage.galleries") | html %]</a></li>
+                        <li><a href="[% c.uri_for( '/media' ) %]">[% c.loc("ui.menu.link.manage.media") | html %]</a></li>
+		</ul> <!-- END SUB MENU --></li>
+	<li><a>&nbsp;</a></li>
+	<li><a href="[% c.uri_for( '/logout' ) %]">[% c.loc("ui.menu.link.logout") | html %]</a></li>
+	[% END %] <!-- END if admin -->
+</ul> <!-- END MENU -->

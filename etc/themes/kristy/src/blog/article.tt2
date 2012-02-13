@@ -1,0 +1,16 @@
+<div class="article">
+	
+		<a href="[% c.uri_for_action('/blog/view',article.id) | html %]"><h2>[% article.title | html %]</h2></a>
+		<p>[% article.cutter | html %]</p>
+		<p>[% article.description | html %]</p>
+		<hr/>
+		<p>[% c.loc("ui.article.created.and.modified [_1] [_2]", article.created.strftime('%F %T'), article.modified.strftime('%F %T')) %]</p>
+		[% IF c.can('check_user_roles') && c.check_user_roles( 'admin' ) %]
+		<p>
+			<!--<a href="[% c.uri_for_action('/blog/view',article.id) | html %]">[% c.loc("ui.article.link.view") %]</a> -->
+			<a href="[% c.uri_for_action('/blog/edit',article.id) | html %]">[% c.loc("ui.article.link.edit") %]</a>
+			<a href="[% c.uri_for_action('/blog/delete',article.id) | html %]">[% c.loc("ui.article.link.delete") %]</a>
+		</p>
+		[% END %] <!-- END if admin -->
+	
+</div>
