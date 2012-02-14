@@ -445,7 +445,6 @@ a.logo {
 	margin: 0 25px;
 }
 #right form div {
-	float: left;
 	width: 100%;
 	margin-bottom: 5px;
 }
@@ -490,6 +489,16 @@ a.logo {
 #right form div.error {
 	border: 1px solid red;
 }
+
+#right table {
+	margin: 10px 0 0 32px;
+}
+
+#right th {
+	text-align: right;
+	padding-right: 5px;
+}
+
 #message div.message {
 	position: fixed;
 	z-index: 10;

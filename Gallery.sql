@@ -23,7 +23,7 @@ CREATE TABLE `media` (
 ) DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `article`;
-CREATE TABLE `articles` (
+CREATE TABLE `article` (
   `id` int NOT NULL AUTO_INCREMENT,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE `feedback` (
   PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=utf8;
 
-INSERT INTO `articles` VALUES
+INSERT INTO `article` VALUES
 	(NULL, NULL, NULL, 'Test','This is test message','This is test message continues...');
 
 

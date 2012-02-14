@@ -1,1 +1,20 @@
 [% c.loc("page.contact.message") %]
+[% UNLESS form.submitted_and_valid %]
+[% form %]
+[% END %]
+[% IF c.can('check_user_roles') && c.check_user_roles( 'admin' ) %]
+<hr/>
+	[% IF messages.count > 0 %]
+<table>
+		[% WHILE (message = messages.next) %]
+	<tr><th>[% c.loc("ui.form.label.uname") %]</th><td>[% message.name | html %]</td></tr>
+	<tr><th>[% c.loc("ui.form.label.email") %]</th><td>[% message.email | html %]</td></tr>
+	<tr><th>[% c.loc("ui.form.label.created") %]</th><td>[% message.created.strftime('%F %T') %]</td></tr>
+	<tr><th>[% c.loc("ui.form.label.message") %]</th><td>[% message.message | html %]</td></tr>
+	<tr><td colspan="2"><hr/></td></tr>
+		[% END %]
+</table>
+	[% ELSE %]
+<p>[% c.loc("page.contact.list.no.messages") | html %]</p>
+	[% END %]
+[% END %]
