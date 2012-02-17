@@ -105,7 +105,7 @@ sub add : Local FormConfig('media/add.yml') {
 		$xsize  = $c->config->{thumbnail_width} || $c->config->{thumbnail_size} || 50;
 		$ysize  = $c->config->{thumbnail_height} || $c->config->{thumbnail_size} || 50;
 
-		my $img1 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'mixing' ); #->crop(width=>$size, height=>$size);
+		my $img1 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'normal' ); #->crop(width=>$size, height=>$size);
 		
 		$img1->write(
 			type => 'jpeg',
@@ -115,7 +115,7 @@ sub add : Local FormConfig('media/add.yml') {
 		$xsize  = $c->config->{preview_width} || $c->config->{preview_size} || 640;
 		$ysize  = $c->config->{preview_height} || $c->config->{preview_size} || 480;
 
-		my $img2 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'mixing' )->crop(width=>$xsize, height=>$ysize);
+		my $img2 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'normal' )->crop(width=>$xsize, height=>$ysize);
 
 		$img2->write(
 			type => 'jpeg',
@@ -125,7 +125,7 @@ sub add : Local FormConfig('media/add.yml') {
 		$xsize  = $c->config->{view_width} || $c->config->{view_size} || 800;
 		$ysize  = $c->config->{view_height} || $c->config->{view_size} || 600;
 
-		my $img3 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'mixing' ); #->crop(width=>$size, height=>$size);
+		my $img3 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'min', qtype => 'normal' ); #->crop(width=>$size, height=>$size);
 
 		$img3->write(
 			type => 'jpeg',
@@ -183,7 +183,7 @@ sub edit : Local Args(1) FormConfig('media/edit.yml') {
 		$xsize  = $c->config->{thumbnail_width} || $c->config->{thumbnail_size} || 50;
 		$ysize  = $c->config->{thumbnail_height} || $c->config->{thumbnail_size} || 50;
 
-		my $img1 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'mixing' ); #->crop(width=>$size, height=>$size);
+		my $img1 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'normal' ); #->crop(width=>$size, height=>$size);
 
 		$img1->write(
 			type => 'jpeg',
@@ -193,7 +193,7 @@ sub edit : Local Args(1) FormConfig('media/edit.yml') {
 		$xsize  = $c->config->{preview_width} || $c->config->{preview_size} || 640;
 		$ysize  = $c->config->{preview_height} || $c->config->{preview_size} || 480;
 
-		my $img2 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'mixing' )->crop(width=>$xsize, height=>$ysize);
+		my $img2 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'normal' )->crop(width=>$xsize, height=>$ysize);
 
 		$img2->write(
 			type => 'jpeg',
@@ -203,7 +203,7 @@ sub edit : Local Args(1) FormConfig('media/edit.yml') {
 		$xsize  = $c->config->{view_width} || $c->config->{view_size} || 800;
 		$ysize  = $c->config->{view_height} || $c->config->{view_size} || 600;
 
-		my $img3 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'mixing' ); #->crop(width=>$size, height=>$size);
+		my $img3 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'min', qtype => 'normal' ); #->crop(width=>$size, height=>$size);
 
 		$img3->write(
 			type => 'jpeg',
@@ -284,7 +284,7 @@ sub update_static : Local  {
 		$xsize  = $c->config->{thumbnail_width} || $c->config->{thumbnail_size} || 50;
 		$ysize  = $c->config->{thumbnail_height} || $c->config->{thumbnail_size} || 50;
 
-		my $img1 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'mixing' ); #->crop(width=>$size, height=>$size);
+		my $img1 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'normal' ); #->crop(width=>$size, height=>$size);
 
 		$img1->write(
 			type => 'jpeg',
@@ -294,7 +294,7 @@ sub update_static : Local  {
 		$xsize  = $c->config->{preview_width} || $c->config->{preview_size} || 640;
 		$ysize  = $c->config->{preview_height} || $c->config->{preview_size} || 480;
 
-		my $img2 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'mixing' )->crop(width=>$xsize, height=>$ysize);
+		my $img2 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'normal' )->crop(width=>$xsize, height=>$ysize);
 
 		$img2->write(
 			type => 'jpeg',
@@ -304,7 +304,7 @@ sub update_static : Local  {
 		$xsize  = $c->config->{view_width} || $c->config->{view_size} || 800;
 		$ysize  = $c->config->{view_height} || $c->config->{view_size} || 600;
 
-		my $img3 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'max', qtype => 'mixing' ); #->crop(width=>$size, height=>$size);
+		my $img3 = $img->scale( xpixels => $xsize, ypixels => $ysize, type=>'min', qtype => 'normal' ); #->crop(width=>$size, height=>$size);
 
 		$img3->write(
 			type => 'jpeg',

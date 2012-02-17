@@ -16,7 +16,11 @@ $(document).ready(function() {
 		$(this).animate({top: -$(this).outerHeight()}, 500);
 	});
 
-	$("a[rel^='prettyPhoto']").prettyPhoto();
+	$("a[rel^='prettyPhoto']").prettyPhoto({
+		allow_resize: false,
+		gallery_markup: '',
+		//social_tools: '',
+	});
 
 
 	//MENU ACCORDION
