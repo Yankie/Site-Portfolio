@@ -1,5 +1,7 @@
 <h1>[% page_title %]</h1>
 [% c.loc("page.contact.message") %]
+<hr/>
+<p></p>
 [% UNLESS form.submitted_and_valid %]
 [% form %]
 [% END %]

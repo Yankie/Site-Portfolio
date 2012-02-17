@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Site-Portfolio\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2012-02-14 00:41+0400\n"
+"PO-Revision-Date: 2012-02-17 18:55+0400\n"
 "Last-Translator: \n"
 "Language-Team: American English <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -64,9 +64,9 @@ msgstr "Пока никаких сообщений!"
 #: ../../../../etc/themes/kristy/src/contact.tt2:2
 msgid "page.contact.message"
 msgstr ""
-"<p>Со мной можно связаться по телефону +7 985 4631446 и <a href=\"mailto:"
-"kriskol@mail.ru\">kriskol@mail.ru</a> или отправить мне сообщение через "
-"форму ниже</p>"
+"<p>Со мной можно связаться по телефону +7 985 4631446 и "
+"<a href=\"mailto:kriskol@mail.ru\">kriskol@mail.ru</a></p>"
+"<p>Также можно отправить мне сообщение через форму ниже</p>"
 
 #: ../../../../etc/themes/default/src/gallery/view.tt2:37
 #: ../../../../etc/themes/default/src/media/index.tt2:37
