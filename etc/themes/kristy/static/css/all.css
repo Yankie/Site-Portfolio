@@ -278,7 +278,7 @@ a:hover {text-decoration:none; color: #0285da;}
 }
 
 #right hr {
-	margin: 10px 42px 0 32px;
+	margin: 10px 100px 0 32px;
 	border-top: 1px solid #eaeaea;
 	height: 0px;
 }
@@ -452,7 +452,7 @@ a:hover {text-decoration:none; color: #0285da;}
 	margin-right: 15px;
 }
 #right form input[type=text], form input[type=password] {
-	width: 500px;
+	width: 450px;
 	background: #fff;
 	border: 1px solid #7f9db9;
 	height: 20px;
@@ -466,7 +466,7 @@ a:hover {text-decoration:none; color: #0285da;}
 	border: none;
 }
 #right form textarea {
-	width: 500px;
+	width: 450px;
 	height: 100px;
 	border: 1px solid #7f9db9;
 }
@@ -482,6 +482,9 @@ a:hover {text-decoration:none; color: #0285da;}
 	float: right;
 }
 #right form div.error {
+/* 	border: 1px solid red; */
+}
+#right form div input[type=text].error, form div input[type=password].error, form div textarea.error {
 	border: 1px solid red;
 }
 #message div.message {
