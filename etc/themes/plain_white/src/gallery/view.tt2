@@ -5,7 +5,11 @@
 		<div class="media">
 			<img src="[% c.uri_for("/static/previews/${item.id}.jpg") | html %]" alt="slideshow [% item.id %]"/>
 			[% IF c.can('check_user_roles') && c.check_user_roles( 'admin' ) %]
-			<div style="padding: 5px; width: 150px; position: absolute; bottom: 1px; background: #CCC;">
+			<div style="padding: 0px; width: 719px; position: absolute; bottom: 20px; background: #CCC;">
+				<a class="prev" href="[% c.uri_for_action("/media/up", item.id) | html %]">[% c.loc("ui.media.link.up") %]</a>
+				<a class="next" href="[% c.uri_for_action("/media/down", item.id) | html %]">[% c.loc("ui.media.link.down") %]</a>
+			</div>
+			<div style="padding: 5px; width: 709px; position: absolute; bottom: 1px; background: #CCC;">
 				<a class="manage" href="[% c.uri_for_action("/media/edit", item.id) | html %]">[% c.loc("ui.media.link.edit") %]</a>
 				<a class="manage" href="[% c.uri_for_action("/media/delete", item.id) | html %]">[% c.loc("ui.media.link.delete") %]</a>
 			</div>

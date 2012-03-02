@@ -85,7 +85,7 @@ __PACKAGE__->set_primary_key("id");
 __PACKAGE__->load_components("PK::Auto", "Core");
 
 __PACKAGE__->has_many(
-	media => 'Site::Portfolio::Schema::PortfolioDb::Result::Media', 'gid', {cascading_delete => 1}
+	media => 'Site::Portfolio::Schema::PortfolioDb::Result::Media', 'gid', {cascading_delete => 1, order_by => { -asc => 'position'}}
 );
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

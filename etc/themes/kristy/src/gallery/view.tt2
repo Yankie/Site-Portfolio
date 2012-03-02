@@ -10,9 +10,13 @@
 	[% count = count + 1 %]
 	<li>
 		[% IF c.can('check_user_roles') && c.check_user_roles( 'admin' ) %]
-		<div style="padding: 5px;width: 150px; position: absolute;">
-		<a class="manage" href="[% c.uri_for_action("/media/edit", item.id) | html %]">[% c.loc("ui.media.link.edit") %]</a>
-		<a class="manage" href="[% c.uri_for_action("/media/delete", item.id) | html %]">[% c.loc("ui.media.link.delete") %]</a>
+		<div style="padding: 0px; width:154px; position: absolute;">
+			<a class="prev" href="[% c.uri_for_action("/media/up", item.id) | html %]">[% c.loc("ui.media.link.up") %]</a>
+			<a class="next" href="[% c.uri_for_action("/media/down", item.id) | html %]">[% c.loc("ui.media.link.down") %]</a>
+		</div>
+		<div style="padding: 5px;width: 140px; position: absolute;">
+			<a class="manage" href="[% c.uri_for_action("/media/edit", item.id) | html %]">[% c.loc("ui.media.link.edit") %]</a>
+			<a class="manage" href="[% c.uri_for_action("/media/delete", item.id) | html %]">[% c.loc("ui.media.link.delete") %]</a>
 		</div>
 		[% END %]
 		<a title="[% item.description | html %]" href="[% c.uri_for("/static/views/${item.id}.jpg") | html %]" rel="prettyPhoto[gal_root]">

@@ -49,6 +49,11 @@ __PACKAGE__->table("media");
   data_type: 'integer'
   is_nullable: 1
 
+=head2 position
+
+  data_type: 'integer'
+  is_nullable: 0
+
 =head2 title
 
   data_type: 'varchar'
@@ -84,6 +89,8 @@ __PACKAGE__->add_columns(
   { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
   "gid",
   { data_type => "integer", is_nullable => 1 },
+  "position",
+  { data_type => "integer", is_nullable => 0 },
   "title",
   { data_type => "varchar", is_nullable => 0, size => 255 },
   "mime",
@@ -113,10 +120,10 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07017 @ 2012-02-14 00:12:04
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:SD2GvfRPowWS5SHGi3Fvbw
+# Created by DBIx::Class::Schema::Loader v0.07015 @ 2012-03-02 18:22:39
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:8ysAi/uD3w9IHY0PIKGutg
 
-__PACKAGE__->load_components("InflateColumn::FS", "PK::Auto", "Core");
+__PACKAGE__->load_components(qw/Ordered InflateColumn::FS PK::Auto Core/);
 
 __PACKAGE__->add_columns(
 	"path",
@@ -131,6 +138,8 @@ __PACKAGE__->belongs_to(
 	gid => 'Site::Portfolio::Schema::PortfolioDb::Result::Gallery'
 );
 
+__PACKAGE__->position_column('position');
+__PACKAGE__->grouping_column('gid');
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
 __PACKAGE__->meta->make_immutable;

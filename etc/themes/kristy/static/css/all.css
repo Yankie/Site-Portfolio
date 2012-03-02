@@ -299,7 +299,7 @@ a:hover {text-decoration:none; color: #0285da;}
 	float: left;
 	margin: 0 21px 18px 0;
 	border: 1px solid #eaeaea;
-	width: 153px;
+	width: 154px;
 }
 
 #right .thumbnails li a {
@@ -319,6 +319,24 @@ a:hover {text-decoration:none; color: #0285da;}
 	display: inline;
 /* 	width: 150px; */
 	height: 10px;
+}
+#right li a.prev  {
+	border: 0px;
+	padding: 10px;
+	margin: 50px 0 0 0;
+	display: inline;
+	height: 10px;
+	width: 10px;
+	float: left;
+}
+#right li a.next  {
+	border: 0px;
+	padding: 10px;
+	margin: 50px 0 0 0;
+	display: inline;
+	height: 10px;
+	width: 10px;
+	float: right;
 }
 
 #right .navigation {

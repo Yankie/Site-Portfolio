@@ -339,14 +339,31 @@ a.logo {
 	height: 150px;
 	width: 150px;
 }
-#right li a.manage  {
+#right div.slideshow a.manage  {
 	border: 0px;
 	padding: 0px;
 	margin: 0px;
-	background: #FFFFFF;
 	display: inline;
 /* 	width: 150px; */
 	height: 10px;
+}
+#right div.slideshow a.prev  {
+	border: 0px;
+	padding: 10px;
+	margin: 0;
+	display: inline;
+	height: 10px;
+	width: 10px;
+	float: left;
+}
+#right div.slideshow a.next  {
+	border: 0px;
+	padding: 10px;
+	margin: 0;
+	display: inline;
+	height: 10px;
+	width: 10px;
+	float: right;
 }
 
 /* Slideshow Gallery Content*/

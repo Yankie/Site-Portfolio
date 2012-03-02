@@ -147,6 +147,41 @@ sub add : Local FormConfig('media/add.yml') {
 	}
 }
 
+=head2 up_column
+
+=cut
+
+sub up : Local : Args(1) {
+	my ($self, $c, $id) = @_;
+	my $media = $c->model('PortfolioDb::Media')->find({id => $id});
+	## comment out this block if you're not using the Authorization plugin
+	if ( $c->can('check_user_roles') && !$c->check_user_roles('admin') ) {
+		$c->flash->{error} = $c->loc('ui.error.media.no.edit.permissions'); #"You don't have proper permissions to edit photos here";
+	} else {
+		$media->move_previous();
+	}
+	$c->response->redirect( $c->uri_for_action('gallery/view', $media->gid->id) );
+	$c->detach();
+}
+
+=head2 down_column
+
+=cut
+
+sub down : Local : Args(1) {
+	my ($self, $c, $id) = @_;
+	my $media = $c->model('PortfolioDb::Media')->find({id => $id});
+	## comment out this block if you're not using the Authorization plugin
+	if ( $c->can('check_user_roles') && !$c->check_user_roles('admin') ) {
+		$c->flash->{error} = $c->loc('ui.error.media.no.edit.permissions'); #"You don't have proper permissions to edit photos here";
+	} else {
+		$media->move_next();
+	}
+	$c->response->redirect( $c->uri_for_action('gallery/view', $media->gid->id) );
+	$c->detach();
+}
+
+
 sub edit : Local Args(1) FormConfig('media/edit.yml') {
 	my ($self, $c, $id) = @_;
 

@@ -35,7 +35,7 @@ $(document).ready(function() {
 	scrollWrapper = $('#gallery .slideshow');
 	
 	//event handling for buttons "left", "right"
-	$('#gallery .next, #gallery .prev').mousedown(function() {
+	$('#gallery .navigation .next, #gallery .navigation .prev').mousedown(function() {
 		scrollWrapper.data('loop', true);
 		loopingAnimation($(this), $(this).is('#gallery .next'));
 	}).bind("mouseup mouseout", function() {
